@@ -1,4 +1,4 @@
-# SWG Returns NGE Talon Server
+# SWG Ghosts NGE Server
 
-SWG Returns NGE Talon Server - Star Wars Galaxies NGE (Jump to Lightspeed) server.
-SWG Returns fork, maintained by bfitzgit23.
+SWG Ghosts NGE Server - Star Wars Galaxies NGE (Jump to Lightspeed) server.
+SWG Ghosts NGE, maintained by bfitzgit23.
