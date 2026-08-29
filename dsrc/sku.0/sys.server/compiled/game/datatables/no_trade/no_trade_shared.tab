@@ -1,0 +1,7 @@
+Object Template	Comment
+s	c
+	specify the object template or static name of items that, when they have the noTrade objvar, can be
+	picked up by another character on the same account as the character who currently owns the item
+	
+	or alternative, individual no trade item can be set with the noTradeShared objvar to allow the ability
+	only on that particular item

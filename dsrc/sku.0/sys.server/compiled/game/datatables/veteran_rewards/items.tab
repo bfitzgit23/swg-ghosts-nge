@@ -1,0 +1,3 @@
+id	Description	Object Template	Money	Once Per Account	Once Per Account Feature Id	Once Per Character	Can Trade In	Comment
+s	s	s	i	b	b[0]	b	b[0]	c
+city_flag_kit	veteran_new:city_flag_kit	object/tangible/veteran_reward/city_flag_kit.iff	0	0		0		
