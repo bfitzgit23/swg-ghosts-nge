@@ -33,6 +33,7 @@ public class interior_buildout extends script.base_script
         }
         if (dataTableOpen(strDataTable))
         {
+            LOG("npe_buildout", "interior_buildout " + strDataTable + " starting for " + self + " (" + dataTableGetNumRows(strDataTable) + " rows)");
             String[] strTemplates = dataTableGetStringColumn(strDataTable, "strTemplate");
             float[] fltJX = dataTableGetFloatColumn(strDataTable, "fltJX");
             float[] fltJY = dataTableGetFloatColumn(strDataTable, "fltJY");
@@ -55,6 +56,11 @@ public class interior_buildout extends script.base_script
                 vector vctP = new vector(fltPX[intI], fltPY[intI], fltPZ[intI]);
                 transform tr = new transform(vctJ.cross(vctK), vctJ, vctK, vctP);
                 obj_id objCell = getCellId(self, strCellName[intI]);
+                if (!isIdValid(objCell))
+                {
+                    LOG("npe_buildout", "row " + intI + " " + strTemplates[intI] + " has no cell named [" + strCellName[intI] + "] on " + self + " - skipping row");
+                    continue;
+                }
                 if (intNoCreate[intI] > 0)
                 {
                     if (!strLocationList[intI].equals(""))
@@ -83,9 +89,18 @@ public class interior_buildout extends script.base_script
                     if (!utils.checkConfigFlag("ScriptFlags", "liveSpaceServer"))
                     {
                         obj_id objTest = createObject(strTemplates[intI], tr, objCell);
+                        if (!isIdValid(objTest))
+                        {
+                            LOG("npe_buildout", "row " + intI + " " + strTemplates[intI] + " createObject failed in cell " + strCellName[intI]);
+                            continue;
+                        }
                         if (!strObjVars[intI].equals(""))
                         {
                             setPackedObjvars(objTest, strObjVars[intI]);
+                        }
+                        if (strTemplates[intI].contains("han_solo"))
+                        {
+                            LOG("npe_buildout", "row " + intI + " " + strTemplates[intI] + " created as " + objTest + " in cell " + strCellName[intI] + " (" + objCell + ")");
                         }
                         if (!strScripts[intI].equals(""))
                         {
@@ -98,6 +113,9 @@ public class interior_buildout extends script.base_script
                                 if (!hasScript(objTest, script)) {
                                     attachScript(objTest, script);
                                 }
+                                if (script.contains("npe_station_han_solo2")) {
+                                    LOG("npe_buildout", "row " + intI + " attached [" + script + "] to " + objTest + " hasScript=" + hasScript(objTest, script));
+                                }
                             }
                         }
                         attachScript(objTest, "space.ship.ship_interior_autocleanup");
@@ -106,9 +124,18 @@ public class interior_buildout extends script.base_script
                 else 
                 {
                     obj_id objTest = createObject(strTemplates[intI], tr, objCell);
+                    if (!isIdValid(objTest))
+                    {
+                        LOG("npe_buildout", "row " + intI + " " + strTemplates[intI] + " createObject failed in cell " + strCellName[intI]);
+                        continue;
+                    }
                     if (!strObjVars[intI].equals(""))
                     {
                         setPackedObjvars(objTest, strObjVars[intI]);
+                    }
+                    if (strTemplates[intI].contains("han_solo"))
+                    {
+                        LOG("npe_buildout", "row " + intI + " " + strTemplates[intI] + " created as " + objTest + " in cell " + strCellName[intI] + " (" + objCell + ")");
                     }
                     if (!strScripts[intI].equals(""))
                     {
@@ -126,6 +153,7 @@ public class interior_buildout extends script.base_script
                 }
             }
         }
+        LOG("npe_buildout", "interior_buildout " + strDataTable + " complete for " + self);
         return SCRIPT_CONTINUE;
     }
 }

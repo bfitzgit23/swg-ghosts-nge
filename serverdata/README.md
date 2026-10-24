@@ -14,3 +14,6 @@ The repo is cloned via the ANT build process currently and the location is handl
 
 If you make any useful changes or improvements, put in a pull request/merge request and I'll merge it in, and you'll become a contributor!
 
+## Galaxies Reborn community
+
+Join the [Galaxies Reborn Discord](https://discord.gg/CEwKVvKxK5) for project discussion, support, and announcements.

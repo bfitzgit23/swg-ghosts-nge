@@ -298,6 +298,55 @@ public class new_armor extends script.base_script
         equip(self, player);
         return SCRIPT_CONTINUE;
     }
+
+    // Ghosts: composite armour handed out by the login gift (or spawned by an
+    // admin/vendor) has no armour objvars, so the client treats it as clothing.
+    // Give it the same block a 99% crafted assault set carries.  A genuinely
+    // crafted piece already has armor.general_protection and is left alone.
+    public boolean applyCompositeArmorDefaults(obj_id self) throws InterruptedException
+    {
+        if (hasObjVar(self, "armor.general_protection"))
+        {
+            return false;
+        }
+        if (!hasObjVar(self, "armor.armorLevel") || !hasObjVar(self, "armor.armorCategory"))
+        {
+            if (!armor.initializeArmor(self, 2, 2))
+            {
+                return false;
+            }
+        }
+        float condition = 1.0f;
+        if (hasObjVar(self, "armor.condition"))
+        {
+            condition = getFloatObjVar(self, "armor.condition");
+        }
+        if (!armor.setArmorDataPercent(self, 0.99f, condition))
+        {
+            return false;
+        }
+        if (!hasObjVar(self, "armor.layer15"))
+        {
+            armor.setArmorSpecialProtectionPercent(self, 15, 1.0f);
+        }
+        if (!hasObjVar(self, "skillmod.sockets"))
+        {
+            setObjVar(self, "skillmod.sockets", 1);
+        }
+        setMaxHitpoints(self, 56250);
+        LOG("armor", "Applied Ghosts composite defaults to " + self + " (" + getTemplateName(self) + ")");
+        obj_id holder = getContainedBy(self);
+        if (!isPlayer(holder) && isAPlayerAppearanceInventoryContainer(holder))
+        {
+            holder = getContainedBy(holder);
+        }
+        if (isPlayer(holder))
+        {
+            armor.recalculateArmorForPlayer(holder);
+        }
+        return true;
+    }
+
     public int checkArmorData(obj_id self, dictionary params) throws InterruptedException
     {
         String template = getTemplateName(self);
@@ -321,6 +370,11 @@ public class new_armor extends script.base_script
         }
         if (armor.getArmorGeneralProtection(self) < 0)
         {
+            if (template.startsWith("object/tangible/wearables/armor/composite/"))
+            {
+                applyCompositeArmorDefaults(self);
+                return SCRIPT_CONTINUE;
+            }
             if (!isGameObjectTypeOf(self, GOT_armor_foot) && !isGameObjectTypeOf(self, GOT_armor_hand))
             {
                 final String[] ARMOR_SET = 

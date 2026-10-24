@@ -1,0 +1,735 @@
+<?xml version="1.0"?>
+    <quest version="1.0" >
+        <tasks availableId="22" >
+            <task type="Wait for Signal" id="0" taskOnFail="false" >
+                <data value="Go to the Reinforced Blast Door" name="journalEntryTitle" />
+                <data value="Find the Reinforced Blast Door on the tenth floor." name="journalEntryDescription" />
+                <data value="true" name="isVisible" />
+                <data value="" name="prerequisiteTasks" />
+                <data value="" name="exclusionTasks" />
+                <data value="0" name="allowRepeats" />
+                <data value="go_reinforced_door_reb" name="taskName" />
+                <data value="0" name="showSystemMessages" />
+                <data value="" name="musicOnActivate" />
+                <data value="" name="musicOnComplete" />
+                <data value="" name="musicOnFail" />
+                <data value="0" name="chanceToActivate" />
+                <data value="none" name="questControlOnTaskCompletion" />
+                <data value="none" name="questControlOnTaskFailure" />
+                <data value="" name="target" />
+                <data value="" name="parameter" />
+                <data value="" name="grantQuestOnComplete" />
+                <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                <data value="" name="grantQuestOnFail" />
+                <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                <data value="" name="signalsOnComplete" />
+                <data value="" name="signalsOnFail" />
+                <data value="true" name="createWaypoint" />
+                <data value="bespin_lower_pob" name="Planet" />
+                <data value="-6981" name="LocationX(m)" />
+                <data value="17" name="LocationY(m)" />
+                <data value="-6903" name="LocationZ(m)" />
+                <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                <data value="r34" name="buildingCellName" />
+                <data value="Reinforced Blast Door" name="waypointName" />
+                <data value="0" name="createEntranceWaypoint" />
+                <data value="0.0" name="EntranceLocationX(m)" />
+                <data value="0.0" name="EntranceLocationY(m)" />
+                <data value="0.0" name="EntranceLocationZ(m)" />
+                <data value="" name="entranceWaypointName" />
+                <data value="gone_reinforced_door_reb" name="Signal Name" />
+                <data value="1" name="Count" />
+                <data value="0" name="waitMarkerCreate" />
+                <data value="" name="waitMarkerTemplate" />
+                <data value="" name="waitMarkerPlanetName" />
+                <data value="0" name="waitMarkerBuilding" />
+                <data value="" name="waitMarkerCellName" />
+                <data value="0" name="waitMarkerX" />
+                <data value="0" name="waitMarkerY" />
+                <data value="0" name="waitMarkerZ" />
+                <data value="0" name="Time To Complete" />
+                <task type="Comm Player" id="1" taskOnFail="false" >
+                    <data value="Comm. from Tiatkin" name="journalEntryTitle" />
+                    <data value="Comm. from Tiatkin: &quot;With the charges in place, you should get to a safe distance before detonating them. There's a small room not far back down the corridor. That should be an ideal location.&quot;" name="journalEntryDescription" />
+                    <data value="true" name="isVisible" />
+                    <data value="" name="prerequisiteTasks" />
+                    <data value="" name="exclusionTasks" />
+                    <data value="0" name="allowRepeats" />
+                    <data value="comm_tiatkin" name="taskName" />
+                    <data value="0" name="showSystemMessages" />
+                    <data value="" name="musicOnActivate" />
+                    <data value="" name="musicOnComplete" />
+                    <data value="" name="musicOnFail" />
+                    <data value="0" name="chanceToActivate" />
+                    <data value="none" name="questControlOnTaskCompletion" />
+                    <data value="none" name="questControlOnTaskFailure" />
+                    <data value="" name="target" />
+                    <data value="" name="parameter" />
+                    <data value="" name="grantQuestOnComplete" />
+                    <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                    <data value="" name="grantQuestOnFail" />
+                    <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                    <data value="" name="signalsOnComplete" />
+                    <data value="" name="signalsOnFail" />
+                    <data value="0" name="createWaypoint" />
+                    <data value="tatooine" name="Planet" />
+                    <data value="0.0" name="LocationX(m)" />
+                    <data value="0.0" name="LocationY(m)" />
+                    <data value="0.0" name="LocationZ(m)" />
+                    <data value="" name="interiorWaypointAppearance" />
+                    <data value="" name="buildingCellName" />
+                    <data value="" name="waypointName" />
+                    <data value="0" name="createEntranceWaypoint" />
+                    <data value="0.0" name="EntranceLocationX(m)" />
+                    <data value="0.0" name="EntranceLocationY(m)" />
+                    <data value="0.0" name="EntranceLocationZ(m)" />
+                    <data value="" name="entranceWaypointName" />
+                    <data value="With the charges in place, you should get to a safe distance before detonating them. There's a small room not far back down the corridor. That should be an ideal location." name="Comm Message Text" />
+                    <data value="object/mobile/bespin/reb_tiatkin.iff" name="NPC Appearance Server Template" />
+                    <task type="Wait for Tasks" id="2" taskOnFail="false" >
+                        <data value="Open the Reinforced Blast Door" name="journalEntryTitle" />
+                        <data value="Place charges at the hydraulic servo panels to open the blast door." name="journalEntryDescription" />
+                        <data value="true" name="isVisible" />
+                        <data value="" name="prerequisiteTasks" />
+                        <data value="" name="exclusionTasks" />
+                        <data value="0" name="allowRepeats" />
+                        <data value="open_blast_door" name="taskName" />
+                        <data value="0" name="showSystemMessages" />
+                        <data value="" name="musicOnActivate" />
+                        <data value="" name="musicOnComplete" />
+                        <data value="" name="musicOnFail" />
+                        <data value="0" name="chanceToActivate" />
+                        <data value="none" name="questControlOnTaskCompletion" />
+                        <data value="none" name="questControlOnTaskFailure" />
+                        <data value="" name="target" />
+                        <data value="" name="parameter" />
+                        <data value="" name="grantQuestOnComplete" />
+                        <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                        <data value="" name="grantQuestOnFail" />
+                        <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                        <data value="" name="signalsOnComplete" />
+                        <data value="" name="signalsOnFail" />
+                        <data value="0" name="createWaypoint" />
+                        <data value="tatooine" name="Planet" />
+                        <data value="0.0" name="LocationX(m)" />
+                        <data value="0.0" name="LocationY(m)" />
+                        <data value="0.0" name="LocationZ(m)" />
+                        <data value="" name="interiorWaypointAppearance" />
+                        <data value="" name="buildingCellName" />
+                        <data value="" name="waypointName" />
+                        <data value="0" name="createEntranceWaypoint" />
+                        <data value="0.0" name="EntranceLocationX(m)" />
+                        <data value="0.0" name="EntranceLocationY(m)" />
+                        <data value="0.0" name="EntranceLocationZ(m)" />
+                        <data value="" name="entranceWaypointName" />
+                        <data value="quest/bespin_reb_p30_tenth_floor_part3" name="Task1 Quest Filename" />
+                        <data value="charge_a" name="Task1 taskName" />
+                        <data value="Place charge 1/2" name="Task1 Display String" />
+                        <data value="quest/bespin_reb_p30_tenth_floor_part3" name="Task2 Quest Filename" />
+                        <data value="charge_b" name="Task2 taskName" />
+                        <data value="Place charge 2/2" name="Task2 Display String" />
+                        <data value="" name="Task3 Quest Filename" />
+                        <data value="" name="Task3 taskName" />
+                        <data value="" name="Task3 Display String" />
+                        <data value="" name="Task4 Quest Filename" />
+                        <data value="" name="Task4 taskName" />
+                        <data value="" name="Task4 Display String" />
+                        <data value="" name="Task5 Quest Filename" />
+                        <data value="" name="Task5 taskName" />
+                        <data value="" name="Task5 Display String" />
+                        <data value="" name="Task6 Quest Filename" />
+                        <data value="" name="Task6 taskName" />
+                        <data value="" name="Task6 Display String" />
+                        <data value="0" name="Time To Complete" />
+                        <task type="Wait for Signal" id="5" taskOnFail="false" >
+                            <data value="Find a safe location" name="journalEntryTitle" />
+                            <data value="Find a safe location on the tenth floor to avoid the explosion radius." name="journalEntryDescription" />
+                            <data value="true" name="isVisible" />
+                            <data value="" name="prerequisiteTasks" />
+                            <data value="" name="exclusionTasks" />
+                            <data value="0" name="allowRepeats" />
+                            <data value="find_safe" name="taskName" />
+                            <data value="0" name="showSystemMessages" />
+                            <data value="" name="musicOnActivate" />
+                            <data value="" name="musicOnComplete" />
+                            <data value="" name="musicOnFail" />
+                            <data value="0" name="chanceToActivate" />
+                            <data value="none" name="questControlOnTaskCompletion" />
+                            <data value="none" name="questControlOnTaskFailure" />
+                            <data value="" name="target" />
+                            <data value="" name="parameter" />
+                            <data value="" name="grantQuestOnComplete" />
+                            <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                            <data value="" name="grantQuestOnFail" />
+                            <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                            <data value="" name="signalsOnComplete" />
+                            <data value="" name="signalsOnFail" />
+                            <data value="true" name="createWaypoint" />
+                            <data value="bespin_lower_pob" name="Planet" />
+                            <data value="-6982" name="LocationX(m)" />
+                            <data value="17" name="LocationY(m)" />
+                            <data value="-6778" name="LocationZ(m)" />
+                            <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                            <data value="r28" name="buildingCellName" />
+                            <data value="Safe Location" name="waypointName" />
+                            <data value="0" name="createEntranceWaypoint" />
+                            <data value="0.0" name="EntranceLocationX(m)" />
+                            <data value="0.0" name="EntranceLocationY(m)" />
+                            <data value="0.0" name="EntranceLocationZ(m)" />
+                            <data value="" name="entranceWaypointName" />
+                            <data value="found_safe" name="Signal Name" />
+                            <data value="1" name="Count" />
+                            <data value="0" name="waitMarkerCreate" />
+                            <data value="" name="waitMarkerTemplate" />
+                            <data value="" name="waitMarkerPlanetName" />
+                            <data value="0" name="waitMarkerBuilding" />
+                            <data value="" name="waitMarkerCellName" />
+                            <data value="0" name="waitMarkerX" />
+                            <data value="0" name="waitMarkerY" />
+                            <data value="0" name="waitMarkerZ" />
+                            <data value="0" name="Time To Complete" />
+                            <task type="Comm Player" id="6" taskOnFail="false" >
+                                <data value="Comm. from Tiatkin" name="journalEntryTitle" />
+                                <data value="Comm. from Tiatkin: &quot;Great work, the door is open! Now head over to the Control Room.&quot;" name="journalEntryDescription" />
+                                <data value="true" name="isVisible" />
+                                <data value="" name="prerequisiteTasks" />
+                                <data value="" name="exclusionTasks" />
+                                <data value="0" name="allowRepeats" />
+                                <data value="comm_tiatkin2" name="taskName" />
+                                <data value="0" name="showSystemMessages" />
+                                <data value="" name="musicOnActivate" />
+                                <data value="" name="musicOnComplete" />
+                                <data value="" name="musicOnFail" />
+                                <data value="0" name="chanceToActivate" />
+                                <data value="none" name="questControlOnTaskCompletion" />
+                                <data value="none" name="questControlOnTaskFailure" />
+                                <data value="" name="target" />
+                                <data value="" name="parameter" />
+                                <data value="" name="grantQuestOnComplete" />
+                                <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                <data value="" name="grantQuestOnFail" />
+                                <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                <data value="" name="signalsOnComplete" />
+                                <data value="" name="signalsOnFail" />
+                                <data value="0" name="createWaypoint" />
+                                <data value="tatooine" name="Planet" />
+                                <data value="0.0" name="LocationX(m)" />
+                                <data value="0.0" name="LocationY(m)" />
+                                <data value="0.0" name="LocationZ(m)" />
+                                <data value="" name="interiorWaypointAppearance" />
+                                <data value="" name="buildingCellName" />
+                                <data value="" name="waypointName" />
+                                <data value="0" name="createEntranceWaypoint" />
+                                <data value="0.0" name="EntranceLocationX(m)" />
+                                <data value="0.0" name="EntranceLocationY(m)" />
+                                <data value="0.0" name="EntranceLocationZ(m)" />
+                                <data value="" name="entranceWaypointName" />
+                                <data value="Great work, the door is open! Now head over to the Control Room." name="Comm Message Text" />
+                                <data value="object/mobile/bespin/reb_tiatkin.iff" name="NPC Appearance Server Template" />
+                                <task type="Wait for Signal" id="13" taskOnFail="false" >
+                                    <data value="Go to the Control Room" name="journalEntryTitle" />
+                                    <data value="Find the Control Room at the end of the hall." name="journalEntryDescription" />
+                                    <data value="true" name="isVisible" />
+                                    <data value="" name="prerequisiteTasks" />
+                                    <data value="" name="exclusionTasks" />
+                                    <data value="0" name="allowRepeats" />
+                                    <data value="go_control_room" name="taskName" />
+                                    <data value="0" name="showSystemMessages" />
+                                    <data value="" name="musicOnActivate" />
+                                    <data value="" name="musicOnComplete" />
+                                    <data value="" name="musicOnFail" />
+                                    <data value="0" name="chanceToActivate" />
+                                    <data value="none" name="questControlOnTaskCompletion" />
+                                    <data value="none" name="questControlOnTaskFailure" />
+                                    <data value="" name="target" />
+                                    <data value="" name="parameter" />
+                                    <data value="" name="grantQuestOnComplete" />
+                                    <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                    <data value="" name="grantQuestOnFail" />
+                                    <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                    <data value="" name="signalsOnComplete" />
+                                    <data value="" name="signalsOnFail" />
+                                    <data value="true" name="createWaypoint" />
+                                    <data value="bespin_lower_pob" name="Planet" />
+                                    <data value="-6981" name="LocationX(m)" />
+                                    <data value="17" name="LocationY(m)" />
+                                    <data value="-6917" name="LocationZ(m)" />
+                                    <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                                    <data value="r35" name="buildingCellName" />
+                                    <data value="Control Room" name="waypointName" />
+                                    <data value="0" name="createEntranceWaypoint" />
+                                    <data value="0.0" name="EntranceLocationX(m)" />
+                                    <data value="0.0" name="EntranceLocationY(m)" />
+                                    <data value="0.0" name="EntranceLocationZ(m)" />
+                                    <data value="" name="entranceWaypointName" />
+                                    <data value="gone_control_room" name="Signal Name" />
+                                    <data value="1" name="Count" />
+                                    <data value="0" name="waitMarkerCreate" />
+                                    <data value="" name="waitMarkerTemplate" />
+                                    <data value="" name="waitMarkerPlanetName" />
+                                    <data value="0" name="waitMarkerBuilding" />
+                                    <data value="" name="waitMarkerCellName" />
+                                    <data value="0" name="waitMarkerX" />
+                                    <data value="0" name="waitMarkerY" />
+                                    <data value="0" name="waitMarkerZ" />
+                                    <data value="0" name="Time To Complete" />
+                                    <task type="Show Message Box" id="14" taskOnFail="false" >
+                                        <data value="Rogue Droids" name="journalEntryTitle" />
+                                        <data value="&quot;As you step into the control room, you hear the metallic footsteps of dozens of rogue droids approaching down the corridor you just opened. Help the control room's defenders deal with the incoming waves of droids!&quot;" name="journalEntryDescription" />
+                                        <data value="true" name="isVisible" />
+                                        <data value="" name="prerequisiteTasks" />
+                                        <data value="" name="exclusionTasks" />
+                                        <data value="0" name="allowRepeats" />
+                                        <data value="rogue_mess" name="taskName" />
+                                        <data value="0" name="showSystemMessages" />
+                                        <data value="" name="musicOnActivate" />
+                                        <data value="" name="musicOnComplete" />
+                                        <data value="" name="musicOnFail" />
+                                        <data value="0" name="chanceToActivate" />
+                                        <data value="none" name="questControlOnTaskCompletion" />
+                                        <data value="none" name="questControlOnTaskFailure" />
+                                        <data value="" name="target" />
+                                        <data value="" name="parameter" />
+                                        <data value="" name="grantQuestOnComplete" />
+                                        <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                        <data value="" name="grantQuestOnFail" />
+                                        <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                        <data value="" name="signalsOnComplete" />
+                                        <data value="" name="signalsOnFail" />
+                                        <data value="0" name="createWaypoint" />
+                                        <data value="tatooine" name="Planet" />
+                                        <data value="0.0" name="LocationX(m)" />
+                                        <data value="0.0" name="LocationY(m)" />
+                                        <data value="0.0" name="LocationZ(m)" />
+                                        <data value="" name="interiorWaypointAppearance" />
+                                        <data value="" name="buildingCellName" />
+                                        <data value="" name="waypointName" />
+                                        <data value="0" name="createEntranceWaypoint" />
+                                        <data value="0.0" name="EntranceLocationX(m)" />
+                                        <data value="0.0" name="EntranceLocationY(m)" />
+                                        <data value="0.0" name="EntranceLocationZ(m)" />
+                                        <data value="" name="entranceWaypointName" />
+                                        <data value="Rogue Droids" name="messageBoxTitle" />
+                                        <data value="As you step into the control room, you hear the metallic footsteps of dozens of rogue droids approaching down the corridor you just opened. Help the control room's defenders deal with the incoming waves of droids!" name="messageBoxText" />
+                                        <data value="" name="messageBoxSound" />
+                                        <data value="180" name="messageBoxSizeWidth" />
+                                        <data value="180" name="messageBoxSizeHeight" />
+                                        <data value="-1" name="messageBoxLocationX" />
+                                        <data value="-1" name="messageBoxLocationY" />
+                                        <task type="Destroy Multiple" id="15" taskOnFail="false" >
+                                            <data value="Help the Wing Guards" name="journalEntryTitle" />
+                                            <data value="Destroy 12 Rogue Droids to help the Wing Guards in the Control Room." name="journalEntryDescription" />
+                                            <data value="true" name="isVisible" />
+                                            <data value="" name="prerequisiteTasks" />
+                                            <data value="" name="exclusionTasks" />
+                                            <data value="0" name="allowRepeats" />
+                                            <data value="kill_rogues" name="taskName" />
+                                            <data value="0" name="showSystemMessages" />
+                                            <data value="" name="musicOnActivate" />
+                                            <data value="" name="musicOnComplete" />
+                                            <data value="" name="musicOnFail" />
+                                            <data value="0" name="chanceToActivate" />
+                                            <data value="none" name="questControlOnTaskCompletion" />
+                                            <data value="none" name="questControlOnTaskFailure" />
+                                            <data value="" name="target" />
+                                            <data value="" name="parameter" />
+                                            <data value="" name="grantQuestOnComplete" />
+                                            <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                            <data value="" name="grantQuestOnFail" />
+                                            <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                            <data value="" name="signalsOnComplete" />
+                                            <data value="" name="signalsOnFail" />
+                                            <data value="0" name="createWaypoint" />
+                                            <data value="tatooine" name="Planet" />
+                                            <data value="0.0" name="LocationX(m)" />
+                                            <data value="0.0" name="LocationY(m)" />
+                                            <data value="0.0" name="LocationZ(m)" />
+                                            <data value="" name="interiorWaypointAppearance" />
+                                            <data value="" name="buildingCellName" />
+                                            <data value="" name="waypointName" />
+                                            <data value="0" name="createEntranceWaypoint" />
+                                            <data value="0.0" name="EntranceLocationX(m)" />
+                                            <data value="0.0" name="EntranceLocationY(m)" />
+                                            <data value="0.0" name="EntranceLocationZ(m)" />
+                                            <data value="" name="entranceWaypointName" />
+                                            <data value="bespin_imp_wing_guard_rogue_maint_droid" name="Target Server Template" />
+                                            <data value="" name="Social Group" />
+                                            <data value="" name="requiredRegion" />
+                                            <data value="12" name="Count" />
+                                            <data value="0" name="RewardCredits" />
+                                            <data value="0" name="Time To Complete" />
+                                            <task type="Comm Player" id="17" taskOnFail="false" >
+                                                <data value="Comm. from Tiatkin" name="journalEntryTitle" />
+                                                <data value="Comm. from Tiatkin: &quot;You've done it! The remaining droids are falling back! Well done! All that's left is to use the primary control terminal to disengage the isolation protocol.&quot;" name="journalEntryDescription" />
+                                                <data value="true" name="isVisible" />
+                                                <data value="" name="prerequisiteTasks" />
+                                                <data value="" name="exclusionTasks" />
+                                                <data value="0" name="allowRepeats" />
+                                                <data value="comm_tiatkin3" name="taskName" />
+                                                <data value="0" name="showSystemMessages" />
+                                                <data value="" name="musicOnActivate" />
+                                                <data value="" name="musicOnComplete" />
+                                                <data value="" name="musicOnFail" />
+                                                <data value="0" name="chanceToActivate" />
+                                                <data value="none" name="questControlOnTaskCompletion" />
+                                                <data value="none" name="questControlOnTaskFailure" />
+                                                <data value="" name="target" />
+                                                <data value="" name="parameter" />
+                                                <data value="" name="grantQuestOnComplete" />
+                                                <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                                <data value="" name="grantQuestOnFail" />
+                                                <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                                <data value="" name="signalsOnComplete" />
+                                                <data value="" name="signalsOnFail" />
+                                                <data value="0" name="createWaypoint" />
+                                                <data value="tatooine" name="Planet" />
+                                                <data value="0.0" name="LocationX(m)" />
+                                                <data value="0.0" name="LocationY(m)" />
+                                                <data value="0.0" name="LocationZ(m)" />
+                                                <data value="" name="interiorWaypointAppearance" />
+                                                <data value="" name="buildingCellName" />
+                                                <data value="" name="waypointName" />
+                                                <data value="0" name="createEntranceWaypoint" />
+                                                <data value="0.0" name="EntranceLocationX(m)" />
+                                                <data value="0.0" name="EntranceLocationY(m)" />
+                                                <data value="0.0" name="EntranceLocationZ(m)" />
+                                                <data value="" name="entranceWaypointName" />
+                                                <data value="You've done it! The remaining droids are falling back! Well done! All that's left is to use the primary control terminal to disengage the isolation protocol." name="Comm Message Text" />
+                                                <data value="object/mobile/bespin/reb_tiatkin.iff" name="NPC Appearance Server Template" />
+                                                <task type="Wait for Signal" id="18" taskOnFail="false" >
+                                                    <data value="Disengage the isolation protocol" name="journalEntryTitle" />
+                                                    <data value="Use the Primary Control Terminal in the Control Room to disengage the isolation protocol for the Wing Guard Headquarter." name="journalEntryDescription" />
+                                                    <data value="true" name="isVisible" />
+                                                    <data value="" name="prerequisiteTasks" />
+                                                    <data value="" name="exclusionTasks" />
+                                                    <data value="0" name="allowRepeats" />
+                                                    <data value="use_prim_control" name="taskName" />
+                                                    <data value="0" name="showSystemMessages" />
+                                                    <data value="" name="musicOnActivate" />
+                                                    <data value="" name="musicOnComplete" />
+                                                    <data value="" name="musicOnFail" />
+                                                    <data value="0" name="chanceToActivate" />
+                                                    <data value="none" name="questControlOnTaskCompletion" />
+                                                    <data value="none" name="questControlOnTaskFailure" />
+                                                    <data value="" name="target" />
+                                                    <data value="" name="parameter" />
+                                                    <data value="" name="grantQuestOnComplete" />
+                                                    <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                                    <data value="" name="grantQuestOnFail" />
+                                                    <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                                    <data value="" name="signalsOnComplete" />
+                                                    <data value="" name="signalsOnFail" />
+                                                    <data value="true" name="createWaypoint" />
+                                                    <data value="bespin_lower_pob" name="Planet" />
+                                                    <data value="-6982" name="LocationX(m)" />
+                                                    <data value="17" name="LocationY(m)" />
+                                                    <data value="-7037" name="LocationZ(m)" />
+                                                    <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                                                    <data value="r35" name="buildingCellName" />
+                                                    <data value="Primary Security Terminal" name="waypointName" />
+                                                    <data value="0" name="createEntranceWaypoint" />
+                                                    <data value="0.0" name="EntranceLocationX(m)" />
+                                                    <data value="0.0" name="EntranceLocationY(m)" />
+                                                    <data value="0.0" name="EntranceLocationZ(m)" />
+                                                    <data value="" name="entranceWaypointName" />
+                                                    <data value="used_prim_control" name="Signal Name" />
+                                                    <data value="1" name="Count" />
+                                                    <data value="0" name="waitMarkerCreate" />
+                                                    <data value="" name="waitMarkerTemplate" />
+                                                    <data value="" name="waitMarkerPlanetName" />
+                                                    <data value="0" name="waitMarkerBuilding" />
+                                                    <data value="" name="waitMarkerCellName" />
+                                                    <data value="0" name="waitMarkerX" />
+                                                    <data value="0" name="waitMarkerY" />
+                                                    <data value="0" name="waitMarkerZ" />
+                                                    <data value="0" name="Time To Complete" />
+                                                    <task type="Comm Player" id="19" taskOnFail="false" >
+                                                        <data value="Comm. from Tiatkin" name="journalEntryTitle" />
+                                                        <data value="Comm. from Tiatkin: &quot;You've done an amazing thing today! Meet me back at the Wing Guard Security Centre when you're ready to keep working.&quot;" name="journalEntryDescription" />
+                                                        <data value="true" name="isVisible" />
+                                                        <data value="" name="prerequisiteTasks" />
+                                                        <data value="" name="exclusionTasks" />
+                                                        <data value="0" name="allowRepeats" />
+                                                        <data value="comm_tiatkin4" name="taskName" />
+                                                        <data value="0" name="showSystemMessages" />
+                                                        <data value="" name="musicOnActivate" />
+                                                        <data value="" name="musicOnComplete" />
+                                                        <data value="" name="musicOnFail" />
+                                                        <data value="0" name="chanceToActivate" />
+                                                        <data value="none" name="questControlOnTaskCompletion" />
+                                                        <data value="none" name="questControlOnTaskFailure" />
+                                                        <data value="" name="target" />
+                                                        <data value="" name="parameter" />
+                                                        <data value="" name="grantQuestOnComplete" />
+                                                        <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                                        <data value="" name="grantQuestOnFail" />
+                                                        <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                                        <data value="" name="signalsOnComplete" />
+                                                        <data value="" name="signalsOnFail" />
+                                                        <data value="0" name="createWaypoint" />
+                                                        <data value="tatooine" name="Planet" />
+                                                        <data value="0.0" name="LocationX(m)" />
+                                                        <data value="0.0" name="LocationY(m)" />
+                                                        <data value="0.0" name="LocationZ(m)" />
+                                                        <data value="" name="interiorWaypointAppearance" />
+                                                        <data value="" name="buildingCellName" />
+                                                        <data value="" name="waypointName" />
+                                                        <data value="0" name="createEntranceWaypoint" />
+                                                        <data value="0.0" name="EntranceLocationX(m)" />
+                                                        <data value="0.0" name="EntranceLocationY(m)" />
+                                                        <data value="0.0" name="EntranceLocationZ(m)" />
+                                                        <data value="" name="entranceWaypointName" />
+                                                        <data value="You've done an amazing thing today! Meet me back at the Wing Guard Security Centre when you're ready to keep working." name="Comm Message Text" />
+                                                        <data value="object/mobile/bespin/reb_tiatkin.iff" name="NPC Appearance Server Template" />
+                                                        <task type="Go to Location" id="20" taskOnFail="false" >
+                                                            <data value="Leave the Wing Guard Heaquarter" name="journalEntryTitle" />
+                                                            <data value="You have successfully rescued the Wing Guard Headquarter. Now it is time to leave the building." name="journalEntryDescription" />
+                                                            <data value="true" name="isVisible" />
+                                                            <data value="" name="prerequisiteTasks" />
+                                                            <data value="" name="exclusionTasks" />
+                                                            <data value="0" name="allowRepeats" />
+                                                            <data value="leave_wghq" name="taskName" />
+                                                            <data value="0" name="showSystemMessages" />
+                                                            <data value="" name="musicOnActivate" />
+                                                            <data value="" name="musicOnComplete" />
+                                                            <data value="" name="musicOnFail" />
+                                                            <data value="0" name="chanceToActivate" />
+                                                            <data value="none" name="questControlOnTaskCompletion" />
+                                                            <data value="none" name="questControlOnTaskFailure" />
+                                                            <data value="" name="target" />
+                                                            <data value="" name="parameter" />
+                                                            <data value="" name="grantQuestOnComplete" />
+                                                            <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                                            <data value="" name="grantQuestOnFail" />
+                                                            <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                                            <data value="" name="signalsOnComplete" />
+                                                            <data value="" name="signalsOnFail" />
+                                                            <data value="true" name="createWaypoint" />
+                                                            <data value="bespin_lower_pob" name="Planet" />
+                                                            <data value="-6981" name="LocationX(m)" />
+                                                            <data value="17" name="LocationY(m)" />
+                                                            <data value="-6718" name="LocationZ(m)" />
+                                                            <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                                                            <data value="r1" name="buildingCellName" />
+                                                            <data value="Exit Wing Guard Headquarter" name="waypointName" />
+                                                            <data value="0" name="createEntranceWaypoint" />
+                                                            <data value="0.0" name="EntranceLocationX(m)" />
+                                                            <data value="0.0" name="EntranceLocationY(m)" />
+                                                            <data value="0.0" name="EntranceLocationZ(m)" />
+                                                            <data value="" name="entranceWaypointName" />
+                                                            <data value="10.0" name="Radius(m)" />
+                                                            <data value="0" name="Time To Complete" />
+                                                            <task type="Immediately Complete Quest" id="21" taskOnFail="false" >
+                                                                <data value="" name="journalEntryTitle" />
+                                                                <data value="" name="journalEntryDescription" />
+                                                                <data value="false" name="isVisible" />
+                                                                <data value="" name="prerequisiteTasks" />
+                                                                <data value="" name="exclusionTasks" />
+                                                                <data value="0" name="allowRepeats" />
+                                                                <data value="" name="taskName" />
+                                                                <data value="0" name="showSystemMessages" />
+                                                                <data value="" name="musicOnActivate" />
+                                                                <data value="sound/music_themequest_acc_general.snd" name="musicOnComplete" />
+                                                                <data value="" name="musicOnFail" />
+                                                                <data value="0" name="chanceToActivate" />
+                                                                <data value="none" name="questControlOnTaskCompletion" />
+                                                                <data value="none" name="questControlOnTaskFailure" />
+                                                                <data value="" name="target" />
+                                                                <data value="" name="parameter" />
+                                                                <data value="bespin_reb_p31_helping_calrissians_allies" name="grantQuestOnComplete" />
+                                                                <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                                                <data value="" name="grantQuestOnFail" />
+                                                                <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                                                <data value="" name="signalsOnComplete" />
+                                                                <data value="" name="signalsOnFail" />
+                                                                <data value="0" name="createWaypoint" />
+                                                                <data value="tatooine" name="Planet" />
+                                                                <data value="0.0" name="LocationX(m)" />
+                                                                <data value="0.0" name="LocationY(m)" />
+                                                                <data value="0.0" name="LocationZ(m)" />
+                                                                <data value="" name="interiorWaypointAppearance" />
+                                                                <data value="" name="buildingCellName" />
+                                                                <data value="" name="waypointName" />
+                                                                <data value="0" name="createEntranceWaypoint" />
+                                                                <data value="0.0" name="EntranceLocationX(m)" />
+                                                                <data value="0.0" name="EntranceLocationY(m)" />
+                                                                <data value="0.0" name="EntranceLocationZ(m)" />
+                                                                <data value="" name="entranceWaypointName" />
+                                                            </task>
+                                                        </task>
+                                                    </task>
+                                                </task>
+                                            </task>
+                                        </task>
+                                    </task>
+                                </task>
+                            </task>
+                        </task>
+                    </task>
+                    <task type="Retrieve Item" id="3" taskOnFail="false" >
+                        <data value="Place bomb charge" name="journalEntryTitle" />
+                        <data value="You should place a charge inside the hydraulic servo panel 37." name="journalEntryDescription" />
+                        <data value="true" name="isVisible" />
+                        <data value="" name="prerequisiteTasks" />
+                        <data value="" name="exclusionTasks" />
+                        <data value="0" name="allowRepeats" />
+                        <data value="charge_b" name="taskName" />
+                        <data value="0" name="showSystemMessages" />
+                        <data value="" name="musicOnActivate" />
+                        <data value="" name="musicOnComplete" />
+                        <data value="" name="musicOnFail" />
+                        <data value="0" name="chanceToActivate" />
+                        <data value="none" name="questControlOnTaskCompletion" />
+                        <data value="none" name="questControlOnTaskFailure" />
+                        <data value="" name="target" />
+                        <data value="" name="parameter" />
+                        <data value="" name="grantQuestOnComplete" />
+                        <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                        <data value="" name="grantQuestOnFail" />
+                        <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                        <data value="" name="signalsOnComplete" />
+                        <data value="" name="signalsOnFail" />
+                        <data value="true" name="createWaypoint" />
+                        <data value="bespin_lower_pob" name="Planet" />
+                        <data value="-6987" name="LocationX(m)" />
+                        <data value="17" name="LocationY(m)" />
+                        <data value="-6896" name="LocationZ(m)" />
+                        <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                        <data value="r34" name="buildingCellName" />
+                        <data value="Hydraulic Servo Panel 37" name="waypointName" />
+                        <data value="0" name="createEntranceWaypoint" />
+                        <data value="0.0" name="EntranceLocationX(m)" />
+                        <data value="0.0" name="EntranceLocationY(m)" />
+                        <data value="0.0" name="EntranceLocationZ(m)" />
+                        <data value="" name="entranceWaypointName" />
+                        <data value="object/tangible/quest/bespin/imp_story_wg_hydraulic_servo_panel_37_p30.iff" name="Server Object Template" />
+                        <data value="1" name="Count" />
+                        <data value="Charge placed" name="ItemName" />
+                        <data value="100" name="LootDropPercent" />
+                        <data value="0" name="GuaranteedSuccessMinumumAttempts" />
+                        <data value="0" name="GuaranteedSuccessMaximumAttempts" />
+                        <data value="6" name="CountdownTimer" />
+                        <data value="Place" name="retrieveMenuText" />
+                        <data value="0" name="Time To Complete" />
+                    </task>
+                    <task type="Retrieve Item" id="4" taskOnFail="false" >
+                        <data value="Place bomb charge" name="journalEntryTitle" />
+                        <data value="You should place a charge inside the hydraulic servo panel 33." name="journalEntryDescription" />
+                        <data value="true" name="isVisible" />
+                        <data value="" name="prerequisiteTasks" />
+                        <data value="" name="exclusionTasks" />
+                        <data value="0" name="allowRepeats" />
+                        <data value="charge_a" name="taskName" />
+                        <data value="0" name="showSystemMessages" />
+                        <data value="" name="musicOnActivate" />
+                        <data value="" name="musicOnComplete" />
+                        <data value="" name="musicOnFail" />
+                        <data value="0" name="chanceToActivate" />
+                        <data value="none" name="questControlOnTaskCompletion" />
+                        <data value="none" name="questControlOnTaskFailure" />
+                        <data value="" name="target" />
+                        <data value="" name="parameter" />
+                        <data value="" name="grantQuestOnComplete" />
+                        <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                        <data value="" name="grantQuestOnFail" />
+                        <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                        <data value="" name="signalsOnComplete" />
+                        <data value="" name="signalsOnFail" />
+                        <data value="true" name="createWaypoint" />
+                        <data value="bespin_lower_pob" name="Planet" />
+                        <data value="-6976" name="LocationX(m)" />
+                        <data value="17" name="LocationY(m)" />
+                        <data value="-6896" name="LocationZ(m)" />
+                        <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                        <data value="r34" name="buildingCellName" />
+                        <data value="Hydraulic Servo Panel 33" name="waypointName" />
+                        <data value="0" name="createEntranceWaypoint" />
+                        <data value="0.0" name="EntranceLocationX(m)" />
+                        <data value="0.0" name="EntranceLocationY(m)" />
+                        <data value="0.0" name="EntranceLocationZ(m)" />
+                        <data value="" name="entranceWaypointName" />
+                        <data value="object/tangible/quest/bespin/imp_story_wg_hydraulic_servo_panel_33_p30.iff" name="Server Object Template" />
+                        <data value="1" name="Count" />
+                        <data value="Charge placed" name="ItemName" />
+                        <data value="100" name="LootDropPercent" />
+                        <data value="0" name="GuaranteedSuccessMinumumAttempts" />
+                        <data value="0" name="GuaranteedSuccessMaximumAttempts" />
+                        <data value="6" name="CountdownTimer" />
+                        <data value="Place" name="retrieveMenuText" />
+                        <data value="0" name="Time To Complete" />
+                    </task>
+                </task>
+            </task>
+        </tasks>
+        <list>
+            <data value="90" name="Level" />
+            <data value="3" name="Tier" />
+            <data value="solo" name="Type" />
+            <data value="Headquarter: Tenth Floor - Part 3 (Rebel)" name="journalEntryTitle" />
+            <data value="Support the Wing Guards." name="journalEntryDescription" />
+            <data value="Bespin" name="category" />
+            <data value="true" name="journalVisible" />
+            <data value="" name="journalEntryCompletionSummary" />
+            <data value="" name="prerequisiteQuests" />
+            <data value="" name="exclusionQuests" />
+            <data value="false" name="allowRepeats" />
+            <data value="quest_combat" name="Experience Type" />
+            <data value="0" name="Experience Amount" />
+            <data value="Rebel" name="Faction Name" />
+            <data value="0" name="Faction Amount" />
+            <data value="false" name="grantGcwPoints" />
+            <data value="0" name="Overwrite GCW Amount" />
+            <data value="0" name="Overwrite SF GCW Amount Mod" />
+            <data value="" name="rebelLootName" />
+            <data value="1" name="rebelLootAmount" />
+            <data value="" name="imperialLootName" />
+            <data value="1" name="imperialLootAmount" />
+            <data value="0" name="SfLootModifier" />
+            <data value="310000" name="Bank Credits" />
+            <data value="item_bespin_speeder_wingguard_01" name="lootName" />
+            <data value="1" name="lootCount" />
+            <data value="item_tcg_loot_reward_series6_cloud_city_hologram" name="lootName2" />
+            <data value="1" name="lootCount2" />
+            <data value="" name="lootName3" />
+            <data value="1" name="lootCount3" />
+            <data value="" name="exclusivelootName" />
+            <data value="1" name="exclusivelootCount" />
+            <data value="" name="exclusivelootName1" />
+            <data value="1" name="exclusivelootCount1" />
+            <data value="" name="exclusivelootName2" />
+            <data value="1" name="exclusivelootCount2" />
+            <data value="" name="exclusivelootName3" />
+            <data value="1" name="exclusivelootCount3" />
+            <data value="" name="exclusivelootName4" />
+            <data value="1" name="exclusivelootCount4" />
+            <data value="" name="exclusivelootName6" />
+            <data value="1" name="exclusivelootCount6" />
+            <data value="" name="exclusivelootName7" />
+            <data value="1" name="exclusivelootCount7" />
+            <data value="" name="exclusivelootName8" />
+            <data value="1" name="exclusivelootCount8" />
+            <data value="" name="exclusivelootName9" />
+            <data value="1" name="exclusivelootCount9" />
+            <data value="" name="exclusivelootName10" />
+            <data value="1" name="exclusivelootCount10" />
+            <data value="" name="Item" />
+            <data value="1" name="CountItem" />
+            <data value="" name="Weapon" />
+            <data value="1" name="CountWeapon" />
+            <data value="0.1" name="Speed" />
+            <data value="0.1" name="Damage" />
+            <data value="0.1" name="Efficiency" />
+            <data value="0.1" name="Elemental Value" />
+            <data value="" name="Armor" />
+            <data value="1" name="CountArmor" />
+            <data value="1" name="Quality" />
+            <data value="bdg_besp_reb_story_act_3" name="Reward Badge" />
+            <data value="Rebel" name="penaltyFactionName" />
+            <data value="0" name="penaltyFactionAmount" />
+            <data value="" name="target" />
+            <data value="" name="parameter" />
+            <data value="true" name="completeWhenTasksComplete" />
+            <data value="" name="conditionalQuestGrantQuestToGive" />
+            <data value="" name="conditionalQuestGrantQuestsThatMustBeCompleted" />
+        </list>
+    </quest>

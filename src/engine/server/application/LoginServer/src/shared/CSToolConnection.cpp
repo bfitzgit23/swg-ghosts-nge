@@ -273,7 +273,8 @@ void CSToolConnection::parse(const std::string command)
 		std::string pw;
 
 		// split apart
-		unsigned pos = args.find(" ");
+		// size_t: on LP64 an `unsigned int` here makes the npos test always true.
+		size_t pos = args.find(" ");
 		if (pos != std::string::npos)
 		{
 			name = args.substr(0, pos);

@@ -1,5 +1,6 @@
 // misc.cpp - written and placed in the public domain by Wei Dai
 
+#include <stdint.h>
 #include "FirstCrypto.h"
 #include "misc.h"
 #include "words.h"
@@ -10,7 +11,7 @@ byte OAEP_P_DEFAULT[1];
 
 void xorbuf(byte *buf, const byte *mask, unsigned int count)
 {
-	if (((unsigned int)buf | (unsigned int)mask | count) % WORD_SIZE == 0)
+	if (((uintptr_t)buf | (uintptr_t)mask | count) % WORD_SIZE == 0)
 		XorWords((word *)buf, (const word *)mask, count/WORD_SIZE);
 	else
 	{
@@ -21,7 +22,7 @@ void xorbuf(byte *buf, const byte *mask, unsigned int count)
 
 void xorbuf(byte *output, const byte *input, const byte *mask, unsigned int count)
 {
-	if (((unsigned int)output | (unsigned int)input | (unsigned int)mask | count) % WORD_SIZE == 0)
+	if (((uintptr_t)output | (uintptr_t)input | (uintptr_t)mask | count) % WORD_SIZE == 0)
 		XorWords((word *)output, (const word *)input, (const word *)mask, count/WORD_SIZE);
 	else
 	{

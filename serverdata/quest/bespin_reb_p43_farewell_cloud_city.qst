@@ -1,0 +1,722 @@
+<?xml version="1.0"?>
+    <quest version="1.0" >
+        <tasks availableId="14" >
+            <task type="Comm Player" id="0" taskOnFail="false" >
+                <data value="Comm. from Sergeant Kamar" name="journalEntryTitle" />
+                <data value="Comm. from Sergeant Kamar: &quot;Clearly we can't stay on Cloud City any longer. We'll start loading the transport and make ready to leave. Come back to base. We should talk before we leave.&quot;" name="journalEntryDescription" />
+                <data value="true" name="isVisible" />
+                <data value="" name="prerequisiteTasks" />
+                <data value="" name="exclusionTasks" />
+                <data value="0" name="allowRepeats" />
+                <data value="comm_kamar_p43" name="taskName" />
+                <data value="0" name="showSystemMessages" />
+                <data value="" name="musicOnActivate" />
+                <data value="" name="musicOnComplete" />
+                <data value="" name="musicOnFail" />
+                <data value="0" name="chanceToActivate" />
+                <data value="none" name="questControlOnTaskCompletion" />
+                <data value="none" name="questControlOnTaskFailure" />
+                <data value="" name="target" />
+                <data value="" name="parameter" />
+                <data value="" name="grantQuestOnComplete" />
+                <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                <data value="" name="grantQuestOnFail" />
+                <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                <data value="" name="signalsOnComplete" />
+                <data value="" name="signalsOnFail" />
+                <data value="0" name="createWaypoint" />
+                <data value="tatooine" name="Planet" />
+                <data value="0.0" name="LocationX(m)" />
+                <data value="0.0" name="LocationY(m)" />
+                <data value="0.0" name="LocationZ(m)" />
+                <data value="" name="interiorWaypointAppearance" />
+                <data value="" name="buildingCellName" />
+                <data value="" name="waypointName" />
+                <data value="0" name="createEntranceWaypoint" />
+                <data value="0.0" name="EntranceLocationX(m)" />
+                <data value="0.0" name="EntranceLocationY(m)" />
+                <data value="0.0" name="EntranceLocationZ(m)" />
+                <data value="" name="entranceWaypointName" />
+                <data value="Clearly we can't stay on Cloud City any longer. We'll start loading the transport and make ready to leave. Come back to base. We should talk before we leave." name="Comm Message Text" />
+                <data value="object/mobile/bespin/reb_sergeant_kamar.iff" name="NPC Appearance Server Template" />
+                <task type="Wait for Signal" id="1" taskOnFail="false" >
+                    <data value="Speak to Sergeant Kamar" name="journalEntryTitle" />
+                    <data value="Return to the Rebel Base of Operations in the Industrial Sector and talk to Sergeant Kamar." name="journalEntryDescription" />
+                    <data value="true" name="isVisible" />
+                    <data value="" name="prerequisiteTasks" />
+                    <data value="" name="exclusionTasks" />
+                    <data value="0" name="allowRepeats" />
+                    <data value="talk_kamar_p43" name="taskName" />
+                    <data value="0" name="showSystemMessages" />
+                    <data value="" name="musicOnActivate" />
+                    <data value="" name="musicOnComplete" />
+                    <data value="" name="musicOnFail" />
+                    <data value="0" name="chanceToActivate" />
+                    <data value="none" name="questControlOnTaskCompletion" />
+                    <data value="none" name="questControlOnTaskFailure" />
+                    <data value="" name="target" />
+                    <data value="" name="parameter" />
+                    <data value="" name="grantQuestOnComplete" />
+                    <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                    <data value="" name="grantQuestOnFail" />
+                    <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                    <data value="" name="signalsOnComplete" />
+                    <data value="" name="signalsOnFail" />
+                    <data value="true" name="createWaypoint" />
+                    <data value="bespin_lower_pob" name="Planet" />
+                    <data value="-7110" name="LocationX(m)" />
+                    <data value="-685" name="LocationY(m)" />
+                    <data value="3545" name="LocationZ(m)" />
+                    <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                    <data value="r21" name="buildingCellName" />
+                    <data value="Sergeant Kamar" name="waypointName" />
+                    <data value="0" name="createEntranceWaypoint" />
+                    <data value="0.0" name="EntranceLocationX(m)" />
+                    <data value="0.0" name="EntranceLocationY(m)" />
+                    <data value="0.0" name="EntranceLocationZ(m)" />
+                    <data value="" name="entranceWaypointName" />
+                    <data value="talked_kamar_p43" name="Signal Name" />
+                    <data value="1" name="Count" />
+                    <data value="0" name="waitMarkerCreate" />
+                    <data value="" name="waitMarkerTemplate" />
+                    <data value="" name="waitMarkerPlanetName" />
+                    <data value="0" name="waitMarkerBuilding" />
+                    <data value="" name="waitMarkerCellName" />
+                    <data value="0" name="waitMarkerX" />
+                    <data value="0" name="waitMarkerY" />
+                    <data value="0" name="waitMarkerZ" />
+                    <data value="0" name="Time To Complete" />
+                    <task type="Wait for Signal" id="2" taskOnFail="false" >
+                        <data value="Talk to Merayna" name="journalEntryTitle" />
+                        <data value="Talk to Merayna in the Rebel Base of Operations in the Industrial Sector." name="journalEntryDescription" />
+                        <data value="true" name="isVisible" />
+                        <data value="" name="prerequisiteTasks" />
+                        <data value="" name="exclusionTasks" />
+                        <data value="0" name="allowRepeats" />
+                        <data value="talk_merayna_p43" name="taskName" />
+                        <data value="0" name="showSystemMessages" />
+                        <data value="" name="musicOnActivate" />
+                        <data value="" name="musicOnComplete" />
+                        <data value="" name="musicOnFail" />
+                        <data value="0" name="chanceToActivate" />
+                        <data value="none" name="questControlOnTaskCompletion" />
+                        <data value="none" name="questControlOnTaskFailure" />
+                        <data value="" name="target" />
+                        <data value="" name="parameter" />
+                        <data value="" name="grantQuestOnComplete" />
+                        <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                        <data value="" name="grantQuestOnFail" />
+                        <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                        <data value="" name="signalsOnComplete" />
+                        <data value="" name="signalsOnFail" />
+                        <data value="true" name="createWaypoint" />
+                        <data value="bespin_lower_pob" name="Planet" />
+                        <data value="-7102" name="LocationX(m)" />
+                        <data value="-685" name="LocationY(m)" />
+                        <data value="3545" name="LocationZ(m)" />
+                        <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                        <data value="r21" name="buildingCellName" />
+                        <data value="Merayna" name="waypointName" />
+                        <data value="0" name="createEntranceWaypoint" />
+                        <data value="0.0" name="EntranceLocationX(m)" />
+                        <data value="0.0" name="EntranceLocationY(m)" />
+                        <data value="0.0" name="EntranceLocationZ(m)" />
+                        <data value="" name="entranceWaypointName" />
+                        <data value="talked_merayna_p43" name="Signal Name" />
+                        <data value="1" name="Count" />
+                        <data value="0" name="waitMarkerCreate" />
+                        <data value="" name="waitMarkerTemplate" />
+                        <data value="" name="waitMarkerPlanetName" />
+                        <data value="0" name="waitMarkerBuilding" />
+                        <data value="" name="waitMarkerCellName" />
+                        <data value="0" name="waitMarkerX" />
+                        <data value="0" name="waitMarkerY" />
+                        <data value="0" name="waitMarkerZ" />
+                        <data value="0" name="Time To Complete" />
+                        <task type="Wait for Signal" id="4" taskOnFail="false" >
+                            <data value="Board 'Transporter Eleven'" name="journalEntryTitle" />
+                            <data value="Talk to the Transport Officer in the Rebel Base of Operations." name="journalEntryDescription" />
+                            <data value="true" name="isVisible" />
+                            <data value="" name="prerequisiteTasks" />
+                            <data value="" name="exclusionTasks" />
+                            <data value="0" name="allowRepeats" />
+                            <data value="talk_officer_p43" name="taskName" />
+                            <data value="0" name="showSystemMessages" />
+                            <data value="" name="musicOnActivate" />
+                            <data value="" name="musicOnComplete" />
+                            <data value="" name="musicOnFail" />
+                            <data value="0" name="chanceToActivate" />
+                            <data value="none" name="questControlOnTaskCompletion" />
+                            <data value="none" name="questControlOnTaskFailure" />
+                            <data value="" name="target" />
+                            <data value="" name="parameter" />
+                            <data value="" name="grantQuestOnComplete" />
+                            <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                            <data value="" name="grantQuestOnFail" />
+                            <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                            <data value="" name="signalsOnComplete" />
+                            <data value="" name="signalsOnFail" />
+                            <data value="true" name="createWaypoint" />
+                            <data value="bespin_lower_pob" name="Planet" />
+                            <data value="-7151" name="LocationX(m)" />
+                            <data value="-685" name="LocationY(m)" />
+                            <data value="3540" name="LocationZ(m)" />
+                            <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                            <data value="r21" name="buildingCellName" />
+                            <data value="Rebel Transport Officer" name="waypointName" />
+                            <data value="0" name="createEntranceWaypoint" />
+                            <data value="0.0" name="EntranceLocationX(m)" />
+                            <data value="0.0" name="EntranceLocationY(m)" />
+                            <data value="0.0" name="EntranceLocationZ(m)" />
+                            <data value="" name="entranceWaypointName" />
+                            <data value="talked_officer_p43" name="Signal Name" />
+                            <data value="1" name="Count" />
+                            <data value="0" name="waitMarkerCreate" />
+                            <data value="" name="waitMarkerTemplate" />
+                            <data value="" name="waitMarkerPlanetName" />
+                            <data value="0" name="waitMarkerBuilding" />
+                            <data value="" name="waitMarkerCellName" />
+                            <data value="0" name="waitMarkerX" />
+                            <data value="0" name="waitMarkerY" />
+                            <data value="0" name="waitMarkerZ" />
+                            <data value="0" name="Time To Complete" />
+                            <task type="Wait for Signal" id="5" taskOnFail="false" >
+                                <data value="Talk to Sergeant Kamar" name="journalEntryTitle" />
+                                <data value="Speak to Sergeant Kamar on the bridge of Transporter Eleven." name="journalEntryDescription" />
+                                <data value="true" name="isVisible" />
+                                <data value="" name="prerequisiteTasks" />
+                                <data value="" name="exclusionTasks" />
+                                <data value="0" name="allowRepeats" />
+                                <data value="talk_kamar_p43_2" name="taskName" />
+                                <data value="0" name="showSystemMessages" />
+                                <data value="" name="musicOnActivate" />
+                                <data value="" name="musicOnComplete" />
+                                <data value="" name="musicOnFail" />
+                                <data value="0" name="chanceToActivate" />
+                                <data value="none" name="questControlOnTaskCompletion" />
+                                <data value="none" name="questControlOnTaskFailure" />
+                                <data value="" name="target" />
+                                <data value="" name="parameter" />
+                                <data value="" name="grantQuestOnComplete" />
+                                <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                <data value="" name="grantQuestOnFail" />
+                                <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                <data value="" name="signalsOnComplete" />
+                                <data value="" name="signalsOnFail" />
+                                <data value="true" name="createWaypoint" />
+                                <data value="bespin_lower_pob" name="Planet" />
+                                <data value="-6085" name="LocationX(m)" />
+                                <data value="0" name="LocationY(m)" />
+                                <data value="5692" name="LocationZ(m)" />
+                                <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                                <data value="bridge66" name="buildingCellName" />
+                                <data value="Sergeant Kamar" name="waypointName" />
+                                <data value="0" name="createEntranceWaypoint" />
+                                <data value="0.0" name="EntranceLocationX(m)" />
+                                <data value="0.0" name="EntranceLocationY(m)" />
+                                <data value="0.0" name="EntranceLocationZ(m)" />
+                                <data value="" name="entranceWaypointName" />
+                                <data value="talked_kamar_p43_2" name="Signal Name" />
+                                <data value="1" name="Count" />
+                                <data value="0" name="waitMarkerCreate" />
+                                <data value="" name="waitMarkerTemplate" />
+                                <data value="" name="waitMarkerPlanetName" />
+                                <data value="0" name="waitMarkerBuilding" />
+                                <data value="" name="waitMarkerCellName" />
+                                <data value="0" name="waitMarkerX" />
+                                <data value="0" name="waitMarkerY" />
+                                <data value="0" name="waitMarkerZ" />
+                                <data value="0" name="Time To Complete" />
+                                <task type="Wait for Tasks" id="6" taskOnFail="false" >
+                                    <data value="Repair 'Transporter Eleven'" name="journalEntryTitle" />
+                                    <data value="Do all necessary repairs on the transporter to be able to escape from Bespin." name="journalEntryDescription" />
+                                    <data value="true" name="isVisible" />
+                                    <data value="" name="prerequisiteTasks" />
+                                    <data value="" name="exclusionTasks" />
+                                    <data value="0" name="allowRepeats" />
+                                    <data value="repair_all" name="taskName" />
+                                    <data value="0" name="showSystemMessages" />
+                                    <data value="" name="musicOnActivate" />
+                                    <data value="" name="musicOnComplete" />
+                                    <data value="" name="musicOnFail" />
+                                    <data value="0" name="chanceToActivate" />
+                                    <data value="none" name="questControlOnTaskCompletion" />
+                                    <data value="none" name="questControlOnTaskFailure" />
+                                    <data value="" name="target" />
+                                    <data value="" name="parameter" />
+                                    <data value="" name="grantQuestOnComplete" />
+                                    <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                    <data value="" name="grantQuestOnFail" />
+                                    <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                    <data value="" name="signalsOnComplete" />
+                                    <data value="" name="signalsOnFail" />
+                                    <data value="0" name="createWaypoint" />
+                                    <data value="tatooine" name="Planet" />
+                                    <data value="0.0" name="LocationX(m)" />
+                                    <data value="0.0" name="LocationY(m)" />
+                                    <data value="0.0" name="LocationZ(m)" />
+                                    <data value="" name="interiorWaypointAppearance" />
+                                    <data value="" name="buildingCellName" />
+                                    <data value="" name="waypointName" />
+                                    <data value="0" name="createEntranceWaypoint" />
+                                    <data value="0.0" name="EntranceLocationX(m)" />
+                                    <data value="0.0" name="EntranceLocationY(m)" />
+                                    <data value="0.0" name="EntranceLocationZ(m)" />
+                                    <data value="" name="entranceWaypointName" />
+                                    <data value="quest/bespin_reb_p43_farewell_cloud_city" name="Task1 Quest Filename" />
+                                    <data value="repair_a" name="Task1 taskName" />
+                                    <data value="Ship's Navicomputer" name="Task1 Display String" />
+                                    <data value="quest/bespin_reb_p43_farewell_cloud_city" name="Task2 Quest Filename" />
+                                    <data value="repair_b" name="Task2 taskName" />
+                                    <data value="Power Transfer Unit" name="Task2 Display String" />
+                                    <data value="quest/bespin_reb_p43_farewell_cloud_city" name="Task3 Quest Filename" />
+                                    <data value="repair_c" name="Task3 taskName" />
+                                    <data value="Weapons System Panel" name="Task3 Display String" />
+                                    <data value="quest/bespin_reb_p43_farewell_cloud_city" name="Task4 Quest Filename" />
+                                    <data value="repair_d" name="Task4 taskName" />
+                                    <data value="Hyperfuel Receptacle" name="Task4 Display String" />
+                                    <data value="quest/bespin_reb_p43_farewell_cloud_city" name="Task5 Quest Filename" />
+                                    <data value="repair_e" name="Task5 taskName" />
+                                    <data value="Electrical Conductor" name="Task5 Display String" />
+                                    <data value="" name="Task6 Quest Filename" />
+                                    <data value="" name="Task6 taskName" />
+                                    <data value="" name="Task6 Display String" />
+                                    <data value="0" name="Time To Complete" />
+                                    <task type="Show Message Box" id="13" taskOnFail="false" >
+                                        <data value="Jump to Lightspeed" name="journalEntryTitle" />
+                                        <data value="&quot;With the repairs to the ship complete, head back to the bridge and jump to lightspeed. Speak to Sergeant Kamar.&quot;" name="journalEntryDescription" />
+                                        <data value="true" name="isVisible" />
+                                        <data value="" name="prerequisiteTasks" />
+                                        <data value="" name="exclusionTasks" />
+                                        <data value="0" name="allowRepeats" />
+                                        <data value="message" name="taskName" />
+                                        <data value="0" name="showSystemMessages" />
+                                        <data value="" name="musicOnActivate" />
+                                        <data value="" name="musicOnComplete" />
+                                        <data value="" name="musicOnFail" />
+                                        <data value="0" name="chanceToActivate" />
+                                        <data value="none" name="questControlOnTaskCompletion" />
+                                        <data value="none" name="questControlOnTaskFailure" />
+                                        <data value="" name="target" />
+                                        <data value="" name="parameter" />
+                                        <data value="" name="grantQuestOnComplete" />
+                                        <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                        <data value="" name="grantQuestOnFail" />
+                                        <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                        <data value="" name="signalsOnComplete" />
+                                        <data value="" name="signalsOnFail" />
+                                        <data value="0" name="createWaypoint" />
+                                        <data value="tatooine" name="Planet" />
+                                        <data value="0.0" name="LocationX(m)" />
+                                        <data value="0.0" name="LocationY(m)" />
+                                        <data value="0.0" name="LocationZ(m)" />
+                                        <data value="" name="interiorWaypointAppearance" />
+                                        <data value="" name="buildingCellName" />
+                                        <data value="" name="waypointName" />
+                                        <data value="0" name="createEntranceWaypoint" />
+                                        <data value="0.0" name="EntranceLocationX(m)" />
+                                        <data value="0.0" name="EntranceLocationY(m)" />
+                                        <data value="0.0" name="EntranceLocationZ(m)" />
+                                        <data value="" name="entranceWaypointName" />
+                                        <data value="Jump to Lightspeed" name="messageBoxTitle" />
+                                        <data value="With the repairs to the ship complete, head back to the bridge and jump to lightspeed. Speak to Sergeant Kamar." name="messageBoxText" />
+                                        <data value="" name="messageBoxSound" />
+                                        <data value="80" name="messageBoxSizeWidth" />
+                                        <data value="80" name="messageBoxSizeHeight" />
+                                        <data value="-1" name="messageBoxLocationX" />
+                                        <data value="-1" name="messageBoxLocationY" />
+                                        <task type="Wait for Signal" id="12" taskOnFail="false" >
+                                            <data value="Return to Sergeant Kamar" name="journalEntryTitle" />
+                                            <data value="Talk to Sergeant Kamar on the bridge." name="journalEntryDescription" />
+                                            <data value="true" name="isVisible" />
+                                            <data value="" name="prerequisiteTasks" />
+                                            <data value="" name="exclusionTasks" />
+                                            <data value="0" name="allowRepeats" />
+                                            <data value="return_kamar_p43" name="taskName" />
+                                            <data value="0" name="showSystemMessages" />
+                                            <data value="" name="musicOnActivate" />
+                                            <data value="" name="musicOnComplete" />
+                                            <data value="" name="musicOnFail" />
+                                            <data value="0" name="chanceToActivate" />
+                                            <data value="none" name="questControlOnTaskCompletion" />
+                                            <data value="none" name="questControlOnTaskFailure" />
+                                            <data value="" name="target" />
+                                            <data value="" name="parameter" />
+                                            <data value="" name="grantQuestOnComplete" />
+                                            <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                            <data value="" name="grantQuestOnFail" />
+                                            <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                            <data value="" name="signalsOnComplete" />
+                                            <data value="" name="signalsOnFail" />
+                                            <data value="true" name="createWaypoint" />
+                                            <data value="bespin_lower_pob" name="Planet" />
+                                            <data value="-6085" name="LocationX(m)" />
+                                            <data value="0.0" name="LocationY(m)" />
+                                            <data value="5692" name="LocationZ(m)" />
+                                            <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                                            <data value="bridge66" name="buildingCellName" />
+                                            <data value="Sergeant Kamar" name="waypointName" />
+                                            <data value="0" name="createEntranceWaypoint" />
+                                            <data value="0.0" name="EntranceLocationX(m)" />
+                                            <data value="0.0" name="EntranceLocationY(m)" />
+                                            <data value="0.0" name="EntranceLocationZ(m)" />
+                                            <data value="" name="entranceWaypointName" />
+                                            <data value="returned_kamar_p43" name="Signal Name" />
+                                            <data value="1" name="Count" />
+                                            <data value="0" name="waitMarkerCreate" />
+                                            <data value="" name="waitMarkerTemplate" />
+                                            <data value="" name="waitMarkerPlanetName" />
+                                            <data value="0" name="waitMarkerBuilding" />
+                                            <data value="" name="waitMarkerCellName" />
+                                            <data value="0" name="waitMarkerX" />
+                                            <data value="0" name="waitMarkerY" />
+                                            <data value="0" name="waitMarkerZ" />
+                                            <data value="0" name="Time To Complete" />
+                                            <task type="Immediately Complete Quest" id="3" taskOnFail="false" >
+                                                <data value="" name="journalEntryTitle" />
+                                                <data value="" name="journalEntryDescription" />
+                                                <data value="false" name="isVisible" />
+                                                <data value="" name="prerequisiteTasks" />
+                                                <data value="" name="exclusionTasks" />
+                                                <data value="0" name="allowRepeats" />
+                                                <data value="" name="taskName" />
+                                                <data value="0" name="showSystemMessages" />
+                                                <data value="" name="musicOnActivate" />
+                                                <data value="sound/music_themequest_victory_rebel.snd" name="musicOnComplete" />
+                                                <data value="" name="musicOnFail" />
+                                                <data value="0" name="chanceToActivate" />
+                                                <data value="none" name="questControlOnTaskCompletion" />
+                                                <data value="none" name="questControlOnTaskFailure" />
+                                                <data value="" name="target" />
+                                                <data value="" name="parameter" />
+                                                <data value="" name="grantQuestOnComplete" />
+                                                <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                                <data value="" name="grantQuestOnFail" />
+                                                <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                                <data value="" name="signalsOnComplete" />
+                                                <data value="" name="signalsOnFail" />
+                                                <data value="0" name="createWaypoint" />
+                                                <data value="tatooine" name="Planet" />
+                                                <data value="0.0" name="LocationX(m)" />
+                                                <data value="0.0" name="LocationY(m)" />
+                                                <data value="0.0" name="LocationZ(m)" />
+                                                <data value="" name="interiorWaypointAppearance" />
+                                                <data value="" name="buildingCellName" />
+                                                <data value="" name="waypointName" />
+                                                <data value="0" name="createEntranceWaypoint" />
+                                                <data value="0.0" name="EntranceLocationX(m)" />
+                                                <data value="0.0" name="EntranceLocationY(m)" />
+                                                <data value="0.0" name="EntranceLocationZ(m)" />
+                                                <data value="" name="entranceWaypointName" />
+                                            </task>
+                                        </task>
+                                    </task>
+                                </task>
+                                <task type="Retrieve Item" id="7" taskOnFail="false" >
+                                    <data value="Repair the electrical conductor" name="journalEntryTitle" />
+                                    <data value="Repair the electrical conductor near the turbolift." name="journalEntryDescription" />
+                                    <data value="true" name="isVisible" />
+                                    <data value="" name="prerequisiteTasks" />
+                                    <data value="" name="exclusionTasks" />
+                                    <data value="0" name="allowRepeats" />
+                                    <data value="repair_e" name="taskName" />
+                                    <data value="0" name="showSystemMessages" />
+                                    <data value="" name="musicOnActivate" />
+                                    <data value="" name="musicOnComplete" />
+                                    <data value="" name="musicOnFail" />
+                                    <data value="0" name="chanceToActivate" />
+                                    <data value="none" name="questControlOnTaskCompletion" />
+                                    <data value="none" name="questControlOnTaskFailure" />
+                                    <data value="" name="target" />
+                                    <data value="" name="parameter" />
+                                    <data value="" name="grantQuestOnComplete" />
+                                    <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                    <data value="" name="grantQuestOnFail" />
+                                    <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                    <data value="" name="signalsOnComplete" />
+                                    <data value="" name="signalsOnFail" />
+                                    <data value="true" name="createWaypoint" />
+                                    <data value="bespin_lower_pob" name="Planet" />
+                                    <data value="-6104" name="LocationX(m)" />
+                                    <data value="0.0" name="LocationY(m)" />
+                                    <data value="5653" name="LocationZ(m)" />
+                                    <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                                    <data value="hall61" name="buildingCellName" />
+                                    <data value="Electrical Conductor" name="waypointName" />
+                                    <data value="0" name="createEntranceWaypoint" />
+                                    <data value="0.0" name="EntranceLocationX(m)" />
+                                    <data value="0.0" name="EntranceLocationY(m)" />
+                                    <data value="0.0" name="EntranceLocationZ(m)" />
+                                    <data value="" name="entranceWaypointName" />
+                                    <data value="object/tangible/quest/bespin/reb_story_electrical_conductor_p43.iff" name="Server Object Template" />
+                                    <data value="1" name="Count" />
+                                    <data value="Repaired" name="ItemName" />
+                                    <data value="100" name="LootDropPercent" />
+                                    <data value="0" name="GuaranteedSuccessMinumumAttempts" />
+                                    <data value="0" name="GuaranteedSuccessMaximumAttempts" />
+                                    <data value="3" name="CountdownTimer" />
+                                    <data value="Repair" name="retrieveMenuText" />
+                                    <data value="0" name="Time To Complete" />
+                                </task>
+                                <task type="Retrieve Item" id="8" taskOnFail="false" >
+                                    <data value="Repair the hyperfuel receptacle" name="journalEntryTitle" />
+                                    <data value="Repair the hyperfuel receptacle in the engineering room." name="journalEntryDescription" />
+                                    <data value="true" name="isVisible" />
+                                    <data value="" name="prerequisiteTasks" />
+                                    <data value="" name="exclusionTasks" />
+                                    <data value="0" name="allowRepeats" />
+                                    <data value="repair_d" name="taskName" />
+                                    <data value="0" name="showSystemMessages" />
+                                    <data value="" name="musicOnActivate" />
+                                    <data value="" name="musicOnComplete" />
+                                    <data value="" name="musicOnFail" />
+                                    <data value="0" name="chanceToActivate" />
+                                    <data value="none" name="questControlOnTaskCompletion" />
+                                    <data value="none" name="questControlOnTaskFailure" />
+                                    <data value="" name="target" />
+                                    <data value="" name="parameter" />
+                                    <data value="" name="grantQuestOnComplete" />
+                                    <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                    <data value="" name="grantQuestOnFail" />
+                                    <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                    <data value="" name="signalsOnComplete" />
+                                    <data value="" name="signalsOnFail" />
+                                    <data value="true" name="createWaypoint" />
+                                    <data value="bespin_lower_pob" name="Planet" />
+                                    <data value="-6078" name="LocationX(m)" />
+                                    <data value="-6" name="LocationY(m)" />
+                                    <data value="5504" name="LocationZ(m)" />
+                                    <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                                    <data value="thrustersubroom27" name="buildingCellName" />
+                                    <data value="Hyperfuel Receptacle" name="waypointName" />
+                                    <data value="0" name="createEntranceWaypoint" />
+                                    <data value="0.0" name="EntranceLocationX(m)" />
+                                    <data value="0.0" name="EntranceLocationY(m)" />
+                                    <data value="0.0" name="EntranceLocationZ(m)" />
+                                    <data value="" name="entranceWaypointName" />
+                                    <data value="object/tangible/quest/bespin/reb_story_hyperfuel_receptacle_p43.iff" name="Server Object Template" />
+                                    <data value="1" name="Count" />
+                                    <data value="Repaired" name="ItemName" />
+                                    <data value="100" name="LootDropPercent" />
+                                    <data value="0" name="GuaranteedSuccessMinumumAttempts" />
+                                    <data value="0" name="GuaranteedSuccessMaximumAttempts" />
+                                    <data value="3" name="CountdownTimer" />
+                                    <data value="Repair" name="retrieveMenuText" />
+                                    <data value="0" name="Time To Complete" />
+                                </task>
+                                <task type="Retrieve Item" id="9" taskOnFail="false" >
+                                    <data value="Repair the weapons system panel" name="journalEntryTitle" />
+                                    <data value="Repair the weapons system panel outside the bridge." name="journalEntryDescription" />
+                                    <data value="true" name="isVisible" />
+                                    <data value="" name="prerequisiteTasks" />
+                                    <data value="" name="exclusionTasks" />
+                                    <data value="0" name="allowRepeats" />
+                                    <data value="repair_c" name="taskName" />
+                                    <data value="0" name="showSystemMessages" />
+                                    <data value="" name="musicOnActivate" />
+                                    <data value="" name="musicOnComplete" />
+                                    <data value="" name="musicOnFail" />
+                                    <data value="0" name="chanceToActivate" />
+                                    <data value="none" name="questControlOnTaskCompletion" />
+                                    <data value="none" name="questControlOnTaskFailure" />
+                                    <data value="" name="target" />
+                                    <data value="" name="parameter" />
+                                    <data value="" name="grantQuestOnComplete" />
+                                    <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                    <data value="" name="grantQuestOnFail" />
+                                    <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                    <data value="" name="signalsOnComplete" />
+                                    <data value="" name="signalsOnFail" />
+                                    <data value="true" name="createWaypoint" />
+                                    <data value="bespin_lower_pob" name="Planet" />
+                                    <data value="-6086" name="LocationX(m)" />
+                                    <data value="0.0" name="LocationY(m)" />
+                                    <data value="5681" name="LocationZ(m)" />
+                                    <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                                    <data value="hall62" name="buildingCellName" />
+                                    <data value="Weapons System Panel" name="waypointName" />
+                                    <data value="0" name="createEntranceWaypoint" />
+                                    <data value="0.0" name="EntranceLocationX(m)" />
+                                    <data value="0.0" name="EntranceLocationY(m)" />
+                                    <data value="0.0" name="EntranceLocationZ(m)" />
+                                    <data value="" name="entranceWaypointName" />
+                                    <data value="object/tangible/quest/bespin/reb_story_weapon_system_panel_p43.iff" name="Server Object Template" />
+                                    <data value="1" name="Count" />
+                                    <data value="Repaired" name="ItemName" />
+                                    <data value="100" name="LootDropPercent" />
+                                    <data value="0" name="GuaranteedSuccessMinumumAttempts" />
+                                    <data value="0" name="GuaranteedSuccessMaximumAttempts" />
+                                    <data value="3" name="CountdownTimer" />
+                                    <data value="Repair" name="retrieveMenuText" />
+                                    <data value="0" name="Time To Complete" />
+                                </task>
+                                <task type="Retrieve Item" id="10" taskOnFail="false" >
+                                    <data value="Repair the power transfer unit" name="journalEntryTitle" />
+                                    <data value="Repair the power transfer unit in the engineering room." name="journalEntryDescription" />
+                                    <data value="true" name="isVisible" />
+                                    <data value="" name="prerequisiteTasks" />
+                                    <data value="" name="exclusionTasks" />
+                                    <data value="0" name="allowRepeats" />
+                                    <data value="repair_b" name="taskName" />
+                                    <data value="0" name="showSystemMessages" />
+                                    <data value="" name="musicOnActivate" />
+                                    <data value="" name="musicOnComplete" />
+                                    <data value="" name="musicOnFail" />
+                                    <data value="0" name="chanceToActivate" />
+                                    <data value="none" name="questControlOnTaskCompletion" />
+                                    <data value="none" name="questControlOnTaskFailure" />
+                                    <data value="" name="target" />
+                                    <data value="" name="parameter" />
+                                    <data value="" name="grantQuestOnComplete" />
+                                    <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                    <data value="" name="grantQuestOnFail" />
+                                    <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                    <data value="" name="signalsOnComplete" />
+                                    <data value="" name="signalsOnFail" />
+                                    <data value="true" name="createWaypoint" />
+                                    <data value="bespin_lower_pob" name="Planet" />
+                                    <data value="-6095" name="LocationX(m)" />
+                                    <data value="-12" name="LocationY(m)" />
+                                    <data value="5501" name="LocationZ(m)" />
+                                    <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                                    <data value="thrusterroom24" name="buildingCellName" />
+                                    <data value="Power Transfer Unit" name="waypointName" />
+                                    <data value="0" name="createEntranceWaypoint" />
+                                    <data value="0.0" name="EntranceLocationX(m)" />
+                                    <data value="0.0" name="EntranceLocationY(m)" />
+                                    <data value="0.0" name="EntranceLocationZ(m)" />
+                                    <data value="" name="entranceWaypointName" />
+                                    <data value="object/tangible/quest/bespin/reb_story_power_transfer_unit_p43.iff" name="Server Object Template" />
+                                    <data value="1" name="Count" />
+                                    <data value="Repaired" name="ItemName" />
+                                    <data value="100" name="LootDropPercent" />
+                                    <data value="0" name="GuaranteedSuccessMinumumAttempts" />
+                                    <data value="0" name="GuaranteedSuccessMaximumAttempts" />
+                                    <data value="3" name="CountdownTimer" />
+                                    <data value="Repair" name="retrieveMenuText" />
+                                    <data value="0" name="Time To Complete" />
+                                </task>
+                                <task type="Retrieve Item" id="11" taskOnFail="false" >
+                                    <data value="Repair the ship's navicomputer" name="journalEntryTitle" />
+                                    <data value="Repair the ship's navicomputer on the bridge." name="journalEntryDescription" />
+                                    <data value="true" name="isVisible" />
+                                    <data value="" name="prerequisiteTasks" />
+                                    <data value="" name="exclusionTasks" />
+                                    <data value="0" name="allowRepeats" />
+                                    <data value="repair_a" name="taskName" />
+                                    <data value="0" name="showSystemMessages" />
+                                    <data value="" name="musicOnActivate" />
+                                    <data value="" name="musicOnComplete" />
+                                    <data value="" name="musicOnFail" />
+                                    <data value="0" name="chanceToActivate" />
+                                    <data value="none" name="questControlOnTaskCompletion" />
+                                    <data value="none" name="questControlOnTaskFailure" />
+                                    <data value="" name="target" />
+                                    <data value="" name="parameter" />
+                                    <data value="" name="grantQuestOnComplete" />
+                                    <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                    <data value="" name="grantQuestOnFail" />
+                                    <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                    <data value="" name="signalsOnComplete" />
+                                    <data value="" name="signalsOnFail" />
+                                    <data value="true" name="createWaypoint" />
+                                    <data value="bespin_lower_pob" name="Planet" />
+                                    <data value="-6079" name="LocationX(m)" />
+                                    <data value="0.0" name="LocationY(m)" />
+                                    <data value="5693" name="LocationZ(m)" />
+                                    <data value="bespin_lower_pob" name="interiorWaypointAppearance" />
+                                    <data value="bridge66" name="buildingCellName" />
+                                    <data value="Ship's Navicomputer" name="waypointName" />
+                                    <data value="0" name="createEntranceWaypoint" />
+                                    <data value="0.0" name="EntranceLocationX(m)" />
+                                    <data value="0.0" name="EntranceLocationY(m)" />
+                                    <data value="0.0" name="EntranceLocationZ(m)" />
+                                    <data value="" name="entranceWaypointName" />
+                                    <data value="object/tangible/quest/bespin/reb_story_navi_computer_p43.iff" name="Server Object Template" />
+                                    <data value="1" name="Count" />
+                                    <data value="Repaired" name="ItemName" />
+                                    <data value="100" name="LootDropPercent" />
+                                    <data value="0" name="GuaranteedSuccessMinumumAttempts" />
+                                    <data value="0" name="GuaranteedSuccessMaximumAttempts" />
+                                    <data value="3" name="CountdownTimer" />
+                                    <data value="Repair" name="retrieveMenuText" />
+                                    <data value="0" name="Time To Complete" />
+                                </task>
+                            </task>
+                        </task>
+                    </task>
+                </task>
+            </task>
+        </tasks>
+        <list>
+            <data value="90" name="Level" />
+            <data value="4" name="Tier" />
+            <data value="solo" name="Type" />
+            <data value="Farewell, Cloud City (Rebel)" name="journalEntryTitle" />
+            <data value="Help Calrissian on Cloud City." name="journalEntryDescription" />
+            <data value="Bespin" name="category" />
+            <data value="true" name="journalVisible" />
+            <data value="" name="journalEntryCompletionSummary" />
+            <data value="" name="prerequisiteQuests" />
+            <data value="" name="exclusionQuests" />
+            <data value="false" name="allowRepeats" />
+            <data value="quest_combat" name="Experience Type" />
+            <data value="0" name="Experience Amount" />
+            <data value="Rebel" name="Faction Name" />
+            <data value="1000" name="Faction Amount" />
+            <data value="false" name="grantGcwPoints" />
+            <data value="0" name="Overwrite GCW Amount" />
+            <data value="0" name="Overwrite SF GCW Amount Mod" />
+            <data value="" name="rebelLootName" />
+            <data value="1" name="rebelLootAmount" />
+            <data value="" name="imperialLootName" />
+            <data value="1" name="imperialLootAmount" />
+            <data value="0" name="SfLootModifier" />
+            <data value="500000" name="Bank Credits" />
+            <data value="item_tcg_loot_reward_series6_deed_rebel_spire" name="lootName" />
+            <data value="1" name="lootCount" />
+            <data value="" name="lootName2" />
+            <data value="1" name="lootCount2" />
+            <data value="" name="lootName3" />
+            <data value="1" name="lootCount3" />
+            <data value="" name="exclusivelootName" />
+            <data value="1" name="exclusivelootCount" />
+            <data value="" name="exclusivelootName1" />
+            <data value="1" name="exclusivelootCount1" />
+            <data value="" name="exclusivelootName2" />
+            <data value="1" name="exclusivelootCount2" />
+            <data value="" name="exclusivelootName3" />
+            <data value="1" name="exclusivelootCount3" />
+            <data value="" name="exclusivelootName4" />
+            <data value="1" name="exclusivelootCount4" />
+            <data value="" name="exclusivelootName6" />
+            <data value="1" name="exclusivelootCount6" />
+            <data value="" name="exclusivelootName7" />
+            <data value="1" name="exclusivelootCount7" />
+            <data value="" name="exclusivelootName8" />
+            <data value="1" name="exclusivelootCount8" />
+            <data value="" name="exclusivelootName9" />
+            <data value="1" name="exclusivelootCount9" />
+            <data value="" name="exclusivelootName10" />
+            <data value="1" name="exclusivelootCount10" />
+            <data value="" name="Item" />
+            <data value="1" name="CountItem" />
+            <data value="" name="Weapon" />
+            <data value="1" name="CountWeapon" />
+            <data value="0.1" name="Speed" />
+            <data value="0.1" name="Damage" />
+            <data value="0.1" name="Efficiency" />
+            <data value="0.1" name="Elemental Value" />
+            <data value="" name="Armor" />
+            <data value="1" name="CountArmor" />
+            <data value="1" name="Quality" />
+            <data value="bdg_besp_reb_story_act_4" name="Reward Badge" />
+            <data value="Rebel" name="penaltyFactionName" />
+            <data value="0" name="penaltyFactionAmount" />
+            <data value="" name="target" />
+            <data value="" name="parameter" />
+            <data value="true" name="completeWhenTasksComplete" />
+            <data value="" name="conditionalQuestGrantQuestToGive" />
+            <data value="" name="conditionalQuestGrantQuestsThatMustBeCompleted" />
+        </list>
+    </quest>

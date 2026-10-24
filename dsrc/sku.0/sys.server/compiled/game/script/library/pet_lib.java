@@ -457,7 +457,7 @@ public class pet_lib extends script.base_script
         }
         int playerLevel = getLevel(player);
         int commandLevel = 0;
-        if (modulePotency >= 80 && isTrader && playerLevel >= 60)
+        if (modulePotency >= 100 && isTrader && playerLevel >= 60)
         {
             commandLevel = 3;
         }
@@ -3476,12 +3476,11 @@ public class pet_lib extends script.base_script
         float spdBonus = getPetAbilityAttackSpdBonus(petControlDevice, wpnSpeed);
         int minDamage = getIntObjVar(petControlDevice, "creature_attribs.minDamage");
         int maxDamage = getIntObjVar(petControlDevice, "creature_attribs.maxDamage");
-        int DroidSkillMod = getSkillStatMod(player, "droid_level");
         if (isIdValid(player) && exists(player))
         {
-            if (level > 60)
+            if (level > 60 && !craftinglib.isTrader(player))
             {
-                level = 60 + DroidSkillMod;
+                level = 60;
             }
             dictionary droidDefaultStatsDict = dataTableGetRow(TBL_MOB_STAT_BALANCE, level - 1);
             myHealth = droidDefaultStatsDict.getInt("HP");
@@ -5398,9 +5397,11 @@ public class pet_lib extends script.base_script
     }
     public static int getDroidCapLevel(obj_id who, int level) throws InterruptedException
     {
-        int baseLevel = craftinglib.isTrader(who) ? 70 : 60;
-        int skillMod = getSkillStatMod(who, "droid_level");
-        return baseLevel + skillMod;
+        if (craftinglib.isTrader(who))
+        {
+            return 90;
+        }
+        return 60;
     }
     public static void initDroidDefaultStats(obj_id deed) throws InterruptedException
     {
@@ -5712,6 +5713,27 @@ public class pet_lib extends script.base_script
             petControlDevice = callable.getCallableCD(pet);
         }
         return petControlDevice;
+    }
+    public static void destroyOfficerPets(obj_id player) throws InterruptedException
+    {
+        obj_id datapad = utils.getPlayerDatapad(player);
+        if (!isIdValid(datapad) || !exists(datapad))
+        {
+            return;
+        }
+        obj_id[] dataItems = getContents(datapad);
+        if (dataItems == null || dataItems.length < 1)
+        {
+            return;
+        }
+        for (obj_id dataItem : dataItems) {
+            if (hasObjVar(dataItem, "pet.creatureName")) {
+                if ((getStringObjVar(dataItem, "pet.creatureName")).startsWith("officer_reinforcement_")) {
+                    destroyObject(dataItem);
+                }
+            }
+        }
+        return;
     }
     public static void addToHarvestDroidArray(obj_id target, obj_id[] players) throws InterruptedException
     {

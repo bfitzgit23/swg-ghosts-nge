@@ -49,3 +49,4 @@ avoidIncapacitation_2			force_healing_1	force_healing	clienteffect/pl_force_avoi
 avoidIncapacitation_3			force_healing_1	force_healing	clienteffect/pl_force_avoid_incap_self.cef	1000	0	0	20	32	-1	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		avoidIncapacitation_3	avoid_incap	1					0.5		10
 avoidIncapacitation_4			force_healing_1	force_healing	clienteffect/pl_force_avoid_incap_self.cef	1000	0	0	20	32	-1	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		avoidIncapacitation_4	avoid_incap	1					0.5		10
 avoidIncapacitation_5			force_healing_1	force_healing	clienteffect/pl_force_avoid_incap_self.cef	1000	0	0	20	32	-1	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		avoidIncapacitation_5	avoid_incap	1					0.5		10
+battleMeditation	group force buff: heals the group and sustains them in battle		force_healing_1	force_healing	clienteffect/pl_force_absorb_self.cef	100	0	0	20	32	-1	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		battleMeditation								5	

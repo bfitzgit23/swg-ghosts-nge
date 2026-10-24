@@ -2951,7 +2951,9 @@ bool PlayerObject::createPrototype(bool keepPrototype)
 	m_craftingStage = static_cast<int>(Crafting::CS_none);
 
 	// lock the tool for the time needed to create the prototype
-	float prototypeTime = m_draftSchematic->getPrototypeTime() * prototype->getComplexity();
+	// Ghosts: [GameServer] manufactureTimeMultiplier also scales hand-crafting
+	// (prototype assembly) so factories and crafting stations share one knob.
+	float prototypeTime = m_draftSchematic->getPrototypeTime() * prototype->getComplexity() * ConfigServerGame::getManufactureTimeMultiplier();
 	if (prototypeTime < 1.0f)
 		prototypeTime = 1.0f;
 
@@ -6115,7 +6117,7 @@ void PlayerObject::getByteStreamFromAutoVariable(const std::string & name, Archi
 {
 	if(name == "quests")
 	{
-		Archive::AutoDeltaMap<unsigned long, PlayerQuestData>(m_quests).pack(target);
+		Archive::AutoDeltaMap<uint32, PlayerQuestData>(m_quests).pack(target);
 	}
 	else if(name == "completedQuests")
 	{
@@ -6202,11 +6204,11 @@ void PlayerObject::setAutoVariableFromByteStream(const std::string & name, const
 	Archive::ReadIterator ri(source);
 	if(name == "quests")
 	{
-		typedef Archive::AutoDeltaMap<unsigned long, PlayerQuestData>::Command Commands;
+		typedef Archive::AutoDeltaMap<uint32, PlayerQuestData>::Command Commands;
 		std::vector<Commands> quests;
 
 		m_quests.clear();
-		Archive::AutoDeltaMap<unsigned long, PlayerQuestData>(m_quests).unpack(ri, quests);
+		Archive::AutoDeltaMap<uint32, PlayerQuestData>(m_quests).unpack(ri, quests);
 
 		for (std::vector<Commands>::const_iterator questIter = quests.begin(); questIter != quests.end(); ++questIter)
 		{

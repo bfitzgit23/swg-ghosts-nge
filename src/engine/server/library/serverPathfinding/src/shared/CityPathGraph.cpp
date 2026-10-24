@@ -5,6 +5,7 @@
 //
 // ======================================================================
 
+#include <stdint.h>
 #include "serverPathfinding/FirstServerPathfinding.h"
 #include "serverPathfinding/CityPathGraph.h"
 
@@ -727,7 +728,7 @@ int CityPathGraph::getNeighborCode ( int whichNode ) const
 
 		if(neighbor == nullptr) continue;
 
-		int neighborInt = reinterpret_cast<int>(neighbor);
+		int neighborInt = static_cast<int>(reinterpret_cast<intptr_t>(neighbor));
 
 		int mungedInt = neighborInt * 1295183;
 

@@ -7,6 +7,7 @@
 //========================================================================
 
 #include "serverScript/FirstServerScript.h"
+#include <stdint.h>
 #include "serverScript/JavaLibrary.h"
 
 #include "serverGame/AttribModNameManager.h"
@@ -790,7 +791,7 @@ void JavaLibrary::fatalHandler(int signum)
 		char lib1[BUFLEN], lib2[BUFLEN];
 		char file1[BUFLEN], file2[BUFLEN];
 		int line1, line2;
-		bool result1 = DebugHelp::lookupAddress(reinterpret_cast<uint32>(crashAddress1), lib1, file1, BUFLEN, line1);
+		bool result1 = DebugHelp::lookupAddress(reinterpret_cast<uintptr_t>(crashAddress1), lib1, file1, BUFLEN, line1);
 
 		// do a second test based on the return address
 		// it turns out that in some java crashes we don't even have 2 return
@@ -801,25 +802,25 @@ void JavaLibrary::fatalHandler(int signum)
 		void *crashAddress2c = nullptr;
 		void *frameAddressA = nullptr;
 		void *frameAddressB = nullptr;
-		uint32 frameAddressHigh = (reinterpret_cast<uint32>(frameAddress) >> 16);
+		uintptr_t frameAddressHigh = (reinterpret_cast<uintptr_t>(frameAddress) >> 16);
 		crashAddress2a = __builtin_return_address(0);
 		if (crashAddress2a != nullptr)
 		{
 			frameAddressA = __builtin_frame_address(1);
 			if (frameAddressA != nullptr &&
-				(reinterpret_cast<uint32>(frameAddressA) >> 16 == frameAddressHigh))
+				(reinterpret_cast<uintptr_t>(frameAddressA) >> 16 == frameAddressHigh))
 			{
 				crashAddress2b = __builtin_return_address(1);
 				if (crashAddress2b != nullptr)
 				{
 					frameAddressB = __builtin_frame_address(2);
 					if (frameAddressB != nullptr &&
-						(reinterpret_cast<uint32>(frameAddressB) >> 16 == frameAddressHigh))
+						(reinterpret_cast<uintptr_t>(frameAddressB) >> 16 == frameAddressHigh))
 					{
 						crashAddress2c = __builtin_return_address(2);
 						if (crashAddress2c != nullptr)
 						{
-							result2 = DebugHelp::lookupAddress(reinterpret_cast<uint32>(
+							result2 = DebugHelp::lookupAddress(reinterpret_cast<uintptr_t>(
 								crashAddress2c), lib2, file2, BUFLEN, line2);
 						}
 					}
@@ -1084,7 +1085,15 @@ void JavaLibrary::initializeJavaThread()
 	// rice options!!!!1! yay - actually after much trial and error these are a good mix for speed and efficiency
 	// i should split these someday into separate optionStrings...or not
 	// some may be default, not needed, or ignored by whatever version we're using -darth
-	tempOption.optionString = "-Xrs -XX:-UsePerfData -XX:-AllowUserSignalHandlers -XX:UseSSE=3 -XX+DoEscapeAnalysis -XX:AutoBoxCacheMax:2000 -XX:+OptimizeStringConcat -XX:+OptimizeFill -XX:+EliminateAutoBox -XX:+UseCompressedStrings -XX:+UseCompressedOops -XX:+EliminateLocks -XX:UseFastAccessorMethods -XX:+UseStringCache -XgcPrio:throughput -XXkeepAreaRatio:1 -XXlazyUnlocking -XXcallProfiling -XXcompactRatio:1";
+	// 64-bit port: the original string combined JRockit flags (-XgcPrio,
+	// -XXlazyUnlocking, -XXcallProfiling, -XXcompactRatio, -XXkeepAreaRatio)
+	// with Java-6-era HotSpot flags (-XX:+UseCompressedStrings,
+	// -XX:UseFastAccessorMethods, -XX:+UseStringCache) and two malformed
+	// ones (-XX+DoEscapeAnalysis, -XX:AutoBoxCacheMax:2000).  Every modern JVM
+	// rejects all of them and refuses to start, so the game server could never
+	// create its JVM.  Kept the flags that are still valid and express the same
+	// intent (signal handling off, fewer perf hooks, JIT/escape-analysis tuning).
+	tempOption.optionString = "-Xrs -XX:-UsePerfData -XX:-AllowUserSignalHandlers -XX:UseSSE=3 -XX:+DoEscapeAnalysis -XX:AutoBoxCacheMax=2000 -XX:+OptimizeStringConcat -XX:+OptimizeFill -XX:+EliminateAutoBox -XX:+UseCompressedOops -XX:+EliminateLocks";
 	options.push_back(tempOption);
 
 	// left over from SOE, below...probably won't use these most of the time
@@ -5519,7 +5528,7 @@ namespace ScriptConversion {
 		for (i = 0; i < count; ++i)
 		{
 			env->GetLongArrayRegion(source, i, 1, &jlongTmp);
-			NetworkId nid(jlongTmp);
+			NetworkId nid(static_cast<NetworkId::NetworkIdType>(jlongTmp));
 			if (!nid)
 			{
 				result = false;
@@ -6426,7 +6435,7 @@ CreatureObject *JavaLibrary::getCreatureThrow(JNIEnv *env, jlong objId, char con
 	}
 	else
 	{
-		NetworkId networkId(objId);
+		NetworkId networkId(static_cast<NetworkId::NetworkIdType>(objId));
 		if (!networkId.isValid())
 		{
 			IGNORE_RETURN(snprintf(buffer, sizeof(buffer) - 1, "%s: invalid or non-convertable network id [%s].", errorDescription, networkId.getValueString().c_str()));
@@ -6487,7 +6496,7 @@ ShipObject *JavaLibrary::getShipThrow(JNIEnv *env, jlong objId, char const *erro
 	}
 	else
 	{
-		NetworkId networkId(objId);
+		NetworkId networkId(static_cast<NetworkId::NetworkIdType>(objId));
 		if (!networkId.isValid())
 		{
 			IGNORE_RETURN(snprintf(buffer, sizeof(buffer) - 1, "%s: invalid or non-convertable network id [%s].", errorDescription, networkId.getValueString().c_str()));

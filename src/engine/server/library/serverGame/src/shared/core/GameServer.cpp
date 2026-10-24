@@ -4193,7 +4193,7 @@ void GameServer::run(void)
 		startTime = curTime;
 
 		getInstance().checkIdleClients(Clock::frameTime());
-		if (!getInstance().m_gameServerReadyDatabaseConnected && getInstance().m_connectionTimeout!=0 && (curTime > getInstance().m_connectionTimeout))
+		if (!getInstance().m_gameServerReadyDatabaseConnected && getInstance().m_connectionTimeout!=0 && (static_cast<uint32>(curTime) > getInstance().m_connectionTimeout))
 			FATAL(true,("Failed to resolve connections to all the other game servers within %i seconds",ConfigServerGame::getConnectToAllGameServersTimeout()));
 
 		PROFILER_BLOCK_LEAVE(profileBlockMainLoop);

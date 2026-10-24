@@ -61,7 +61,7 @@ add_executable(
   StationChatApp.cpp
   StationChatApp.hpp
   StationChatConfig.hpp)
-  
+
 # cmake-format: off
 target_link_libraries(stationchat
     stationapi

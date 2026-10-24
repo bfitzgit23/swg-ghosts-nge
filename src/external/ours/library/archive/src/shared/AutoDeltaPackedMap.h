@@ -216,6 +216,21 @@ namespace Archive
 		internal_unpack(source, buffer, "%i %u:");
 	}
 
+	// 64-bit port: uint32 is `unsigned int` on LP64, so the (int, uint32) map
+	// needs its own string pack/unpack specialisation - it used to be covered
+	// by the (int, unsigned long) specialisation above.
+	template<>
+	inline void AutoDeltaPackedMap<int, unsigned int>::pack(ByteStream & target, const std::string & buffer)
+	{
+		internal_pack(target, buffer, "%i %u");
+	}
+
+	template<>
+	inline void AutoDeltaPackedMap<int, unsigned int>::unpack(ReadIterator & source, std::string & buffer)
+	{
+		internal_unpack(source, buffer, "%i %u:");
+	}
+
 #ifdef WIN32
 	template<>
 	inline void AutoDeltaPackedMap<unsigned long, unsigned __int64>::pack(ByteStream & target, const std::string & buffer)

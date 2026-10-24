@@ -27,6 +27,24 @@ public class npe_station_han_solo2 extends script.base_script
     }
     public boolean npe_station_han_solo2_condition_ClassQuestActive(obj_id player, obj_id npc) throws InterruptedException
     {
+        // groundquests.hasCompletedTask() looks the quest and task ids up first.
+        // When either is missing the engine throws "TaskId -1, outside legal
+        // range", and because this condition runs inside OnStartNpcConversation
+        // that exception aborts the handler before any branch starts, leaving
+        // Han Solo silent.  An unknown quest or task simply means the player is
+        // not on this step.
+        int questId = groundquests.getQuestIdFromString("npe_smuggler_try");
+        if (questId == 0)
+        {
+            LOG("npe_convo", "ClassQuestActive: quest npe_smuggler_try is not registered on this server (id 0)");
+            return false;
+        }
+        int taskId = groundquests.getTaskId(questId, "talktojake");
+        if (taskId < 0)
+        {
+            LOG("npe_convo", "ClassQuestActive: quest npe_smuggler_try has no task talktojake (id " + questId + ")");
+            return false;
+        }
         return groundquests.hasCompletedTask(player, "npe_smuggler_try", "talktojake");
     }
     public boolean npe_station_han_solo2_condition_isTraining(obj_id player, obj_id npc) throws InterruptedException
@@ -222,8 +240,21 @@ public class npe_station_han_solo2 extends script.base_script
         string_id stfTitle = new string_id("npe", "exit_station");
         String prompt = utils.packStringId(stfPrompt);
         String title = utils.packStringId(stfTitle);
-        int pid = sui.msgbox(player, player, prompt, sui.OK_CANCEL, title, 0, "handTransfer");
+        // the callback is dispatched to the object that owns the box; the player
+        // has no handTransfer() handler, the conversation script does
+        int pid = sui.msgbox(npc, player, prompt, sui.OK_CANCEL, title, 0, "handTransfer");
         play2dNonLoopingSound(player, "sound/vo_han_solo_64c.snd");
+    }
+    public int handTransfer(obj_id self, dictionary params) throws InterruptedException
+    {
+        int btn = sui.getIntButtonPressed(params);
+        obj_id player = sui.getPlayerId(params);
+        if (btn == sui.BP_OK)
+        {
+            LOG("npe_station_exit", "Han Solo exit confirmed for " + player);
+            npe.movePlayerFromSharedStationToFinishLocation(player);
+        }
+        return SCRIPT_CONTINUE;
     }
     public void npe_station_han_solo2_action_signalMQCompleteNoInaldra(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -2456,6 +2487,7 @@ public class npe_station_han_solo2 extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
+        LOG("npe_convo", "npe_station_han_solo2 attached to " + self + " at " + getLocation(self) + " cell " + getContainedBy(self));
         setCondition(self, CONDITION_CONVERSABLE);
         setInvulnerable(self, true);
         setName(self, "Han Solo");
@@ -2464,6 +2496,7 @@ public class npe_station_han_solo2 extends script.base_script
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info menuInfo) throws InterruptedException
     {
+        LOG("npe_convo", "npe_station_han_solo2 menu request: npc " + self + " player " + player);
         int menu = menuInfo.addRootMenu(menu_info_types.CONVERSE_START, null);
         menu_info_data menuInfoData = menuInfo.getMenuItemById(menu);
         menuInfoData.setServerNotify(false);
@@ -2485,8 +2518,11 @@ public class npe_station_han_solo2 extends script.base_script
     public int OnStartNpcConversation(obj_id self, obj_id player) throws InterruptedException
     {
         obj_id npc = self;
+        LOG("npe_convo", "npe_station_han_solo2 conversation start: npc " + npc + " player " + player + " npcInCombat " + ai_lib.isInCombat(npc) + " playerInCombat " + ai_lib.isInCombat(player) + " conversable " + hasCondition(npc, CONDITION_CONVERSABLE));
+        setCondition(npc, CONDITION_CONVERSABLE);
         if (ai_lib.isInCombat(npc) || ai_lib.isInCombat(player))
         {
+            LOG("npe_convo", "npe_station_han_solo2 conversation blocked: in combat (npc " + npc + ", player " + player + ")");
             return SCRIPT_OVERRIDE;
         }
         if (npe_station_han_solo2_condition_finishedInaldraQuest(player, npc))

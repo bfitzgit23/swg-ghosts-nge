@@ -15,11 +15,11 @@ public class crafting_station_incubator extends script.systems.crafting.item.cra
     };
     public static final String[] ASSEMBLY_SKILL_MODS = 
     {
-        "medicine_assembly"
+        "structure_assembly"
     };
     public static final String[] EXPERIMENT_SKILL_MODS = 
     {
-        "medicine_experimentation"
+        "structure_experimentation"
     };
     public static final resource_weight[] OBJ_ASSEMBLY_ATTRIBUTE_RESOURCES = 
     {

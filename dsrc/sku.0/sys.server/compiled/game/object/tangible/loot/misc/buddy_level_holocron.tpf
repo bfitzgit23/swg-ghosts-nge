@@ -19,4 +19,4 @@
 @class object_template 2
 sharedTemplate = "object/tangible/loot/misc/shared_buddy_level_holocron.iff"
 
-scripts =+ ["systems.jedi.jedi_holocron"]
+scripts =+ ["systems.jedi.jedi_holocron", "systems.skills.auto_level"]

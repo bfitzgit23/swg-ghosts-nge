@@ -196,8 +196,13 @@ void ExitChain::run(void)
 		// remove the first entry off the ExitChain
 		PerThreadData::setExitChainFirstEntry(entry->next);
 
-		// call the function if it's critical or we're not fataling
-		if (entry->critical || !isFataling())
+		// On a fatal, deliberately do NOT run any cleanup entry.  A fatal normally
+		// fires before or while the managers are initialised, so calling their remove
+		// functions on half-built state frees a bogus pointer: every abnormal server
+		// shutdown then died inside free() and, with an embedded JVM, left an
+		// hs_err_pid*.log crash dump behind.  Just drain the chain here; Fatal()
+		// terminates the process immediately after this returns.
+		if (!isFataling())
 		{
 			DEBUG_REPORT_LOG_PRINT(ms_debugLogFlag, ("ExitChain::run >> %s\n", entry->name));
 			DEBUG_OUTPUT_CHANNEL("Foundation\\Exitchain", ("ExitChain::run >> %s\n", entry->name));

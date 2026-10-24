@@ -305,8 +305,13 @@ ObjvarBuffer::updateObjvars(const NetworkId &objectId, const std::vector <Dynami
                         // else it was a packed objvar, and no update is necessary
                     }
 
-                    row->second.m_type = i->value.getType();
-                    row->second.m_detached = true; //why the fuck even store it at this point?
+                    // 64-bit port: never write through end() - a packed objvar
+                    // that is not in m_data leaves row == end() and the writes
+                    // below corrupt the map's heap (double free on teardown).
+                    if (row != m_data.end()) {
+                        row->second.m_type = i->value.getType();
+                        row->second.m_detached = true; //why the fuck even store it at this point?
+                    }
                 }
 
                 break;

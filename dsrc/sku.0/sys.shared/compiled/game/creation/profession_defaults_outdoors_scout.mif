@@ -26,15 +26,6 @@ form "PRFI"
 		}
 		form "PTMP"
 		{
-			PLAYER_TEMPLATE_NAME(duros_male)
-			EQ(0, "object/tangible/wearables/vest/shared_vest_hutt_gang_s01.iff", "")
-			EQ(0, "object/tangible/wearables/bracelet/shared_primitive_bracelet.iff", "")
-			EQ(0, "object/tangible/wearables/pants/shared_pants_s04.iff", "")
-			EQ(0, "object/tangible/wearables/belt/shared_npe_belt_03.iff", "")
-			EQ(0, "object/tangible/wearables/boots/shared_boots_s05.iff", "")
-		}
-		form "PTMP"
-		{
 			PLAYER_TEMPLATE_NAME(human_female)
 			EQ(0, "object/tangible/wearables/vest/shared_vest_s04.iff", "")
 			EQ(0, "object/tangible/wearables/bustier/shared_bustier_s02.iff", "")
@@ -212,28 +203,6 @@ form "PRFI"
 		form "PTMP"
 		{
 			PLAYER_TEMPLATE_NAME(sullustan_female)
-			EQ(0, "object/tangible/wearables/vest/shared_vest_s04.iff", "")
-			EQ(0, "object/tangible/wearables/bustier/shared_bustier_s02.iff", "")
-			EQ(0, "object/tangible/wearables/pants/shared_pants_s13.iff", "")
-			EQ(0, "object/tangible/wearables/gloves/shared_gloves_s06.iff", "")
-			EQ(0, "object/tangible/wearables/bracelet/shared_bracelet_s05_l.iff", "")
-			EQ(0, "object/tangible/wearables/bracelet/shared_bracelet_s05_r.iff", "")
-			EQ(0, "object/tangible/wearables/boots/shared_boots_s04.iff", "")
-			EQ(0, "object/tangible/wearables/belt/shared_npe_belt_02.iff", "")
-			EQ(0, "object/tangible/wearables/necklace/shared_necklace_primitive_03.iff", "")
-		}
-		form "PTMP"
-		{
-			PLAYER_TEMPLATE_NAME(chiss_male)
-			EQ(0, "object/tangible/wearables/vest/shared_vest_hutt_gang_s01.iff", "")
-			EQ(0, "object/tangible/wearables/bracelet/shared_primitive_bracelet.iff", "")
-			EQ(0, "object/tangible/wearables/pants/shared_pants_s04.iff", "")
-			EQ(0, "object/tangible/wearables/belt/shared_npe_belt_03.iff", "")
-			EQ(0, "object/tangible/wearables/boots/shared_boots_s05.iff", "")
-		}
-		form "PTMP"
-		{
-			PLAYER_TEMPLATE_NAME(chiss_female)
 			EQ(0, "object/tangible/wearables/vest/shared_vest_s04.iff", "")
 			EQ(0, "object/tangible/wearables/bustier/shared_bustier_s02.iff", "")
 			EQ(0, "object/tangible/wearables/pants/shared_pants_s13.iff", "")

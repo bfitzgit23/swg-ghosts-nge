@@ -182,18 +182,18 @@ PathSearchNode * PathSearchNode::createSearchNode( PathNode const * node )
 
 	PathSearchNode * oldNode = nullptr;
 
-	int mark = node->getMark(3);
+	intptr_t mark = node->getMark(3);
 
 	if(mark != -1)
 	{
-		oldNode = (PathSearchNode*)((void*)mark);
+		oldNode = reinterpret_cast<PathSearchNode*>(mark);
 	}
 
 	delete oldNode;
 
 	PathSearchNode * searchNode = new PathSearchNode(m_search,m_graph,node);
 
-	node->setMark( 3, (int)((void*)searchNode) );
+	node->setMark( 3, reinterpret_cast<intptr_t>(searchNode) );
 
 	m_search->m_visitedNodes->push_back(node);
 
@@ -208,11 +208,11 @@ PathSearchNode * PathSearchNode::getSearchNode( PathNode const * node )
 
 	PathSearchNode * searchNode = nullptr;
 
-	int mark = node->getMark(3);
+	intptr_t mark = node->getMark(3);
 
 	if(mark != -1)
 	{
-		searchNode = (PathSearchNode*)((void*)mark);
+		searchNode = reinterpret_cast<PathSearchNode*>(mark);
 	}
 
 	if(searchNode == nullptr)
@@ -493,11 +493,11 @@ void PathSearch::cleanup ( void )
 	{
 		PathNode const * visitedNode = m_visitedNodes->at(i);
 
-		int mark = visitedNode->getMark(3);
+		intptr_t mark = visitedNode->getMark(3);
 
 		if(mark != -1)
 		{
-			PathSearchNode * searchNode = (PathSearchNode*)((void*)mark);
+			PathSearchNode * searchNode = reinterpret_cast<PathSearchNode*>(mark);
 
 			delete searchNode;
 		}

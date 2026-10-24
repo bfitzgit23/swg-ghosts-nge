@@ -26,15 +26,6 @@ form "PRFI"
 		}
 		form "PTMP"
 		{
-			PLAYER_TEMPLATE_NAME(duros_male)
-			EQ(0, "object/tangible/wearables/shirt/shared_shirt_s42.iff", "")
-			EQ(0, "object/tangible/wearables/jacket/shared_jacket_s24.iff", "")
-			EQ(0, "object/tangible/wearables/gloves/shared_gloves_s06.iff", "")
-			EQ(0, "object/tangible/wearables/pants/shared_pants_s04.iff", "")
-			EQ(0, "object/tangible/wearables/boots/shared_boots_s22.iff", "")
-		}
-		form "PTMP"
-		{
 			PLAYER_TEMPLATE_NAME(human_female)
 			EQ(0, "object/tangible/wearables/shirt/shared_shirt_s24.iff", "")
 			EQ(0, "object/tangible/wearables/jacket/shared_jacket_s24.iff", "")
@@ -188,24 +179,6 @@ form "PRFI"
 		form "PTMP"
 		{
 			PLAYER_TEMPLATE_NAME(sullustan_female)
-			EQ(0, "object/tangible/wearables/shirt/shared_shirt_s24.iff", "")
-			EQ(0, "object/tangible/wearables/jacket/shared_jacket_s24.iff", "")
-			EQ(0, "object/tangible/wearables/pants/shared_pants_s25.iff", "")
-			EQ(0, "object/tangible/wearables/boots/shared_boots_s05.iff", "")
-			EQ(0, "object/tangible/wearables/necklace/shared_necklace_primitive_01.iff", "")
-		}
-		form "PTMP"
-		{
-			PLAYER_TEMPLATE_NAME(chiss_male)
-			EQ(0, "object/tangible/wearables/shirt/shared_shirt_s42.iff", "")
-			EQ(0, "object/tangible/wearables/jacket/shared_jacket_s24.iff", "")
-			EQ(0, "object/tangible/wearables/gloves/shared_gloves_s06.iff", "")
-			EQ(0, "object/tangible/wearables/pants/shared_pants_s04.iff", "")
-			EQ(0, "object/tangible/wearables/boots/shared_boots_s22.iff", "")
-		}
-		form "PTMP"
-		{
-			PLAYER_TEMPLATE_NAME(chiss_female)
 			EQ(0, "object/tangible/wearables/shirt/shared_shirt_s24.iff", "")
 			EQ(0, "object/tangible/wearables/jacket/shared_jacket_s24.iff", "")
 			EQ(0, "object/tangible/wearables/pants/shared_pants_s25.iff", "")

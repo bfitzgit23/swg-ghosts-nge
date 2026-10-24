@@ -333,6 +333,7 @@ void ConfigServerGame::install(void)
 	KEY_FLOAT   (buddyPointTimeBonus, 30.0f/4.0f); // 4 buddy points = 30 days
 
 	KEY_FLOAT   (manufactureTimeOverride, 0.0f);
+	KEY_FLOAT   (manufactureTimeMultiplier, 1.0f);
 
 	KEY_INT     (theaterCreationLimitMilliseconds, 25);
 	KEY_BOOL    (fatalOnGoldPobChange, false);

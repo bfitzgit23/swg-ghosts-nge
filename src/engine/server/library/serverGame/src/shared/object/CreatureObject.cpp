@@ -12939,6 +12939,18 @@ void CreatureObject::handleTutorialTransition()
 				(startTutorial && isFromLogin)
 			)
 		{
+			// A character only belongs in the tutorial while it is on a tutorial
+			// planet or inside a free-trial buildout. If it is already out on a
+			// normal planet with a phase <= 2 left over (for example after an
+			// admin teleport), dragging it back on every restart is wrong: drop
+			// the stale phase and let it stay where it is.
+			if (!NewbieTutorial::isInTutorialArea(this))
+			{
+				LOG("npe", ("Dropping stale tutorial phase for object %s on %s at %f %f %f instead of warping it back\n", getNetworkId().getValueString().c_str(), ServerWorld::getSceneId().c_str(), getPosition_w().x, getPosition_w().y, getPosition_w().z));
+				removeObjVarItem("npe.phase_number");
+				return;
+			}
+
 			// if the creature object is coming from login, and they should start the tutorial
 			// or if the player is on a free trial account, but is on a non-free trial planet or location (NOT GOOD!)
 			// warp them to the tutorial planet

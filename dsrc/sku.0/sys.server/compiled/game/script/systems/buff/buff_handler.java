@@ -519,25 +519,24 @@ public class buff_handler extends script.base_script
         stopClientEffectObjByLabel(self, effectName);
         return SCRIPT_CONTINUE;
     }
-//    public int forcePowerAddBuffHandler(obj_id self, String effectName, String subtype, float duration, float value, String buffName, obj_id caster) throws InterruptedException
-//    {
-//        addSkillModModifier(self, effectName, subtype, (int)value, duration, false, false);
-//        messageTo(self, "handleRecalculateForce", null, 0.1f, false);
-//        return SCRIPT_CONTINUE;
-//    }
-//    public int forcePowerRemoveBuffHandler(obj_id self, String effectName, String subtype, float duration, float value, String buffName, obj_id caster) throws InterruptedException
-//    {
-//        if (hasSkillModModifier(self, effectName))
-//        {
-//            removeAttribOrSkillModModifier(self, effectName);
-//        }
-//        effectName = effectName.substring(0, (effectName.lastIndexOf("_")));
-//        combat.removeCombatBuffEffect(self, effectName);
-//        stopClientEffectObjByLabel(self, effectName);
-//        jedi.recalculateForcePower(self);
-//        return SCRIPT_CONTINUE;
-//    }
-    //testing to see if this fixes jedi attribute issues
+    public int forcePowerAddBuffHandler(obj_id self, String effectName, String subtype, float duration, float value, String buffName, obj_id caster) throws InterruptedException
+    {
+        addSkillModModifier(self, effectName, subtype, (int)value, duration, false, false);
+        messageTo(self, "handleRecalculateForce", null, 0.1f, false);
+        return SCRIPT_CONTINUE;
+    }
+    public int forcePowerRemoveBuffHandler(obj_id self, String effectName, String subtype, float duration, float value, String buffName, obj_id caster) throws InterruptedException
+    {
+        if (hasSkillModModifier(self, effectName))
+        {
+            removeAttribOrSkillModModifier(self, effectName);
+        }
+        effectName = effectName.substring(0, (effectName.lastIndexOf("_")));
+        combat.removeCombatBuffEffect(self, effectName);
+        stopClientEffectObjByLabel(self, effectName);
+        jedi.recalculateForcePower(self);
+        return SCRIPT_CONTINUE;
+    }
     public int saberInterceptAddBuffHandler(obj_id self, String effectName, String subtype, float duration, float value, String buffName, obj_id caster) throws InterruptedException
     {
         utils.setScriptVar(self, combat.DAMAGE_REDIRECT, caster);
@@ -1245,7 +1244,7 @@ public class buff_handler extends script.base_script
                 buff.applyBuff(self, self, "co_pos_sec_critical_4");
             }
             int posSecuredBoO = (int)getSkillStatisticModifier(self, "expertise_co_pos_secured_line_armor");
-            if (posSecuredBoO == 0)
+            if (posSecuredBoO == 1000)
             {
                 buff.applyBuff(self, self, "co_base_of_operations");
             }
@@ -1758,7 +1757,7 @@ public class buff_handler extends script.base_script
             CustomerServiceLog("SuspectedCheaterChannel: ", "Storing improvDance: " + improvDance);
 
         }
-        int actualPointsToSpend = 20;
+        int actualPointsToSpend = 8;
         if (isIdValid(bufferId) && exists(bufferId))
         {
             actualPointsToSpend += getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_base_point_increase");
@@ -1803,159 +1802,61 @@ public class buff_handler extends script.base_script
                 {
                     buffValue = (buffValue * 0.2f);
                 }
-                switch (category) {
-                    case "attributes":
-                    case "resistances":
-                    case "combat":
-                        switch (category) {
-                            case "attributes":
-                                float attribModifier = 0.0f;
-                                if (isIdValid(bufferId) && exists(bufferId)) {
-                                    attribModifier = (float) (getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_attrib_increase") / 100.0f);
-                                }
-                                if (internalDecay == true) {
-                                    if (utils.hasScriptVar(self, "decayAttribMod")) {
-                                        attribModifier = utils.getFloatScriptVar(self, "decayAttribMod");
 
-                                        CustomerServiceLog("SuspectedCheaterChannel: ", "Using stored attribMod: " + attribModifier);
-
-                                    }
-                                } else {
-
-                                    CustomerServiceLog("SuspectedCheaterChannel: ", "Storing attribMod: " + attribModifier);
-
-                                    utils.setScriptVar(self, "decayAttribMod", attribModifier);
-                                }
-                                buffValue *= 1.0f + attribModifier;
-                                break;
-                            case "resistances":
-                                float resistModifier = 0.0f;
-                                if (isIdValid(bufferId) && exists(bufferId)) {
-                                    resistModifier = (float) (getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_resist_increase") / 100.0f);
-                                }
-                                if (internalDecay == true) {
-                                    if (utils.hasScriptVar(self, "decayResistMod")) {
-                                        resistModifier = utils.getFloatScriptVar(self, "decayResistMod");
-                                    }
-                                } else {
-                                    utils.setScriptVar(self, "decayResistMod", resistModifier);
-                                }
-                                buffValue *= 1.0f + resistModifier;
-                                break;
-                            case "combat":
-                                float combatModifier = 0.0f;
-                                if (isIdValid(bufferId) && exists(bufferId)) {
-                                    combatModifier = getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_combat_buff_increase");
-                                }
-                                if (internalDecay == true) {
-                                    if (utils.hasScriptVar(self, "decayCombatMod")) {
-                                        combatModifier = utils.getFloatScriptVar(self, "decayCombatMod");
-                                    }
-                                } else {
-                                    utils.setScriptVar(self, "decayCombatMod", combatModifier);
-                                }
-                                buffValue += combatModifier;
-                                break;
-                        }
-
-
-                    {
-                        CustomerServiceLog("SuspectedCheaterChannel: ", "Adding Stat Modifier: " + "buildabuff_" + effect + " Value = " + buffValue + " Duration = " + duration);
-                    }
-
-                    addSkillModModifier(self, "buildabuff_" + effect, effect, (int) buffValue, duration, false, true);
-                    if ((effect.startsWith("constitution")) || (effect.startsWith("stamina"))) {
-                        messageTo(self, "recalcPools", null, 0.25f, false);
-                    } else if (effect.startsWith("expertise_innate_protection_") || effect.equals("elemental_resistance")) //ensure recalc for new elemental_resistance Modifier
-					{
-                        messageTo(self, "recalcArmor", null, 0.25f, false);
-                    }
-                    break;
-                    case "trade":
-                        float tradeModifier = 0.0f;
-                        if (isIdValid(bufferId) && exists(bufferId)) {
-                            tradeModifier = (float) (getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_trader_increase") / 100.0f);
-                        }
-                        if (internalDecay == true) {
-                            if (utils.hasScriptVar(self, "decayTradeMod")) {
-                                tradeModifier = utils.getFloatScriptVar(self, "decayTradeMod");
-                            }
-                        } else {
-                            utils.setScriptVar(self, "decayTradeMod", tradeModifier);
-                        }
-                        buffValue *= 1.0f + tradeModifier;
-                        String[] xpArray =
-                                {
-                                        "crafting",
-                                        "combat_general",
-                                        "entertainer",
-                                        "space_combat_general"
-                                };
-                        utils.setScriptVar(self, "buff.xpBonus.types", xpArray);
-                        utils.setScriptVar(self, "buff.xpBonus.value", buffValue / 100);
-
-
-                    {
-                        CustomerServiceLog("SuspectedCheaterChannel: ", "Adding Stat Modifier: " + "buildabuff_" + effect + " Value = " + buffValue + " Duration = " + duration);
-                    }
-
-                    addSkillModModifier(self, "buildabuff_" + effect, effect, (int) buffValue, duration, false, true);
-                    break;
-                    case "misc":
-                        switch (effect) {
-                            case "movement_speed":
-                                if (value == 0) {
-                                    value = 1;
-                                }
-                                if (movement.hasMovementModifier(self, "buildabuff_movement_speed")) {
-                                    movement.removeMovementModifier(self, "buildabuff_movement_speed", false);
-                                }
-                                movement.applyMovementModifier(self, "buildabuff_movement_speed", buffValue);
-                                break;
-                            case "reactive_second_chance":
-                                int playerLevel = getLevel(self);
-                                float reactiveModifier = 0.0f;
-                                if (isIdValid(bufferId) && exists(bufferId)) {
-                                    reactiveModifier = getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_proc_chance_increase");
-                                }
-                                if (internalDecay == true) {
-                                    if (utils.hasScriptVar(self, "decayReactiveMod")) {
-                                        reactiveModifier = utils.getFloatScriptVar(self, "decayReactiveMod");
-                                    }
-                                } else {
-                                    utils.setScriptVar(self, "decayReactiveMod", reactiveModifier);
-                                }
-                                buffValue += reactiveModifier;
-                                if (playerLevel > 69) {
-                                    addSkillModModifier(self, "expertise_buildabuff_heal_3_reac", "expertise_buildabuff_heal_3_reac", (int) buffValue, duration, false, true);
-                                } else if (playerLevel > 39 && playerLevel < 70) {
-                                    addSkillModModifier(self, "expertise_buildabuff_heal_2_reac", "expertise_buildabuff_heal_2_reac", (int) buffValue, duration, false, true);
-                                } else {
-                                    addSkillModModifier(self, "expertise_buildabuff_heal_1_reac", "expertise_buildabuff_heal_1_reac", (int) buffValue, duration, false, true);
-                                }
-                                messageTo(self, "cacheExpertiseProcReacList", null, 2, false);
-                                break;
-                            case "flush_with_success":
-                                String[] xpa =
-                                        {
-                                                "crafting",
-                                                "combat_general",
-                                                "entertainer",
-                                                "space_combat_general",
-                                                "chronicles"
-                                        };
-                                utils.setScriptVar(self, "buff.xpBonus.types", xpa);
-                                utils.setScriptVar(self, "buff.xpBonus.value", buffValue / 100.0f);
-                                break;
-                            default: {
-                                CustomerServiceLog("SuspectedCheaterChannel: ", "Adding Stat Modifier: " + "buildabuff_" + effect + " Value = " + buffValue + " Duration = " + duration);
-                            }
-
-                            addSkillModModifier(self, "buildabuff_" + effect, effect, (int) buffValue, duration, false, true);
-                            break;
-                        }
-                        break;
+                String[] effectPackage = buff_builder_effect_map.getEffectList(effect);
+                
+                if (effectPackage == null || effectPackage.length == 0)
+                {
+                    effectPackage = new String[1];
+                    effectPackage[0] = effect;
                 }
+
+
+                for (String e : effectPackage)
+                {
+
+                    switch (category)
+                    {
+                        case "attributes":
+                            ApplyBuildaBuffAttributeBuff(self,
+                                    bufferId,
+                                    internalDecay, 
+                                    e, 
+                                    buffValue,
+                                    duration);
+                           break;
+
+                        case "resistances":
+                            ApplyBuildaBuffResistanceBuff(self, 
+                                    bufferId, internalDecay, e,
+                                    buffValue, duration);
+                            break;
+
+                        case "combat":
+                            ApplyBuildaBuffCombatBuff(self, bufferId, internalDecay, e, 
+		                        buffValue, duration);
+                            break;
+
+                        case "trade":
+                            ApplyBuildaBuffTradeBuff(self, bufferId,
+                                    internalDecay, e, 
+                                    buffValue,
+                                    duration);
+                            break;
+
+
+                        case "misc":
+                            ApplyBuildaBuffMiscBuff(self, bufferId,
+                                        internalDecay, e, 
+                                        value,
+	                                    buffValue,
+	                                    duration); 
+                            break;
+
+             
+                    }
+                }
+
             }
             if (!buff.hasBuff(self, "col_ent_invis_buff_tracker"))
             {
@@ -1974,6 +1875,269 @@ public class buff_handler extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
+
+
+    public void ApplyBuildaBuffAttributeBuff(obj_id self,
+        obj_id bufferId,
+        boolean internalDecay, String effect, 
+        float buffValue, float duration) throws InterruptedException
+    {
+    
+        float attribModifier = 0.0f;
+
+        if (isIdValid(bufferId) && exists(bufferId))
+        {
+            attribModifier = (float) (getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_attrib_increase") / 100.0f);
+        }
+
+        if (internalDecay == true)
+        {
+
+            if (utils.hasScriptVar(self, "decayAttribMod"))
+            {
+                attribModifier = utils.getFloatScriptVar(self, "decayAttribMod");
+                CustomerServiceLog("SuspectedCheaterChannel: ", "Using stored attribMod: " + attribModifier);
+            }
+
+        }
+        else
+        {
+            CustomerServiceLog("SuspectedCheaterChannel: ", "Storing attribMod: " + attribModifier);
+            utils.setScriptVar(self, "decayAttribMod", attribModifier);
+        }
+
+
+        buffValue *= 1.0f + attribModifier;        
+        
+        addSkillModModifier(self, "buildabuff_" + effect, effect, (int) buffValue, duration, false, true);        
+        CheckForBuildABuffCombatRecalc(self, effect);
+
+    }
+
+	public void ApplyBuildaBuffResistanceBuff(obj_id self, 
+        obj_id bufferId, boolean internalDecay, String effect,
+        float buffValue, float duration) throws InterruptedException
+	{
+		
+        float resistModifier = 0.0f;
+
+        if (isIdValid(bufferId) && exists(bufferId))
+        {
+        	resistModifier = (float) (getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_resist_increase") / 100.0f);
+        }
+
+        if (internalDecay == true)
+        {
+          if (utils.hasScriptVar(self, "decayResistMod")) {
+
+              resistModifier = utils.getFloatScriptVar(self, "decayResistMod");
+          }
+        }
+        else
+        {
+            utils.setScriptVar(self, "decayResistMod", resistModifier);
+        }
+
+        buffValue *= 1.0f + resistModifier;	
+        
+		addSkillModModifier(self, "buildabuff_" + effect, effect, (int) buffValue, duration, false, true);        
+		CheckForBuildABuffCombatRecalc(self, effect);
+	}
+
+	public void ApplyBuildaBuffCombatBuff(obj_id self, obj_id bufferId, boolean internalDecay, String effect, 
+		float buffValue, float duration) throws InterruptedException
+	{
+	    float combatModifier = 0.0f;
+
+	    if (isIdValid(bufferId) && exists(bufferId)) {
+
+	        combatModifier = getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_combat_buff_increase");
+
+	    }
+
+	    if (internalDecay == true) {
+
+	        if (utils.hasScriptVar(self, "decayCombatMod"))
+	        {
+	        	combatModifier = utils.getFloatScriptVar(self, "decayCombatMod");
+	        }
+
+	    }
+	    else
+	    {
+	        utils.setScriptVar(self, "decayCombatMod", combatModifier);
+	    }
+
+	    buffValue += combatModifier;			
+			addSkillModModifier(self, "buildabuff_" + effect, effect, (int) buffValue, duration, false, true);        
+			CheckForBuildABuffCombatRecalc(self, effect);		    
+	}
+
+	public void ApplyBuildaBuffTradeBuff(obj_id self, obj_id bufferId,
+        boolean internalDecay, String effect, 
+        float buffValue,
+        float duration) throws InterruptedException
+	{
+        float tradeModifier = 0.0f;
+
+        if (isIdValid(bufferId) && exists(bufferId)) {
+
+          tradeModifier = (float) (getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_trader_increase") / 100.0f);
+        }
+
+        if (internalDecay == true)
+        {
+
+          if (utils.hasScriptVar(self, "decayTradeMod")) {
+
+              tradeModifier = utils.getFloatScriptVar(self, "decayTradeMod");
+
+          }
+        }
+        else
+        {
+            utils.setScriptVar(self, "decayTradeMod", tradeModifier);
+        }
+
+        buffValue *= 1.0f + tradeModifier;
+
+        ApplyBuildaBuffXpBuff(self, buffValue);          
+        addSkillModModifier(self, "buildabuff_" + effect, effect, (int) buffValue, duration, false, true);          
+	}
+
+    public void ApplyBuildaBuffMiscBuff(obj_id self, obj_id bufferId,
+            boolean internalDecay, String effect, 
+            float value,
+	        float buffValue,
+	        float duration) throws InterruptedException
+    {
+        switch (effect)
+        {
+
+          case "movement_speed":
+
+              if (value == 0)
+              {
+                  value = 1;
+              }
+
+              if (movement.hasMovementModifier(self, "buildabuff_movement_speed"))
+              {
+
+                  movement.removeMovementModifier(self, "buildabuff_movement_speed", false);
+              }
+
+              movement.applyMovementModifier(self, "buildabuff_movement_speed", buffValue);
+
+              break;
+
+          case "reactive_second_chance":
+
+              int playerLevel = getLevel(self);
+
+              float reactiveModifier = 0.0f;
+
+              if (isIdValid(bufferId) && exists(bufferId))
+              {
+                  reactiveModifier = getEnhancedSkillStatisticModifierUncapped(bufferId, "expertise_en_inspire_proc_chance_increase");
+              }
+
+              if (internalDecay == true)
+              {
+
+                  if (utils.hasScriptVar(self, "decayReactiveMod"))
+                  {
+                  	reactiveModifier = utils.getFloatScriptVar(self, "decayReactiveMod");
+                  }
+
+              } 
+              else
+              {
+              	utils.setScriptVar(self, "decayReactiveMod", reactiveModifier);
+              }
+
+              buffValue += reactiveModifier;
+
+              if (playerLevel > 69)
+              {
+              	addSkillModModifier(self, "expertise_buildabuff_heal_3_reac", "expertise_buildabuff_heal_3_reac", (int) buffValue, duration, false, true);
+              } 
+              else if (playerLevel > 39 && playerLevel < 70)
+              {
+                  addSkillModModifier(self, "expertise_buildabuff_heal_2_reac", "expertise_buildabuff_heal_2_reac", (int) buffValue, duration, false, true);
+
+              }
+              else
+              {
+              	addSkillModModifier(self, "expertise_buildabuff_heal_1_reac", "expertise_buildabuff_heal_1_reac", (int) buffValue, duration, false, true);
+              }
+
+              messageTo(self, "cacheExpertiseProcReacList", null, 2, false);
+
+              break;
+
+          case "flush_with_success":
+
+                ApplyBuildaBuffXpBuff(self, buffValue);        
+
+              break;
+
+          default:          		
+            CustomerServiceLog("SuspectedCheaterChannel: ", "Adding Stat Modifier: " + "buildabuff_" + effect + " Value = " + buffValue + " Duration = " + duration);          		
+          	break;
+          	
+        }
+
+        addSkillModModifier(self, "buildabuff_" + effect, effect, (int) buffValue, duration, false, true);			
+    }
+    
+    public void CheckForBuildABuffCombatRecalc(obj_id self, String effect)  throws InterruptedException
+	{
+	    if ((effect.startsWith("constitution")) || (effect.startsWith("stamina")))
+	    {
+ 		    messageTo(self, "recalcPools", null, 0.25f, false);
+        }
+        else if (effect.startsWith("expertise_innate_protection_") || effect.equals("elemental_resistance")) //ensure recalc for new elemental_resistance Modifier
+		{
+        	messageTo(self, "recalcArmor", null, 0.25f, false);
+        }
+	}
+
+	public void ApplyBuildaBuffXpBuff(obj_id self, float buffValue) throws InterruptedException
+	{
+        float bonusXpValue = buffValue / 100;
+
+        //add the bonus types if they do not exist
+
+        if (!hasObjVar(self, "buff.xpBonus.types"))
+        {
+            String[] xpArray =
+            {
+                  "crafting",
+                  "combat_general",
+                  "entertainer",
+                  "space_combat_general",
+                  "chronicles"
+            };
+	        
+		   utils.setScriptVar(self, "buff.xpBonus.types", xpArray);          	
+        }					
+
+        if (hasObjVar(self, "buff.xpBonus.value"))
+        {	        
+	        float currentBonus = getFloatObjVar(self, "buff.xpBonus.value");
+	        
+	        if (bonusXpValue > currentBonus)
+	        {
+		        utils.setScriptVar(self, "buff.xpBonus.value", bonusXpValue);          		
+	        }							
+        }
+        else
+        {					 	
+		    utils.setScriptVar(self, "buff.xpBonus.value", bonusXpValue);			 	
+        }          		
+	}
+
     public int buildabuffRemoveBuffHandler(obj_id self, String effectName, String subtype, float duration, float value, String buffName, obj_id caster) throws InterruptedException
     {
         String[] baseModList = dataTableGetStringColumn(DATATABLE_BUFF_BUILDER, "AFFECTS");
@@ -1982,6 +2146,19 @@ public class buff_handler extends script.base_script
                 removeAttribOrSkillModModifier(self, "buildabuff_" + s);
             }
         }
+
+        baseModList = buff_builder_effect_map.getEffects();
+
+        if (baseModList != null && baseModList.length > 0)
+        {
+
+            for (String s : baseModList) {
+                if (hasSkillModModifier(self, "buildabuff_" + s)) {
+                    removeAttribOrSkillModModifier(self, "buildabuff_" + s);
+                }
+            }
+        }
+
         if (hasSkillModModifier(self, "expertise_buildabuff_heal_1_reac"))
         {
             removeAttribOrSkillModModifier(self, "expertise_buildabuff_heal_1_reac");
@@ -2828,6 +3005,13 @@ public class buff_handler extends script.base_script
     }
     public void invisBuffAddBuffHandler(obj_id self, String effectName, String subtype, float duration, float value, String buffName, obj_id caster) throws InterruptedException
     {
+        int costumeBuff = buff.getBuffOnTargetFromGroup(self, "shapechange");
+        if (costumeBuff != 0)
+        {
+            buff.removeBuff(self, buffName);
+            sendSystemMessage(self, new string_id("spam", "costume_not_while_disguised"));
+            return;
+        }
         effectName = effectName.substring(0, (effectName.lastIndexOf("_")));
         stealth.invisBuffAdded(self, effectName);
         stopClientEffectObjByLabel(self, effectName);

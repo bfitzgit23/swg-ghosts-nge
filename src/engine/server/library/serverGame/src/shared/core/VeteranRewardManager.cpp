@@ -351,9 +351,9 @@ void VeteranRewardManager::getTriggeredEventsIds(CreatureObject const & playerCr
 		return;
 	}
 
-	if (client->isUsingAdminLogin())
-		return;
-
+	// Admin accounts are treated as normal players for veteran rewards on this
+	// cluster: the playing account is also the admin account.  (The per-event
+	// check in RewardEvent::hasPlayerTriggered() was removed for the same reason.)
 	// Get list of reward events that have already been consumed or are being ignored
 	std::vector<std::string> consumedEventsString;
 	getConsumedEvents(playerCreature,consumedEventsString);
@@ -1819,8 +1819,9 @@ bool RewardEvent::hasPlayerTriggered(CreatureObject const & playerCreature) cons
 	if (!client)
 		return false;
 
-	if (client->isUsingAdminLogin())
-		return false; // Admin logins don't trigger rewards
+	// Admin accounts are treated as normal players for veteran rewards on this
+	// cluster: the playing account is also the admin account, so suppressing the
+	// rewards here would make the veteran reward data unreachable in game.
 
 	if (ConfigServerGame::getVeteranDebugTriggerAll())
 		return true;

@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <dlfcn.h>
 #include <cstddef>
+#include <stdint.h>
 #include <map>
 #include <vector>
 
@@ -384,9 +385,9 @@ static bool dwarfSearch(char const *dwarfLines, unsigned int linesLength, void c
 
 				if (valid)
 				{
-					unsigned int addrOffset = 0;
-					if (progAddr < reinterpret_cast<unsigned int>(info.dli_fbase))
-						addrOffset = reinterpret_cast<unsigned int>(info.dli_fbase);
+					uintptr_t addrOffset = 0;
+					if (progAddr < reinterpret_cast<uintptr_t>(info.dli_fbase))
+						addrOffset = reinterpret_cast<uintptr_t>(info.dli_fbase);
 					const void *testAddr = reinterpret_cast<const void *>(progAddr+addrOffset);
 					if (testAddr >= addr)
 					{
@@ -509,12 +510,12 @@ static bool stabSearch(Stab const *stab, unsigned int stabSize, char const *stab
 			if (reinterpret_cast<void const *>(stab->n_value) > info.dli_fbase)
 				funcBase = reinterpret_cast<void const *>(stab->n_value);
 			else
-				funcBase = reinterpret_cast<void const *>(reinterpret_cast<unsigned int>(info.dli_fbase)+stab->n_value);
+				funcBase = reinterpret_cast<void const *>(reinterpret_cast<uintptr_t>(info.dli_fbase)+stab->n_value);
 			foundSrcLine = -1;
 		}
 		else if (stab->n_type == N_SLINE && addr >= funcBase) // source line
 		{
-			if (stab->n_value < reinterpret_cast<unsigned int>(addr)-reinterpret_cast<unsigned int>(funcBase))
+			if (stab->n_value < reinterpret_cast<uintptr_t>(addr)-reinterpret_cast<uintptr_t>(funcBase))
 				foundSrcLine = stab->n_desc;
 			else
 			{
@@ -667,7 +668,7 @@ void DebugHelp::remove()
 
 // ----------------------------------------------------------------------
 
-bool DebugHelp::lookupAddress(uint32 address, char *libName, char *fileName, int fileNameLength, int &line)
+bool DebugHelp::lookupAddress(uintptr_t address, char *libName, char *fileName, int fileNameLength, int &line)
 {
 	return lookupAddressInfo(reinterpret_cast<void const *>(address), libName, fileName, line, fileNameLength);
 }

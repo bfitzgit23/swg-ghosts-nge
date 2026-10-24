@@ -77,3 +77,7 @@ totalHealOther	0.125	0	0	0	0.002	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 stopBleeding	0.125	0	0	0	0.002	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 forceCurePoison	0.125	0	0	0	0.002	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 forceCureDisease	0.125	0	0	0	0.002	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+electricJudgmentSingle1	0.3125	3	6	-0.014	0	0	0	0	0	0	0	0.5	3.33	6.66	0	0	0	0	0	0	0	0
+electricJudgmentSingle2	1.25	5	10	-0.014	0	0	0	0	0	0	0	1.5	5.33	13.33	0	0	0	0	0	0	0	0
+electricJudgmentCone1	1	2.5	5	-0.014	0	0	0	0	0	0	0	1.25	2.66	5.33	0	0	0	0	0	0	0	0
+electricJudgmentCone2	1.875	4	8.33	-0.014	0	0	0	0	0	0	0	2.5	4	10.66	0	0	0	0	0	0	0	0

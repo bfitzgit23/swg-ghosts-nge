@@ -492,7 +492,9 @@ float ManufactureInstallationObject::getTimePerObject() const
 	if (ConfigServerGame::getManufactureTimeOverride() >= 1.0f)
 		return ConfigServerGame::getManufactureTimeOverride();
 
-	float baseTime = schematic->getManufactureTime() * schematic->getComplexity();
+	// Ghosts: [GameServer] manufactureTimeMultiplier scales production time for
+	// every schematic, including ones already loaded in an installation.
+	float baseTime = schematic->getManufactureTime() * schematic->getComplexity() * ConfigServerGame::getManufactureTimeMultiplier();
 	if (baseTime < 1.0f)
 	{
 		WARNING(true, ("ManufactureInstallationObject::getTimePerObject base time = %.2f sec for manf schematic %s, using 1 sec.",

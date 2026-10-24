@@ -386,6 +386,7 @@ class ConfigServerGame
 		bool		enableSceneGlobalData;
 
 		float           manufactureTimeOverride;
+		float           manufactureTimeMultiplier; // scales factory and crafting production time
 
 		// max time we allow for creating theater objects in a frame
 		int             theaterCreationLimitMilliseconds;
@@ -914,6 +915,7 @@ class ConfigServerGame
 	static bool             getEnableSceneGlobalData();
 
 	static float            getManufactureTimeOverride();
+	static float            getManufactureTimeMultiplier();
 
 	static int              getTheaterCreationLimitMilliseconds();
 
@@ -2824,6 +2826,16 @@ inline int ConfigServerGame::getMinEntitledTime()
 inline float ConfigServerGame::getManufactureTimeOverride()
 {
 	return data->manufactureTimeOverride;
+}
+
+// ----------------------------------------------------------------------
+
+inline float ConfigServerGame::getManufactureTimeMultiplier()
+{
+	// Guard against a zero/negative entry: the game clamps every production
+	// time to at least one second itself, so a bad value would stall nothing,
+	// but keeping the multiplier positive keeps the maths sane.
+	return (data->manufactureTimeMultiplier > 0.0f) ? data->manufactureTimeMultiplier : 1.0f;
 }
 
 // ----------------------------------------------------------------------

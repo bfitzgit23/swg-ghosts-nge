@@ -266,6 +266,40 @@ public class fs_quests extends script.base_script
         }
         return utils.checkBit(branches_unlocked, id);
     }
+    /**
+     * Ghosts: unlock every Force Sensitive branch at once, so the FS skill lines can
+     * be trained without the village quest chain. Returns how many were newly set.
+     */
+    public static int unlockAllBranches(obj_id player) throws InterruptedException
+    {
+        if (!isIdValid(player))
+        {
+            return 0;
+        }
+        String[] branches = dataTableGetStringColumnNoDefaults(DATATABLE_SKILL_BRANCH, "branch");
+        if (branches == null || branches.length == 0)
+        {
+            LOG("force_sensitive", "fs_quests.unlockAllBranches -- no branches in " + DATATABLE_SKILL_BRANCH);
+            return 0;
+        }
+        int unlocked = 0;
+        for (int i = 0; i < branches.length; ++i)
+        {
+            if (branches[i] == null || branches[i].length() == 0)
+            {
+                continue;
+            }
+            if (!hasUnlockedBranch(player, branches[i]))
+            {
+                if (unlockBranch(player, branches[i]))
+                {
+                    ++unlocked;
+                }
+            }
+        }
+        LOG("force_sensitive", "fs_quests.unlockAllBranches -- " + player + " now has " + unlocked + " new branch(es) of " + branches.length);
+        return unlocked;
+    }
     public static boolean unlockBranch(obj_id player, String branch) throws InterruptedException
     {
         int branches_unlocked = 0;

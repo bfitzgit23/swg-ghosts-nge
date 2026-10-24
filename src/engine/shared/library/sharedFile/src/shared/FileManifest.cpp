@@ -278,8 +278,10 @@ void FileManifest::addNewManifestEntry(const char *fileName, int fileSize)
 		if (fileSize)
 			((insertReturn.first)->second)->size = fileSize;
 
+
+		// the map already held this crc, so it did not take our entry - that copy is ours
+		delete entry;
 	}
-	delete entry;
 #else
 	return;
 #endif
@@ -296,9 +298,16 @@ void FileManifest::addStoredManifestEntry(const char *fileName, const char * sce
 	entry->size     = fileSize;
 	entry->accesses = 0;
 
-	s_manifest.insert(std::pair<const uint32, FileManifestEntry*>(crc, entry));
+	// The map takes ownership of the entry when the insert succeeds.  Only free the
+	// one it refused: freeing the inserted entry here left s_manifest holding a
+	// dangling pointer, which FileManifest::remove() then deleted a second time.  That
+	// double free is what crashed every SwgGameServer shutdown inside
+	// FileManifest::remove() (free(0x10) -> cfree+0x21 -> SIGSEGV).
+	std::pair<ManifestMap::iterator, bool> insertReturn =
+		s_manifest.insert(std::pair<const uint32, FileManifestEntry*>(crc, entry));
 
-	delete entry;
+	if (!insertReturn.second)
+		delete entry;
 }
 
 // -----------------------------------------------------------------------

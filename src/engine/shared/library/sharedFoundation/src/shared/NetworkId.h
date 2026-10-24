@@ -34,6 +34,14 @@ public:
 
 	NetworkId();
 	explicit NetworkId(NetworkIdType value);
+#if defined(__LP64__) || defined(_LP64)
+	// JNI passes object ids as `jlong`, which is `long` on LP64.  That is a
+	// different type from NetworkIdType (long long) and from int, so neither
+	// public constructor was an exact match and every NetworkId(jlong)
+	// construction was ambiguous on 64-bit.  This overload restores the
+	// 32-bit behaviour, where jlong and NetworkIdType were the same type.
+	explicit NetworkId(long value);
+#endif
 	explicit NetworkId(const std::string &value);
 	NetworkId(const NetworkId&);
 

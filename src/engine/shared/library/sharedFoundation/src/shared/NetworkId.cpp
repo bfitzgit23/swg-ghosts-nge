@@ -45,6 +45,15 @@ m_value(value)
 {
 }
 
+#if defined(__LP64__) || defined(_LP64)
+
+NetworkId::NetworkId(long value) :
+m_value(static_cast<NetworkIdType>(value))
+{
+}
+
+#endif
+
 // -----------------------------------------------------------------------
 
 NetworkId::NetworkId(const NetworkId& source) :

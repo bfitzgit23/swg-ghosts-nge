@@ -16,10 +16,10 @@
 typedef unsigned int           uint;
 typedef unsigned char          uint8;
 typedef unsigned short         uint16;
-typedef unsigned long          uint32;
+typedef unsigned int           uint32;  // 64-bit port: `unsigned long` is 8 bytes on LP64
 typedef signed char            int8;
 typedef signed short           int16;
-typedef signed long            int32;
+typedef signed int             int32;   // 64-bit port: `signed long` is 8 bytes on LP64
 typedef signed long long int   int64;
 typedef unsigned long long int uint64;
 typedef float                  real;

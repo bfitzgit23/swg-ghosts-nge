@@ -56,7 +56,6 @@ public class utils extends script.base_script
     public static final int FORCE_SENSITIVE = 7;
     public static final int TRADER = 8;
     public static final int ENTERTAINER = 9;
-    public static final int CHRONICLER = 10;
     public static final String LIFEDAY_OWNER = "lifeday.owner";
     //public static final String XMAS_RECEIVED_V1 = "gift.xmas05";
     //public static final String XMAS_RECEIVED_V2 = "gift.xmas05v2";
@@ -166,9 +165,17 @@ public class utils extends script.base_script
     public static boolean hasSpecialSkills(obj_id player) throws InterruptedException
     {
         boolean skillCheck = false;
-        if (hasSkill(player, "faction_rank_mando"))
+        if (hasSkill(player, "class_commando_phase4_master"))
         {
             skillCheck = true;
+        }
+        if (hasSkill(player, "class_bountyhunter_phase4_master"))
+        {
+            skillCheck = true;
+        }
+        if (hasSkill(player, "class_officer_phase4_master"))
+        {
+            skillCheck = true;			
         }
         return skillCheck;
     }
@@ -6083,24 +6090,9 @@ public class utils extends script.base_script
 
         for (String pair : split(objVarList, ',')) {
             objVarToSet = split(pair, '=');
-
-            // Ensure objVarToSet has at least two elements
-            if (objVarToSet.length < 2) {
-                // Log an error or handle the case where the objVar pair is not well-formed
-                continue;
-            }
-
             objVarValue = objVarToSet[1];
             objVarNameAndType = split(objVarToSet[0], ':');
-
-            // Ensure objVarNameAndType has at least two elements
-            if (objVarNameAndType.length < 2) {
-                // Log an error or handle the case where the objVar name and type are not well-formed
-                continue;
-            }
-
             objVarName = objVarNameAndType[1];
-
             switch (objVarNameAndType[0]) {
                 case "string":
                     setObjVar(object, objVarName, objVarValue);
@@ -6294,9 +6286,6 @@ public class utils extends script.base_script
             case ENTERTAINER:
                 professionName = "entertainer";
                 break;
-            case CHRONICLER:
-                professionName = "chronicler";
-                break;
             default:
                 break;
         }
@@ -6314,8 +6303,7 @@ public class utils extends script.base_script
             "class_officer_phase1_novice",
             "class_spy_phase1_novice",
             "class_medic_phase1_novice",
-            "class_entertainer_phase1_novice",
-            "class_chronicles_master"
+            "class_entertainer_phase1_novice"
         };
         int[] professionList = 
         {
@@ -6326,8 +6314,7 @@ public class utils extends script.base_script
             OFFICER,
             SPY,
             MEDIC,
-            ENTERTAINER,
-	    CHRONICLER
+            ENTERTAINER
         };
         for (int i = 0; i < noviceSkillList.length; i++)
         {
@@ -7246,4 +7233,3 @@ public class utils extends script.base_script
         return (utils.getIntConfigSetting("GameServer", "debugMode") == 1);
     }
 }
-//

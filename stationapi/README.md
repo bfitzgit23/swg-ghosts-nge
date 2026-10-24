@@ -57,3 +57,7 @@ A default configuration and database is created when building the project. Confi
 ## Final Notes ##
 
 It is recommended to copy the **build/bin** directory to another location after building to ensure the configuration files are not overwritten by future changes to the default versions of these files.
+
+## Galaxies Reborn community
+
+Join the [Galaxies Reborn Discord](https://discord.gg/CEwKVvKxK5) for project discussion, support, and announcements.

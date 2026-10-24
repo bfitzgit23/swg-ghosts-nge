@@ -2301,6 +2301,165 @@ bool ServerObject::handlePlayerInInteriorSetup(ContainedByProperty *containedBy)
 }
 
 //-----------------------------------------------------------------------
+	//----------------------------------------------------------------------
+
+	/**
+	 * A duplicate system container found while a character was loading.  It
+	 * cannot be judged until its own contents have been loaded, so it is only
+	 * retired once the owning character's client is ready.
+	 */
+	struct PendingDuplicateSystemContainer
+	{
+		PendingDuplicateSystemContainer(NetworkId const & ownerId, NetworkId const & duplicateId, std::string const & templateName) :
+			m_ownerId(ownerId),
+			m_duplicateId(duplicateId),
+			m_templateName(templateName)
+		{
+		}
+
+		NetworkId   m_ownerId;
+		NetworkId   m_duplicateId;
+		std::string m_templateName;
+	};
+
+	std::vector<PendingDuplicateSystemContainer> s_pendingDuplicateSystemContainers;
+
+	// ----------------------------------------------------------------------
+
+	/**
+	 * Characters can end up with two persisted copies of the same system container
+	 * (bank, datapad, mission bag, appearance inventory, default weapon) after a
+	 * restore or a character re-create: both copies are stored with contained_by =
+	 * the character, so whichever copy depersists second fails its slot check with
+	 * CEC_SlotOccupied and is left unslotted (the ContainerErrorCode=4 / "no good
+	 * arrangement" warning on every login).
+	 *
+	 * A system container is unique per character, so when a copy of the template is
+	 * already slotted this copy is the orphan.  Its contents are loaded after its
+	 * own baselines end, so it cannot be judged empty here: record it and skip the
+	 * arrangement (it is never slotted, so nothing needs synchronising).
+	 * retirePendingDuplicateSystemContainers() retires it once the character is
+	 * fully loaded, and only if it really is empty.
+	 */
+	bool deferDuplicateSystemContainer(ServerObject & item, SlottedContainer & slotContainer)
+{
+	static std::string const s_systemContainerTemplates[] =
+	{
+		"object/tangible/inventory/character_inventory.iff",
+		"object/tangible/datapad/character_datapad.iff",
+		"object/tangible/mission_bag/mission_bag.iff",
+		"object/tangible/bank/character_bank.iff",
+		"object/tangible/inventory/appearance_inventory.iff",
+		"object/weapon/melee/unarmed/unarmed_default_player.iff"
+	};
+	static size_t const s_systemContainerTemplateCount = sizeof(s_systemContainerTemplates) / sizeof(s_systemContainerTemplates[0]);
+
+	if (!item.isPersisted())
+		return false;
+
+	std::string const templateName(item.getObjectTemplateName());
+	bool isSystemContainer = false;
+	for (size_t i = 0; i < s_systemContainerTemplateCount; ++i)
+	{
+		if (templateName == s_systemContainerTemplates[i])
+		{
+			isSystemContainer = true;
+			break;
+		}
+	}
+	if (!isSystemContainer)
+		return false;
+
+	ServerObject * duplicateOf = 0;
+	for (ContainerIterator i = slotContainer.begin(); i != slotContainer.end(); ++i)
+	{
+		ServerObject * const containedObject = safe_cast<ServerObject *>((*i).getObject());
+		if (containedObject && (containedObject != &item) && (templateName == containedObject->getObjectTemplateName()))
+		{
+			duplicateOf = containedObject;
+			break;
+		}
+	}
+	if (!duplicateOf)
+		return false;
+
+	s_pendingDuplicateSystemContainers.push_back(PendingDuplicateSystemContainer(slotContainer.getOwner().getNetworkId(), item.getNetworkId(), templateName));
+
+	WARNING(true, ("Login: duplicate system container %s (%s) of %s skipped; %s already holds that template. It will be retired after the character is fully loaded if it is empty.", item.getNetworkId().getValueString().c_str(), item.getObjectTemplateName(), slotContainer.getOwner().getNetworkId().getValueString().c_str(), duplicateOf->getNetworkId().getValueString().c_str()));
+	return true;
+}
+
+	// ----------------------------------------------------------------------
+
+	/**
+	 * Retires the duplicate system containers recorded while this character was
+	 * loading.  This runs when the client reports its scene is ready, i.e. after
+	 * the character and its containers' contents have been loaded, so "empty"
+	 * really means empty.  A duplicate that holds anything, or whose slotted
+	 * counterpart has gone away, is left alone and logged.
+	 */
+	void retirePendingDuplicateSystemContainers(ServerObject & owner)
+	{
+		NetworkId const ownerId(owner.getNetworkId());
+		Container * const ownerContainer = ContainerInterface::getContainer(owner);
+		if (!ownerContainer)
+			return;
+
+		std::vector<PendingDuplicateSystemContainer>::iterator i = s_pendingDuplicateSystemContainers.begin();
+		while (i != s_pendingDuplicateSystemContainers.end())
+		{
+			if (!(i->m_ownerId == ownerId))
+			{
+				// drop records whose duplicate is no longer loaded (owner logged out
+				// without reaching CmdSceneReady); keep the rest for their own login
+				if (!NetworkIdManager::getObjectById(i->m_duplicateId))
+					i = s_pendingDuplicateSystemContainers.erase(i);
+				else
+					++i;
+				continue;
+			}
+
+			PendingDuplicateSystemContainer const pending(*i);
+			i = s_pendingDuplicateSystemContainers.erase(i);
+
+			ServerObject * const duplicate = safe_cast<ServerObject *>(NetworkIdManager::getObjectById(pending.m_duplicateId));
+			if (!duplicate)
+			{
+				WARNING(true, ("Login: duplicate system container %s (%s) is no longer loaded; leaving it alone.", pending.m_duplicateId.getValueString().c_str(), pending.m_templateName.c_str()));
+				continue;
+			}
+
+			Container * const duplicateContents = ContainerInterface::getContainer(*duplicate);
+			if (!duplicateContents || duplicateContents->getNumberOfItems() > 0)
+			{
+				WARNING(true, ("Login: duplicate system container %s (%s) holds contents; leaving it alone.", pending.m_duplicateId.getValueString().c_str(), pending.m_templateName.c_str()));
+				continue;
+			}
+
+			ServerObject * occupant = 0;
+			for (ContainerIterator j = ownerContainer->begin(); j != ownerContainer->end(); ++j)
+			{
+				ServerObject * const containedObject = safe_cast<ServerObject *>((*j).getObject());
+				if (containedObject && (containedObject != duplicate) && (pending.m_templateName == containedObject->getObjectTemplateName()))
+				{
+					occupant = containedObject;
+					break;
+				}
+			}
+			if (!occupant)
+			{
+				WARNING(true, ("Login: duplicate system container %s (%s) has no slotted copy to keep; leaving it alone.", pending.m_duplicateId.getValueString().c_str(), pending.m_templateName.c_str()));
+				continue;
+			}
+
+			LOG("CustomerService", ("Login: retiring empty duplicate system container %s (%s) of %s; %s already holds that template. Reason: %s", pending.m_duplicateId.getValueString().c_str(), pending.m_templateName.c_str(), ownerId.getValueString().c_str(), occupant->getNetworkId().getValueString().c_str(), describeDeleteReason(DeleteReasons::Replaced).c_str()));
+
+			if (!duplicate->permanentlyDestroy(DeleteReasons::Replaced))
+				WARNING(true, ("Login: duplicate system container %s (%s) could not be destroyed; leaving it alone.", pending.m_duplicateId.getValueString().c_str(), pending.m_templateName.c_str()));
+		}
+	}
+
+//-----------------------------------------------------------------------
 /**
  * Handle setting up the contents of any containedby objects while de-persisting this object
  */
@@ -2328,7 +2487,16 @@ bool ServerObject::handleContentsSetup()
 		{
 			SlottedContainmentProperty * const slottedProperty = ContainerInterface::getSlottedContainmentProperty(*this);
 			if (slottedProperty)
+			{
+				// Login-time guard: a duplicate system container would fail its slot
+				// check (CEC_SlotOccupied).  Skip the arrangement and remember it;
+				// it is retired once the character is loaded if it is empty (see
+				// retirePendingDuplicateSystemContainers).
+				if (deferDuplicateSystemContainer(*this, *slotContainer))
+					return false;
+
 				slotContainer->depersistSlotContents(*this, slottedProperty->getCurrentArrangement());
+			}
 			else
 				WARNING_STRICT_FATAL(true, ("Tried to depersist an object with no arrangement into a slotted container"));
 		}
@@ -2887,6 +3055,10 @@ void ServerObject::onPobFixupComplete()
 void ServerObject::onClientReady(Client *c)
 {
 	NOT_NULL(c);
+
+	// Login-time guard: retire duplicate system containers recorded while this
+	// character's contents were loading (see deferDuplicateSystemContainer).
+	retirePendingDuplicateSystemContainers(*this);
 	CmdSceneReady const readyMessage;
 	c->send(readyMessage, true);
 
@@ -3889,7 +4061,7 @@ void ServerObject::setSceneIdOnThisAndContents  (const std::string & sceneId)
 
 //----------------------------------------------------------------------
 
-void ServerObject::speakText(NetworkId const &target, uint32 chatType, uint32 mood, uint32 flags, Unicode::String const &speech, int language, Unicode::String const &oob)
+void ServerObject::speakText(NetworkId const &target, unsigned long chatType, unsigned long mood, unsigned long flags, Unicode::String const &speech, int language, Unicode::String const &oob)
 {
 	if (speech.empty())
 	{
@@ -4119,7 +4291,7 @@ void ServerObject::hearText(ServerObject const &source, MessageQueueSpatialChat 
 
 //----------------------------------------------------------------------
 
-void ServerObject::performSocial (const NetworkId & target, uint32 socialType, bool animationOk, bool textOk)
+void ServerObject::performSocial (const NetworkId & target, unsigned long socialType, bool animationOk, bool textOk)
 {
 	const MessageQueueSocial socialMsg (CachedNetworkId (*this), CachedNetworkId (target), socialType, animationOk, textOk);
 	performSocial (socialMsg);

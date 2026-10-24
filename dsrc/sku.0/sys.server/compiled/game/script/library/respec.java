@@ -127,6 +127,7 @@ public class respec extends script.base_script
         }
         String msg = "NPC_RESPEC: %TU has initiated a respec via NPC for " + cost + " credits.  Current combat level is " + getLevel(player) + "; current skill template is " + oldTemplate;
         trace.log("respec", msg, player, trace.TL_CS_LOG);
+        pet_lib.destroyOfficerPets(player);
         obj_id weapon = getCurrentWeapon(player);
         // make sure our weapon is valid and isn't the base default weapon
         if (isIdValid(weapon) && !getTemplateName(weapon).equals("object/weapon/melee/unarmed/unarmed_default_player.iff"))
@@ -373,6 +374,7 @@ public class respec extends script.base_script
             money.requestPayment(player, money.ACCT_SKILL_TRAINING, cost, "none", null, false);
         }
         utils.fullExpertiseReset(player, true);
+        pet_lib.destroyOfficerPets(player);
         int numBought = 0;
         if (hasObjVar(player, "expertise_reset"))
         {
@@ -594,6 +596,7 @@ public class respec extends script.base_script
     public static void earnProfessionSkills(obj_id player, String skillTemplateName, boolean withItems) throws InterruptedException
     {
         setObjVar(player, "clickRespec.granting", 1);
+        pet_lib.destroyOfficerPets(player);
         revokeAllSkillsAndExperience(player);
         buff.removeAllBuffs(player, true, true);
         int combatLevel = 0;
@@ -788,17 +791,13 @@ public class respec extends script.base_script
         String profession = getSkillTemplate(self);
         obj_id objInv = utils.getInventoryContainer(self);
 
-        String questNewbieStart = "quest/legacy_button_start";
-        String questNewbieStartSmuggler = "quest/speeder_quest";
-        String questNewbieStartSpy = "quest/naboo_send_to_lt_jasper";
-        String questNewbieStartBH = "quest/stardust_send_to_boba";
+        String questNewbieStart = "quest/speeder_quest";
+        String questNewbieStartBH = "quest/speeder_quest";
         String questCrafterEntertainer = "quest/tatooine_eisley_noncombat";
 
         int crafter = profession.indexOf("trader");
         int entertainer = profession.indexOf("entertainer");
         int bountyhunter = profession.indexOf("bounty_hunter");
-        int spy = profession.indexOf("spy");
-        int smuggler = profession.indexOf("smuggler");
 
         if (crafter > -1 || entertainer > -1)
         {
@@ -817,28 +816,6 @@ public class respec extends script.base_script
             else 
             {
                 groundquests.requestGrantQuest(self, questNewbieStartBH);
-            }
-        }
-        else if (spy > -1)
-        {
-            if (groundquests.hasCompletedQuest(self, questNewbieStartSpy) || groundquests.isQuestActive(self, questNewbieStartSpy))
-            {
-                detachScript(self, "npe.handoff_to_tatooine");
-            }
-            else
-            {
-                groundquests.requestGrantQuest(self, questNewbieStartSpy);
-            }
-        }
-        else if (smuggler > -1)
-        {
-            if (groundquests.hasCompletedQuest(self, questNewbieStartSmuggler) || groundquests.isQuestActive(self, questNewbieStartSmuggler))
-            {
-                detachScript(self, "npe.handoff_to_tatooine");
-            }
-            else
-            {
-                groundquests.requestGrantQuest(self, questNewbieStartSmuggler);
             }
         }
         else 

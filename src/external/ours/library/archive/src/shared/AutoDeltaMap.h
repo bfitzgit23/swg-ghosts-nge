@@ -374,6 +374,8 @@ inline void AutoDeltaMap<KeyType, ValueType, ObjectType>::pack(ByteStream & targ
 template<class KeyType, typename ValueType, typename ObjectType>
 inline void AutoDeltaMap<KeyType, ValueType, ObjectType>::pack(ByteStream & target, const std::vector<Command> &data)
 {
+	static int amPackPrinted = 0;
+	if (amPackPrinted < 6) { fprintf(stderr, "[AM-PACK] n=%zu pre=%u\n", data.size(), target.getSize()); ++amPackPrinted; }
 	Archive::put(target, data.size());
 	Archive::put(target, static_cast<size_t>(0)); // baselineCommandCount
 	for(typename std::vector<Command>::const_iterator c(data.begin()); c != data.end(); ++c)
@@ -651,6 +653,8 @@ inline void AutoDeltaMap<KeyType, ValueType, ObjectType>::unpackDelta(ReadIterat
 
 	Archive::get(source, commandCount);
 	Archive::get(source, targetBaselineCommandCount);
+	static int amUnpackPrinted = 0;
+	if (amUnpackPrinted < 6) { fprintf(stderr, "[AM-UNPACK] n=%zu base=%zu pos=%u rem=%u\n", commandCount, targetBaselineCommandCount, source.getReadPosition(), source.getSize()); ++amUnpackPrinted; }
 
 	for (size_t i=0 ; i < commandCount; ++i)
 	{

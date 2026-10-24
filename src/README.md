@@ -1,13 +1,18 @@
 # Star Wars Galaxies Source Code (C++) Repository
 
-This is the main server code for SWGSource 1.2 as originally forked from the https://bitbucket.org/stellabellumswg/ repository.  Please see that repository for original publication and alteration credit.
+This repository contains the C++ server code maintained by Galaxies Reborn.
 
-# Works in progress
-* 64-bit-types - fully 64 bit version that builds and runs completely.
+## Current development
+
+The primary branch is `main`. Follow the [Galaxies Reborn branch policy](https://github.com/Galaxies-Reborn/galaxies-reborn/blob/main/BRANCHES.md) for the maintained x64 server and feature efforts.
 
 # Building
 
-For local testing, and non-live builds set MODE=Release or MODE=Debug in the build.properties file in swg-main.
+## Clang Versions
+
+**Important**: For versions of clang <= 4 you'll probably have to remove/omit a deprecated CFLAG or two from the CMakelists.txt file
+
+Only use the Debug and Release targets unless you want to work on 64 bit (MODE=RELWITHDEBINFO). For local testing, and non-live builds set MODE=Release or MODE=debug in build_linux.sh.
 
 For production, user facing builds, set MODE=MINSIZEREL for profile built, heavily optimized versions of the binaries.
 
@@ -31,6 +36,10 @@ See http://clang.llvm.org/docs/UsersManual.html#profiling-with-instrumentation f
 
 # More Information
 
-See https://swg-source.github.io/ for more information on the SWG Source project.
+See https://github.com/Galaxies-Reborn for more information on the Galaxies Reborn project.
 
-Join the SWGSource Discord if you would like to contribute:  https://discord.gg/j53cMj9
+Submit contributions and questions to this Galaxies-Reborn repository.
+
+## Galaxies Reborn community
+
+Join the [Galaxies Reborn Discord](https://discord.gg/CEwKVvKxK5) for project discussion, support, and announcements.

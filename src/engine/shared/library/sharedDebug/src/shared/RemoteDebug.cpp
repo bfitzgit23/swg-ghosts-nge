@@ -152,7 +152,7 @@ uint32 RemoteDebug::registerStream(const std::string& streamName)
 	std::string rest = streamName;
 	//look for subchannels with a double backslash
 	uint32 baseIndex = 0;
-	uint32 restIndex = streamName.find('\\');
+	std::string::size_type restIndex = streamName.find('\\');
 	while(restIndex != std::string::npos)
 	{
 		//pass the '\'
@@ -208,7 +208,7 @@ uint32 RemoteDebug::registerStaticView(const std::string& channelName)
 	std::string rest = channelName;
 	//look for subchannels with a double backslash
 	uint32 baseIndex = 0;
-	uint32 restIndex = channelName.find('\\');
+	std::string::size_type restIndex = channelName.find('\\');
 	while(restIndex != std::string::npos)
 	{
 		//pass the '\'
@@ -361,7 +361,7 @@ uint32 RemoteDebug::registerVariable(const char* variableName, void *memLoc, VAR
 	std::string rest = variable;
 	//look for subchannels with a double backslash
 	uint32 baseIndex = 0;
-	uint32 restIndex = variable.find('\\');
+	std::string::size_type restIndex = variable.find('\\');
 	while(restIndex != std::string::npos)
 	{
 		//pass the '\'

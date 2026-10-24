@@ -10,7 +10,7 @@
 #include <pthread.h>
 
 typedef unsigned short int WORD;
-typedef unsigned long int DWORD;
+typedef unsigned int       DWORD;  // 64-bit port: DWORD is a 32-bit type (as on Windows)
 typedef bool BOOL;
 typedef long long     __int64; //lint !e13 !e19 // Error: 13 (Bad type), Error: 19 (Useless declaration) // -TRF- Lint preprocessor discrepency, @todo look into this.
 typedef __int64         LARGE_INTEGER;

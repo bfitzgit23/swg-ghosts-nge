@@ -32,14 +32,23 @@ inline void get(ReadIterator & source, float & target)
 
 inline void get(ReadIterator & source, unsigned long int & target)
 {
-	source.get(&target, 4);
+	// 64-bit port: the wire value is 4 bytes (put writes 4) but target is
+	// 8 bytes on LP64 - fill via a temp so the upper bits are defined,
+	// zero-extend the 32-bit wire value (LP64).
+	unsigned int tmp = 0;
+	source.get(&tmp, 4);
+	target = static_cast<unsigned long int>(tmp);
 }
 
 //---------------------------------------------------------------------
 
 inline void get(ReadIterator & source, signed long int & target)
 {
-	source.get(&target, 4);
+	// 64-bit port: sign-extend the 32-bit wire value so the upper bits of
+	// the LP64 local are defined (put writes 4 bytes).
+	int tmp = 0;
+	source.get(&tmp, 4);
+	target = static_cast<signed long int>(tmp);
 }
 
 //---------------------------------------------------------------------

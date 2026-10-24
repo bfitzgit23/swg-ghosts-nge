@@ -1,0 +1,689 @@
+<?xml version="1.0"?>
+    <quest version="1.0" >
+        <tasks availableId="15" >
+            <task type="Go to Location" id="1" taskOnFail="false" >
+                <data value="0" name="Time To Complete" />
+                <data value="5" name="Radius(m)" />
+                <data value="" name="entranceWaypointName" />
+                <data value="0.0" name="EntranceLocationZ(m)" />
+                <data value="0.0" name="EntranceLocationY(m)" />
+                <data value="0.0" name="EntranceLocationX(m)" />
+                <data value="0" name="createEntranceWaypoint" />
+                <data value="Bazaar Firework Launcher" name="waypointName" />
+                <data value="" name="buildingCellName" />
+                <data value="" name="interiorWaypointAppearance" />
+                <data value="2939" name="LocationZ(m)" />
+                <data value="7" name="LocationY(m)" />
+                <data value="1237" name="LocationX(m)" />
+                <data value="tatooine" name="Planet" />
+                <data value="true" name="createWaypoint" />
+                <data value="" name="signalsOnFail" />
+                <data value="" name="signalsOnComplete" />
+                <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                <data value="" name="grantQuestOnFail" />
+                <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                <data value="" name="grantQuestOnComplete" />
+                <data value="" name="parameter" />
+                <data value="" name="target" />
+                <data value="none" name="questControlOnTaskFailure" />
+                <data value="none" name="questControlOnTaskCompletion" />
+                <data value="0" name="chanceToActivate" />
+                <data value="" name="musicOnFail" />
+                <data value="" name="musicOnComplete" />
+                <data value="" name="musicOnActivate" />
+                <data value="true" name="showSystemMessages" />
+                <data value="legends_anniversary_balis_01" name="taskName" />
+                <data value="0" name="allowRepeats" />
+                <data value="" name="exclusionTasks" />
+                <data value="" name="prerequisiteTasks" />
+                <data value="true" name="isVisible" />
+                <data value="Bal'is said that I can find the first Launcher near the Bazaar." name="journalEntryDescription" />
+                <data value="Get to the Bazaar" name="journalEntryTitle" />
+                <task type="Comm Player" id="2" taskOnFail="false" >
+                    <data value="" name="journalEntryTitle" />
+                    <data value="" name="journalEntryDescription" />
+                    <data value="false" name="isVisible" />
+                    <data value="" name="prerequisiteTasks" />
+                    <data value="" name="exclusionTasks" />
+                    <data value="0" name="allowRepeats" />
+                    <data value="legends_anniversary_balis_02" name="taskName" />
+                    <data value="true" name="showSystemMessages" />
+                    <data value="" name="musicOnActivate" />
+                    <data value="" name="musicOnComplete" />
+                    <data value="" name="musicOnFail" />
+                    <data value="0" name="chanceToActivate" />
+                    <data value="none" name="questControlOnTaskCompletion" />
+                    <data value="none" name="questControlOnTaskFailure" />
+                    <data value="" name="target" />
+                    <data value="" name="parameter" />
+                    <data value="" name="grantQuestOnComplete" />
+                    <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                    <data value="" name="grantQuestOnFail" />
+                    <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                    <data value="" name="signalsOnComplete" />
+                    <data value="" name="signalsOnFail" />
+                    <data value="0" name="createWaypoint" />
+                    <data value="tatooine" name="Planet" />
+                    <data value="0.0" name="LocationX(m)" />
+                    <data value="0.0" name="LocationY(m)" />
+                    <data value="0.0" name="LocationZ(m)" />
+                    <data value="" name="interiorWaypointAppearance" />
+                    <data value="" name="buildingCellName" />
+                    <data value="" name="waypointName" />
+                    <data value="0" name="createEntranceWaypoint" />
+                    <data value="0.0" name="EntranceLocationX(m)" />
+                    <data value="0.0" name="EntranceLocationY(m)" />
+                    <data value="0.0" name="EntranceLocationZ(m)" />
+                    <data value="" name="entranceWaypointName" />
+                    <data value="Great, you found it! Now quickly, launch the first set of fireworks." name="Comm Message Text" />
+                    <data value="object/mobile/legends_anniversary_balis.iff" name="NPC Appearance Server Template" />
+                    <task type="Retrieve Item" id="0" taskOnFail="false" >
+                        <data value="10" name="Time To Complete" />
+                        <data value="" name="retrieveMenuText" />
+                        <data value="0" name="CountdownTimer" />
+                        <data value="0" name="GuaranteedSuccessMaximumAttempts" />
+                        <data value="0" name="GuaranteedSuccessMinumumAttempts" />
+                        <data value="100" name="LootDropPercent" />
+                        <data value="Activate the Firework Launcher" name="ItemName" />
+                        <data value="1" name="Count" />
+                        <data value="object/tangible/holiday/legends_anniversary/firework_launcher.iff" name="Server Object Template" />
+                        <data value="" name="entranceWaypointName" />
+                        <data value="0.0" name="EntranceLocationZ(m)" />
+                        <data value="0.0" name="EntranceLocationY(m)" />
+                        <data value="0.0" name="EntranceLocationX(m)" />
+                        <data value="0" name="createEntranceWaypoint" />
+                        <data value="" name="waypointName" />
+                        <data value="" name="buildingCellName" />
+                        <data value="" name="interiorWaypointAppearance" />
+                        <data value="0.0" name="LocationZ(m)" />
+                        <data value="0.0" name="LocationY(m)" />
+                        <data value="0.0" name="LocationX(m)" />
+                        <data value="tatooine" name="Planet" />
+                        <data value="0" name="createWaypoint" />
+                        <data value="" name="signalsOnFail" />
+                        <data value="" name="signalsOnComplete" />
+                        <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                        <data value="quest/legends_anniversary_balis_fail" name="grantQuestOnFail" />
+                        <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                        <data value="" name="grantQuestOnComplete" />
+                        <data value="" name="parameter" />
+                        <data value="" name="target" />
+                        <data value="none" name="questControlOnTaskFailure" />
+                        <data value="none" name="questControlOnTaskCompletion" />
+                        <data value="0" name="chanceToActivate" />
+                        <data value="" name="musicOnFail" />
+                        <data value="" name="musicOnComplete" />
+                        <data value="" name="musicOnActivate" />
+                        <data value="true" name="showSystemMessages" />
+                        <data value="legends_anniversary_balis_03" name="taskName" />
+                        <data value="0" name="allowRepeats" />
+                        <data value="" name="exclusionTasks" />
+                        <data value="" name="prerequisiteTasks" />
+                        <data value="true" name="isVisible" />
+                        <data value="Bal'is has asked you to launch some fireworks quickly" name="journalEntryDescription" />
+                        <data value="Activate the Bazaar Firework Launcher" name="journalEntryTitle" />
+                        <task type="Comm Player" id="6" taskOnFail="false" >
+                            <data value="" name="journalEntryTitle" />
+                            <data value="" name="journalEntryDescription" />
+                            <data value="false" name="isVisible" />
+                            <data value="" name="prerequisiteTasks" />
+                            <data value="" name="exclusionTasks" />
+                            <data value="0" name="allowRepeats" />
+                            <data value="legends_anniversary_balis_04" name="taskName" />
+                            <data value="true" name="showSystemMessages" />
+                            <data value="" name="musicOnActivate" />
+                            <data value="" name="musicOnComplete" />
+                            <data value="" name="musicOnFail" />
+                            <data value="0" name="chanceToActivate" />
+                            <data value="none" name="questControlOnTaskCompletion" />
+                            <data value="none" name="questControlOnTaskFailure" />
+                            <data value="" name="target" />
+                            <data value="" name="parameter" />
+                            <data value="" name="grantQuestOnComplete" />
+                            <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                            <data value="" name="grantQuestOnFail" />
+                            <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                            <data value="" name="signalsOnComplete" />
+                            <data value="" name="signalsOnFail" />
+                            <data value="0" name="createWaypoint" />
+                            <data value="tatooine" name="Planet" />
+                            <data value="0.0" name="LocationX(m)" />
+                            <data value="0.0" name="LocationY(m)" />
+                            <data value="0.0" name="LocationZ(m)" />
+                            <data value="" name="interiorWaypointAppearance" />
+                            <data value="" name="buildingCellName" />
+                            <data value="" name="waypointName" />
+                            <data value="0" name="createEntranceWaypoint" />
+                            <data value="0.0" name="EntranceLocationX(m)" />
+                            <data value="0.0" name="EntranceLocationY(m)" />
+                            <data value="0.0" name="EntranceLocationZ(m)" />
+                            <data value="" name="entranceWaypointName" />
+                            <data value="Great! The next launcher is on the roof of a mansion in the eastern part of the town. Head over there and fire it." name="Comm Message Text" />
+                            <data value="object/mobile/legends_anniversary_balis.iff" name="NPC Appearance Server Template" />
+                            <task type="Go to Location" id="3" taskOnFail="false" >
+                                <data value="0" name="Time To Complete" />
+                                <data value="10" name="Radius(m)" />
+                                <data value="" name="entranceWaypointName" />
+                                <data value="0.0" name="EntranceLocationZ(m)" />
+                                <data value="0.0" name="EntranceLocationY(m)" />
+                                <data value="0.0" name="EntranceLocationX(m)" />
+                                <data value="0" name="createEntranceWaypoint" />
+                                <data value="Mansion Firework Launcher" name="waypointName" />
+                                <data value="" name="buildingCellName" />
+                                <data value="" name="interiorWaypointAppearance" />
+                                <data value="3225" name="LocationZ(m)" />
+                                <data value="11" name="LocationY(m)" />
+                                <data value="1569" name="LocationX(m)" />
+                                <data value="tatooine" name="Planet" />
+                                <data value="true" name="createWaypoint" />
+                                <data value="" name="signalsOnFail" />
+                                <data value="" name="signalsOnComplete" />
+                                <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                <data value="" name="grantQuestOnFail" />
+                                <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                <data value="" name="grantQuestOnComplete" />
+                                <data value="" name="parameter" />
+                                <data value="" name="target" />
+                                <data value="none" name="questControlOnTaskFailure" />
+                                <data value="none" name="questControlOnTaskCompletion" />
+                                <data value="0" name="chanceToActivate" />
+                                <data value="" name="musicOnFail" />
+                                <data value="" name="musicOnComplete" />
+                                <data value="" name="musicOnActivate" />
+                                <data value="true" name="showSystemMessages" />
+                                <data value="legends_anniversary_balis_05" name="taskName" />
+                                <data value="0" name="allowRepeats" />
+                                <data value="" name="exclusionTasks" />
+                                <data value="" name="prerequisiteTasks" />
+                                <data value="true" name="isVisible" />
+                                <data value="Bal'is said that I can find the a Launcher on the roof of a mansion in the eastern part of the town." name="journalEntryDescription" />
+                                <data value="Get to the Mansion" name="journalEntryTitle" />
+                                <task type="Comm Player" id="4" taskOnFail="false" >
+                                    <data value="" name="journalEntryTitle" />
+                                    <data value="" name="journalEntryDescription" />
+                                    <data value="false" name="isVisible" />
+                                    <data value="" name="prerequisiteTasks" />
+                                    <data value="" name="exclusionTasks" />
+                                    <data value="0" name="allowRepeats" />
+                                    <data value="legends_anniversary_balis_06" name="taskName" />
+                                    <data value="true" name="showSystemMessages" />
+                                    <data value="" name="musicOnActivate" />
+                                    <data value="" name="musicOnComplete" />
+                                    <data value="" name="musicOnFail" />
+                                    <data value="0" name="chanceToActivate" />
+                                    <data value="none" name="questControlOnTaskCompletion" />
+                                    <data value="none" name="questControlOnTaskFailure" />
+                                    <data value="" name="target" />
+                                    <data value="" name="parameter" />
+                                    <data value="" name="grantQuestOnComplete" />
+                                    <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                    <data value="" name="grantQuestOnFail" />
+                                    <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                    <data value="" name="signalsOnComplete" />
+                                    <data value="" name="signalsOnFail" />
+                                    <data value="0" name="createWaypoint" />
+                                    <data value="tatooine" name="Planet" />
+                                    <data value="0.0" name="LocationX(m)" />
+                                    <data value="0.0" name="LocationY(m)" />
+                                    <data value="0.0" name="LocationZ(m)" />
+                                    <data value="" name="interiorWaypointAppearance" />
+                                    <data value="" name="buildingCellName" />
+                                    <data value="" name="waypointName" />
+                                    <data value="0" name="createEntranceWaypoint" />
+                                    <data value="0.0" name="EntranceLocationX(m)" />
+                                    <data value="0.0" name="EntranceLocationY(m)" />
+                                    <data value="0.0" name="EntranceLocationZ(m)" />
+                                    <data value="" name="entranceWaypointName" />
+                                    <data value="Well done on reaching the mansion, now get up on to the roof and let off those fireworks!" name="Comm Message Text" />
+                                    <data value="object/mobile/legends_anniversary_balis.iff" name="NPC Appearance Server Template" />
+                                    <task type="Retrieve Item" id="5" taskOnFail="false" >
+                                        <data value="30" name="Time To Complete" />
+                                        <data value="" name="retrieveMenuText" />
+                                        <data value="0" name="CountdownTimer" />
+                                        <data value="0" name="GuaranteedSuccessMaximumAttempts" />
+                                        <data value="0" name="GuaranteedSuccessMinumumAttempts" />
+                                        <data value="100" name="LootDropPercent" />
+                                        <data value="Activate the Firework Launcher" name="ItemName" />
+                                        <data value="1" name="Count" />
+                                        <data value="object/tangible/holiday/legends_anniversary/firework_launcher.iff" name="Server Object Template" />
+                                        <data value="" name="entranceWaypointName" />
+                                        <data value="0.0" name="EntranceLocationZ(m)" />
+                                        <data value="0.0" name="EntranceLocationY(m)" />
+                                        <data value="0.0" name="EntranceLocationX(m)" />
+                                        <data value="0" name="createEntranceWaypoint" />
+                                        <data value="" name="waypointName" />
+                                        <data value="" name="buildingCellName" />
+                                        <data value="" name="interiorWaypointAppearance" />
+                                        <data value="0.0" name="LocationZ(m)" />
+                                        <data value="0.0" name="LocationY(m)" />
+                                        <data value="0.0" name="LocationX(m)" />
+                                        <data value="tatooine" name="Planet" />
+                                        <data value="0" name="createWaypoint" />
+                                        <data value="" name="signalsOnFail" />
+                                        <data value="" name="signalsOnComplete" />
+                                        <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                        <data value="quest/legends_anniversary_balis_fail" name="grantQuestOnFail" />
+                                        <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                        <data value="" name="grantQuestOnComplete" />
+                                        <data value="" name="parameter" />
+                                        <data value="" name="target" />
+                                        <data value="none" name="questControlOnTaskFailure" />
+                                        <data value="none" name="questControlOnTaskCompletion" />
+                                        <data value="0" name="chanceToActivate" />
+                                        <data value="" name="musicOnFail" />
+                                        <data value="" name="musicOnComplete" />
+                                        <data value="" name="musicOnActivate" />
+                                        <data value="true" name="showSystemMessages" />
+                                        <data value="legends_anniversary_balis_07" name="taskName" />
+                                        <data value="0" name="allowRepeats" />
+                                        <data value="" name="exclusionTasks" />
+                                        <data value="" name="prerequisiteTasks" />
+                                        <data value="true" name="isVisible" />
+                                        <data value="Bal'is has asked you to launch some fireworks quickly" name="journalEntryDescription" />
+                                        <data value="Activate the Mansion Firework Launcher" name="journalEntryTitle" />
+                                        <task type="Comm Player" id="7" taskOnFail="false" >
+                                            <data value="" name="journalEntryTitle" />
+                                            <data value="" name="journalEntryDescription" />
+                                            <data value="false" name="isVisible" />
+                                            <data value="" name="prerequisiteTasks" />
+                                            <data value="" name="exclusionTasks" />
+                                            <data value="0" name="allowRepeats" />
+                                            <data value="legends_anniversary_balis_08" name="taskName" />
+                                            <data value="true" name="showSystemMessages" />
+                                            <data value="" name="musicOnActivate" />
+                                            <data value="" name="musicOnComplete" />
+                                            <data value="" name="musicOnFail" />
+                                            <data value="0" name="chanceToActivate" />
+                                            <data value="none" name="questControlOnTaskCompletion" />
+                                            <data value="none" name="questControlOnTaskFailure" />
+                                            <data value="" name="target" />
+                                            <data value="" name="parameter" />
+                                            <data value="" name="grantQuestOnComplete" />
+                                            <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                            <data value="" name="grantQuestOnFail" />
+                                            <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                            <data value="" name="signalsOnComplete" />
+                                            <data value="" name="signalsOnFail" />
+                                            <data value="0" name="createWaypoint" />
+                                            <data value="tatooine" name="Planet" />
+                                            <data value="0.0" name="LocationX(m)" />
+                                            <data value="0.0" name="LocationY(m)" />
+                                            <data value="0.0" name="LocationZ(m)" />
+                                            <data value="" name="interiorWaypointAppearance" />
+                                            <data value="" name="buildingCellName" />
+                                            <data value="" name="waypointName" />
+                                            <data value="0" name="createEntranceWaypoint" />
+                                            <data value="0.0" name="EntranceLocationX(m)" />
+                                            <data value="0.0" name="EntranceLocationY(m)" />
+                                            <data value="0.0" name="EntranceLocationZ(m)" />
+                                            <data value="" name="entranceWaypointName" />
+                                            <data value="Marvellous! The next launcher is on the roof of the Cantina." name="Comm Message Text" />
+                                            <data value="object/mobile/legends_anniversary_balis.iff" name="NPC Appearance Server Template" />
+                                            <task type="Go to Location" id="8" taskOnFail="false" >
+                                                <data value="0" name="Time To Complete" />
+                                                <data value="10" name="Radius(m)" />
+                                                <data value="" name="entranceWaypointName" />
+                                                <data value="0.0" name="EntranceLocationZ(m)" />
+                                                <data value="0.0" name="EntranceLocationY(m)" />
+                                                <data value="0.0" name="EntranceLocationX(m)" />
+                                                <data value="0" name="createEntranceWaypoint" />
+                                                <data value="Mansion Firework Launcher" name="waypointName" />
+                                                <data value="" name="buildingCellName" />
+                                                <data value="" name="interiorWaypointAppearance" />
+                                                <data value="3041" name="LocationZ(m)" />
+                                                <data value="16" name="LocationY(m)" />
+                                                <data value="1719" name="LocationX(m)" />
+                                                <data value="tatooine" name="Planet" />
+                                                <data value="true" name="createWaypoint" />
+                                                <data value="" name="signalsOnFail" />
+                                                <data value="" name="signalsOnComplete" />
+                                                <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                                <data value="" name="grantQuestOnFail" />
+                                                <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                                <data value="" name="grantQuestOnComplete" />
+                                                <data value="" name="parameter" />
+                                                <data value="" name="target" />
+                                                <data value="none" name="questControlOnTaskFailure" />
+                                                <data value="none" name="questControlOnTaskCompletion" />
+                                                <data value="0" name="chanceToActivate" />
+                                                <data value="" name="musicOnFail" />
+                                                <data value="" name="musicOnComplete" />
+                                                <data value="" name="musicOnActivate" />
+                                                <data value="true" name="showSystemMessages" />
+                                                <data value="legends_anniversary_balis_09" name="taskName" />
+                                                <data value="0" name="allowRepeats" />
+                                                <data value="" name="exclusionTasks" />
+                                                <data value="" name="prerequisiteTasks" />
+                                                <data value="true" name="isVisible" />
+                                                <data value="Bal'is said that I can find the next launcher on the roof of the Cantina" name="journalEntryDescription" />
+                                                <data value="Get to the Cantina" name="journalEntryTitle" />
+                                                <task type="Comm Player" id="9" taskOnFail="false" >
+                                                    <data value="" name="journalEntryTitle" />
+                                                    <data value="" name="journalEntryDescription" />
+                                                    <data value="false" name="isVisible" />
+                                                    <data value="" name="prerequisiteTasks" />
+                                                    <data value="" name="exclusionTasks" />
+                                                    <data value="0" name="allowRepeats" />
+                                                    <data value="legends_anniversary_balis_10" name="taskName" />
+                                                    <data value="true" name="showSystemMessages" />
+                                                    <data value="" name="musicOnActivate" />
+                                                    <data value="" name="musicOnComplete" />
+                                                    <data value="" name="musicOnFail" />
+                                                    <data value="0" name="chanceToActivate" />
+                                                    <data value="none" name="questControlOnTaskCompletion" />
+                                                    <data value="none" name="questControlOnTaskFailure" />
+                                                    <data value="" name="target" />
+                                                    <data value="" name="parameter" />
+                                                    <data value="" name="grantQuestOnComplete" />
+                                                    <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                                    <data value="" name="grantQuestOnFail" />
+                                                    <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                                    <data value="" name="signalsOnComplete" />
+                                                    <data value="" name="signalsOnFail" />
+                                                    <data value="0" name="createWaypoint" />
+                                                    <data value="tatooine" name="Planet" />
+                                                    <data value="0.0" name="LocationX(m)" />
+                                                    <data value="0.0" name="LocationY(m)" />
+                                                    <data value="0.0" name="LocationZ(m)" />
+                                                    <data value="" name="interiorWaypointAppearance" />
+                                                    <data value="" name="buildingCellName" />
+                                                    <data value="" name="waypointName" />
+                                                    <data value="0" name="createEntranceWaypoint" />
+                                                    <data value="0.0" name="EntranceLocationX(m)" />
+                                                    <data value="0.0" name="EntranceLocationY(m)" />
+                                                    <data value="0.0" name="EntranceLocationZ(m)" />
+                                                    <data value="" name="entranceWaypointName" />
+                                                    <data value="You can get up to the roof of the Cantina using an elevator at the back of the main floor. Quickly now!" name="Comm Message Text" />
+                                                    <data value="object/mobile/legends_anniversary_balis.iff" name="NPC Appearance Server Template" />
+                                                    <task type="Retrieve Item" id="10" taskOnFail="false" >
+                                                        <data value="30" name="Time To Complete" />
+                                                        <data value="" name="retrieveMenuText" />
+                                                        <data value="0" name="CountdownTimer" />
+                                                        <data value="0" name="GuaranteedSuccessMaximumAttempts" />
+                                                        <data value="0" name="GuaranteedSuccessMinumumAttempts" />
+                                                        <data value="100" name="LootDropPercent" />
+                                                        <data value="Activate the Firework Launcher" name="ItemName" />
+                                                        <data value="1" name="Count" />
+                                                        <data value="object/tangible/holiday/legends_anniversary/firework_launcher.iff" name="Server Object Template" />
+                                                        <data value="" name="entranceWaypointName" />
+                                                        <data value="0.0" name="EntranceLocationZ(m)" />
+                                                        <data value="0.0" name="EntranceLocationY(m)" />
+                                                        <data value="0.0" name="EntranceLocationX(m)" />
+                                                        <data value="0" name="createEntranceWaypoint" />
+                                                        <data value="" name="waypointName" />
+                                                        <data value="" name="buildingCellName" />
+                                                        <data value="" name="interiorWaypointAppearance" />
+                                                        <data value="0.0" name="LocationZ(m)" />
+                                                        <data value="0.0" name="LocationY(m)" />
+                                                        <data value="0.0" name="LocationX(m)" />
+                                                        <data value="tatooine" name="Planet" />
+                                                        <data value="0" name="createWaypoint" />
+                                                        <data value="" name="signalsOnFail" />
+                                                        <data value="" name="signalsOnComplete" />
+                                                        <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                                        <data value="quest/legends_anniversary_balis_fail" name="grantQuestOnFail" />
+                                                        <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                                        <data value="" name="grantQuestOnComplete" />
+                                                        <data value="" name="parameter" />
+                                                        <data value="" name="target" />
+                                                        <data value="none" name="questControlOnTaskFailure" />
+                                                        <data value="none" name="questControlOnTaskCompletion" />
+                                                        <data value="0" name="chanceToActivate" />
+                                                        <data value="" name="musicOnFail" />
+                                                        <data value="" name="musicOnComplete" />
+                                                        <data value="" name="musicOnActivate" />
+                                                        <data value="false" name="showSystemMessages" />
+                                                        <data value="legends_anniversary_balis_11" name="taskName" />
+                                                        <data value="0" name="allowRepeats" />
+                                                        <data value="" name="exclusionTasks" />
+                                                        <data value="" name="prerequisiteTasks" />
+                                                        <data value="true" name="isVisible" />
+                                                        <data value="Bal'is has asked you to launch some fireworks quickly" name="journalEntryDescription" />
+                                                        <data value="Activate the Cantina Firework Launcher" name="journalEntryTitle" />
+                                                        <task type="Comm Player" id="11" taskOnFail="false" >
+                                                            <data value="" name="journalEntryTitle" />
+                                                            <data value="" name="journalEntryDescription" />
+                                                            <data value="false" name="isVisible" />
+                                                            <data value="" name="prerequisiteTasks" />
+                                                            <data value="" name="exclusionTasks" />
+                                                            <data value="0" name="allowRepeats" />
+                                                            <data value="legends_anniversary_balis_12" name="taskName" />
+                                                            <data value="true" name="showSystemMessages" />
+                                                            <data value="" name="musicOnActivate" />
+                                                            <data value="" name="musicOnComplete" />
+                                                            <data value="" name="musicOnFail" />
+                                                            <data value="0" name="chanceToActivate" />
+                                                            <data value="none" name="questControlOnTaskCompletion" />
+                                                            <data value="none" name="questControlOnTaskFailure" />
+                                                            <data value="" name="target" />
+                                                            <data value="" name="parameter" />
+                                                            <data value="" name="grantQuestOnComplete" />
+                                                            <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                                            <data value="" name="grantQuestOnFail" />
+                                                            <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                                            <data value="" name="signalsOnComplete" />
+                                                            <data value="" name="signalsOnFail" />
+                                                            <data value="0" name="createWaypoint" />
+                                                            <data value="tatooine" name="Planet" />
+                                                            <data value="0.0" name="LocationX(m)" />
+                                                            <data value="0.0" name="LocationY(m)" />
+                                                            <data value="0.0" name="LocationZ(m)" />
+                                                            <data value="" name="interiorWaypointAppearance" />
+                                                            <data value="" name="buildingCellName" />
+                                                            <data value="" name="waypointName" />
+                                                            <data value="0" name="createEntranceWaypoint" />
+                                                            <data value="0.0" name="EntranceLocationX(m)" />
+                                                            <data value="0.0" name="EntranceLocationY(m)" />
+                                                            <data value="0.0" name="EntranceLocationZ(m)" />
+                                                            <data value="" name="entranceWaypointName" />
+                                                            <data value="Well done. The last launcher is on the roof of the Hospital - get over there quickly." name="Comm Message Text" />
+                                                            <data value="object/mobile/legends_anniversary_balis.iff" name="NPC Appearance Server Template" />
+                                                            <task type="Go to Location" id="12" taskOnFail="false" >
+                                                                <data value="0" name="Time To Complete" />
+                                                                <data value="10" name="Radius(m)" />
+                                                                <data value="" name="entranceWaypointName" />
+                                                                <data value="0.0" name="EntranceLocationZ(m)" />
+                                                                <data value="0.0" name="EntranceLocationY(m)" />
+                                                                <data value="0.0" name="EntranceLocationX(m)" />
+                                                                <data value="0" name="createEntranceWaypoint" />
+                                                                <data value="Hospital Firework Launcher" name="waypointName" />
+                                                                <data value="" name="buildingCellName" />
+                                                                <data value="" name="interiorWaypointAppearance" />
+                                                                <data value="3293" name="LocationZ(m)" />
+                                                                <data value="7" name="LocationY(m)" />
+                                                                <data value="1322" name="LocationX(m)" />
+                                                                <data value="tatooine" name="Planet" />
+                                                                <data value="true" name="createWaypoint" />
+                                                                <data value="" name="signalsOnFail" />
+                                                                <data value="" name="signalsOnComplete" />
+                                                                <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                                                <data value="" name="grantQuestOnFail" />
+                                                                <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                                                <data value="" name="grantQuestOnComplete" />
+                                                                <data value="" name="parameter" />
+                                                                <data value="" name="target" />
+                                                                <data value="none" name="questControlOnTaskFailure" />
+                                                                <data value="none" name="questControlOnTaskCompletion" />
+                                                                <data value="0" name="chanceToActivate" />
+                                                                <data value="" name="musicOnFail" />
+                                                                <data value="" name="musicOnComplete" />
+                                                                <data value="" name="musicOnActivate" />
+                                                                <data value="true" name="showSystemMessages" />
+                                                                <data value="legends_anniversary_balis_13" name="taskName" />
+                                                                <data value="0" name="allowRepeats" />
+                                                                <data value="" name="exclusionTasks" />
+                                                                <data value="" name="prerequisiteTasks" />
+                                                                <data value="true" name="isVisible" />
+                                                                <data value="Bal'is said that I can find the last launcher on the roof of the town's hospital." name="journalEntryDescription" />
+                                                                <data value="Get to the Hospital" name="journalEntryTitle" />
+                                                                <task type="Comm Player" id="13" taskOnFail="false" >
+                                                                    <data value="" name="journalEntryTitle" />
+                                                                    <data value="" name="journalEntryDescription" />
+                                                                    <data value="false" name="isVisible" />
+                                                                    <data value="" name="prerequisiteTasks" />
+                                                                    <data value="" name="exclusionTasks" />
+                                                                    <data value="0" name="allowRepeats" />
+                                                                    <data value="legends_anniversary_balis_14" name="taskName" />
+                                                                    <data value="true" name="showSystemMessages" />
+                                                                    <data value="" name="musicOnActivate" />
+                                                                    <data value="" name="musicOnComplete" />
+                                                                    <data value="" name="musicOnFail" />
+                                                                    <data value="0" name="chanceToActivate" />
+                                                                    <data value="none" name="questControlOnTaskCompletion" />
+                                                                    <data value="none" name="questControlOnTaskFailure" />
+                                                                    <data value="" name="target" />
+                                                                    <data value="" name="parameter" />
+                                                                    <data value="" name="grantQuestOnComplete" />
+                                                                    <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                                                    <data value="" name="grantQuestOnFail" />
+                                                                    <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                                                    <data value="" name="signalsOnComplete" />
+                                                                    <data value="" name="signalsOnFail" />
+                                                                    <data value="0" name="createWaypoint" />
+                                                                    <data value="tatooine" name="Planet" />
+                                                                    <data value="0.0" name="LocationX(m)" />
+                                                                    <data value="0.0" name="LocationY(m)" />
+                                                                    <data value="0.0" name="LocationZ(m)" />
+                                                                    <data value="" name="interiorWaypointAppearance" />
+                                                                    <data value="" name="buildingCellName" />
+                                                                    <data value="" name="waypointName" />
+                                                                    <data value="0" name="createEntranceWaypoint" />
+                                                                    <data value="0.0" name="EntranceLocationX(m)" />
+                                                                    <data value="0.0" name="EntranceLocationY(m)" />
+                                                                    <data value="0.0" name="EntranceLocationZ(m)" />
+                                                                    <data value="" name="entranceWaypointName" />
+                                                                    <data value="Superb - the roof is accessible from the first floor, get up there quickly and launch the last set of fireworks!" name="Comm Message Text" />
+                                                                    <data value="object/mobile/legends_anniversary_balis.iff" name="NPC Appearance Server Template" />
+                                                                    <task type="Retrieve Item" id="14" taskOnFail="false" >
+                                                                        <data value="30" name="Time To Complete" />
+                                                                        <data value="" name="retrieveMenuText" />
+                                                                        <data value="0" name="CountdownTimer" />
+                                                                        <data value="0" name="GuaranteedSuccessMaximumAttempts" />
+                                                                        <data value="0" name="GuaranteedSuccessMinumumAttempts" />
+                                                                        <data value="100" name="LootDropPercent" />
+                                                                        <data value="Activate the Firework Launcher" name="ItemName" />
+                                                                        <data value="1" name="Count" />
+                                                                        <data value="object/tangible/holiday/legends_anniversary/firework_launcher.iff" name="Server Object Template" />
+                                                                        <data value="" name="entranceWaypointName" />
+                                                                        <data value="0.0" name="EntranceLocationZ(m)" />
+                                                                        <data value="0.0" name="EntranceLocationY(m)" />
+                                                                        <data value="0.0" name="EntranceLocationX(m)" />
+                                                                        <data value="0" name="createEntranceWaypoint" />
+                                                                        <data value="" name="waypointName" />
+                                                                        <data value="" name="buildingCellName" />
+                                                                        <data value="" name="interiorWaypointAppearance" />
+                                                                        <data value="0.0" name="LocationZ(m)" />
+                                                                        <data value="0.0" name="LocationY(m)" />
+                                                                        <data value="0.0" name="LocationX(m)" />
+                                                                        <data value="tatooine" name="Planet" />
+                                                                        <data value="0" name="createWaypoint" />
+                                                                        <data value="" name="signalsOnFail" />
+                                                                        <data value="" name="signalsOnComplete" />
+                                                                        <data value="true" name="grantQuestOnFailShowSystemMessage" />
+                                                                        <data value="quest/legends_anniversary_balis_fail" name="grantQuestOnFail" />
+                                                                        <data value="true" name="grantQuestOnCompleteShowSystemMessage" />
+                                                                        <data value="" name="grantQuestOnComplete" />
+                                                                        <data value="" name="parameter" />
+                                                                        <data value="" name="target" />
+                                                                        <data value="none" name="questControlOnTaskFailure" />
+                                                                        <data value="none" name="questControlOnTaskCompletion" />
+                                                                        <data value="0" name="chanceToActivate" />
+                                                                        <data value="" name="musicOnFail" />
+                                                                        <data value="" name="musicOnComplete" />
+                                                                        <data value="" name="musicOnActivate" />
+                                                                        <data value="true" name="showSystemMessages" />
+                                                                        <data value="legends_anniversary_balis_15" name="taskName" />
+                                                                        <data value="0" name="allowRepeats" />
+                                                                        <data value="" name="exclusionTasks" />
+                                                                        <data value="" name="prerequisiteTasks" />
+                                                                        <data value="true" name="isVisible" />
+                                                                        <data value="Bal'is has asked you to launch some fireworks quickly" name="journalEntryDescription" />
+                                                                        <data value="Activate the Hospital Firework Launcher" name="journalEntryTitle" />
+                                                                    </task>
+                                                                </task>
+                                                            </task>
+                                                        </task>
+                                                    </task>
+                                                </task>
+                                            </task>
+                                        </task>
+                                    </task>
+                                </task>
+                            </task>
+                        </task>
+                    </task>
+                </task>
+            </task>
+        </tasks>
+        <list>
+            <data value="1" name="Level" />
+            <data value="-1" name="Tier" />
+            <data value="solo" name="Type" />
+            <data value="Primitive Pyrotechnics" name="journalEntryTitle" />
+            <data value="You agreed to help Bal'is put on a firework display for the citizens of Mos Entha." name="journalEntryDescription" />
+            <data value="Days of Aned-Kla" name="category" />
+            <data value="true" name="journalVisible" />
+            <data value="You helped Bal'is put on an admirable firework show." name="journalEntryCompletionSummary" />
+            <data value="" name="prerequisiteQuests" />
+            <data value="" name="exclusionQuests" />
+            <data value="false" name="allowRepeats" />
+            <data value="quest_combat" name="Experience Type" />
+            <data value="0" name="Experience Amount" />
+            <data value="Rebel" name="Faction Name" />
+            <data value="0" name="Faction Amount" />
+            <data value="false" name="grantGcwPoints" />
+            <data value="0" name="Overwrite GCW Amount" />
+            <data value="0" name="Overwrite SF GCW Amount Mod" />
+            <data value="" name="rebelLootName" />
+            <data value="1" name="rebelLootAmount" />
+            <data value="" name="imperialLootName" />
+            <data value="1" name="imperialLootAmount" />
+            <data value="0" name="SfLootModifier" />
+            <data value="0" name="Bank Credits" />
+            <data value="item_event_legends_anniversary_token" name="lootName" />
+            <data value="2" name="lootCount" />
+            <data value="" name="lootName2" />
+            <data value="1" name="lootCount2" />
+            <data value="" name="lootName3" />
+            <data value="1" name="lootCount3" />
+            <data value="" name="exclusivelootName" />
+            <data value="1" name="exclusivelootCount" />
+            <data value="" name="exclusivelootName1" />
+            <data value="1" name="exclusivelootCount1" />
+            <data value="" name="exclusivelootName2" />
+            <data value="1" name="exclusivelootCount2" />
+            <data value="" name="exclusivelootName3" />
+            <data value="1" name="exclusivelootCount3" />
+            <data value="" name="exclusivelootName4" />
+            <data value="1" name="exclusivelootCount4" />
+            <data value="" name="exclusivelootName6" />
+            <data value="1" name="exclusivelootCount6" />
+            <data value="" name="exclusivelootName7" />
+            <data value="1" name="exclusivelootCount7" />
+            <data value="" name="exclusivelootName8" />
+            <data value="1" name="exclusivelootCount8" />
+            <data value="" name="exclusivelootName9" />
+            <data value="1" name="exclusivelootCount9" />
+            <data value="" name="exclusivelootName10" />
+            <data value="1" name="exclusivelootCount10" />
+            <data value="" name="Item" />
+            <data value="1" name="CountItem" />
+            <data value="" name="Weapon" />
+            <data value="1" name="CountWeapon" />
+            <data value="0.1" name="Speed" />
+            <data value="0.1" name="Damage" />
+            <data value="0.1" name="Efficiency" />
+            <data value="0.1" name="Elemental Value" />
+            <data value="" name="Armor" />
+            <data value="1" name="CountArmor" />
+            <data value="1" name="Quality" />
+            <data value="" name="Reward Badge" />
+            <data value="Rebel" name="penaltyFactionName" />
+            <data value="0" name="penaltyFactionAmount" />
+            <data value="" name="target" />
+            <data value="" name="parameter" />
+            <data value="true" name="completeWhenTasksComplete" />
+            <data value="" name="conditionalQuestGrantQuestToGive" />
+            <data value="" name="conditionalQuestGrantQuestsThatMustBeCompleted" />
+        </list>
+    </quest>

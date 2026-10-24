@@ -166,14 +166,19 @@ public class jedi_saber_component extends script.base_script
         {
             if (!jedi.isCrystalTuned(self))
             {
+                // The client already supplies a SERVER_PET_OPEN entry for pets, whose
+                // default caption is "Train".  When this crystal reuses that type the
+                // existing entry must be relabelled, or the crystal offers "Train".
                 menu_info_data mid = mi.getMenuItemByType(menu_info_types.SERVER_PET_OPEN);
+                string_id tuneLabel = new string_id("jedi_spam", "tune_crystal");
                 if (mid != null)
                 {
+                    mid.setLabel(tuneLabel);
                     mid.setServerNotify(true);
                 }
                 else 
                 {
-                    mi.addRootMenu(menu_info_types.SERVER_PET_OPEN, new string_id("jedi_spam", "tune_crystal"));
+                    mi.addRootMenu(menu_info_types.SERVER_PET_OPEN, tuneLabel);
                 }
             }
         }

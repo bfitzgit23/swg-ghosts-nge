@@ -120,7 +120,8 @@ void TextManagerNamespace::getAppropriateWord(Unicode::String &text)
 			// Sub-string search time for words that are listed for sub-string searches
 
 			Unicode::String lowerText(Unicode::toLower(text));
-			unsigned int findStartPosition = 0;
+			// size_t: find() returns size_t and its npos sentinel is 64-bit on LP64.
+			size_t findStartPosition = 0;
 
 			for (;;)
 			{
@@ -137,7 +138,10 @@ void TextManagerNamespace::getAppropriateWord(Unicode::String &text)
 						continue;
 					}
 
-					unsigned int index = lowerText.find(cussWord, findStartPosition);
+					// size_t: on LP64 an `unsigned int` turns find()'s npos into
+					// 0xFFFFFFFF, which never equals size_t npos, so the not-found case
+					// fell through and text[index + i] wrote out of bounds (SIGSEGV).
+					size_t const index = lowerText.find(cussWord, findStartPosition);
 
 					if (index != Unicode::String::npos)
 					{
@@ -217,6 +221,14 @@ bool TextManagerNamespace::isAlpha(Unicode::unicode_char_t const character)
 // ----------------------------------------------------------------------------
 void TextManagerNamespace::checkText(Unicode::String &text, int const startIndex, int const endIndex)
 {
+	// Defensive: a negative start index (the old npos sentinel) converts to a
+	// huge size_t and makes substr() throw std::out_of_range, which terminates
+	// the process because callers run inside the network dispatch loop.
+	if (   (startIndex < 0)
+	    || (endIndex < startIndex)
+	    || (static_cast<size_t>(endIndex) > text.size()))
+		return;
+
 	int const length = endIndex - startIndex;
 	Unicode::String subString(text.substr(startIndex, length));
 
@@ -297,7 +309,13 @@ Unicode::String TextManager::filterText(Unicode::String const &text)
 {
 	Unicode::String result(text);
 	Unicode::String::const_iterator iterText = text.begin();
-	int startIndex = Unicode::String::npos;
+	// -1 means "no word in progress".  This used to hold
+	// Unicode::String::npos and be tested as
+	// `static_cast<unsigned>(startIndex) == Unicode::String::npos`, which is
+	// only true while size_t is 32 bits.  On LP64 npos is 0xFFFF...FFFF while
+	// the cast yields 0x00000000FFFFFFFF, so the test never matched, the
+	// sentinel leaked into checkText() and its substr() threw std::out_of_range.
+	int startIndex = -1;
 	int currentIndex = 0;
 
 	{
@@ -309,17 +327,17 @@ Unicode::String TextManager::filterText(Unicode::String const &text)
 		{
 			Unicode::unicode_char_t const character = (*iterText);
 
-			if (   (static_cast<unsigned>(startIndex) == Unicode::String::npos)
+			if (   (startIndex == -1)
 			    && isAlpha(character))
 			{
 				startIndex = currentIndex;
 			}
-			else if (   (static_cast<unsigned>(startIndex) != Unicode::String::npos)
+			else if (   (startIndex != -1)
 				     && !isAlpha(character))
 			{
 				checkText(result, startIndex, currentIndex);
 
-				startIndex = Unicode::String::npos;
+				startIndex = -1;
 			}
 
 			++currentIndex;
@@ -327,7 +345,7 @@ Unicode::String TextManager::filterText(Unicode::String const &text)
 
 		// Possibly check the last word
 
-		if (static_cast<unsigned>(startIndex) != Unicode::String::npos)
+		if (startIndex != -1)
 		{
 			checkText(result, startIndex, currentIndex);
 		}
@@ -339,24 +357,24 @@ Unicode::String TextManager::filterText(Unicode::String const &text)
 		// all non-alphabet is skipped and preserved.
 
 		iterText = text.begin();
-		startIndex = Unicode::String::npos;
+		startIndex = -1;
 		currentIndex = 0;
 
 		for (; iterText != text.end(); ++iterText)
 		{
 			Unicode::unicode_char_t const character = (*iterText);
 
-			if (   (static_cast<unsigned>(startIndex) == Unicode::String::npos)
+			if (   (startIndex == -1)
 			    && character != static_cast<Unicode::unicode_char_t>(' '))
 			{
 				startIndex = currentIndex;
 			}
-			else if (   (static_cast<unsigned>(startIndex) != Unicode::String::npos)
+			else if (   (startIndex != -1)
 			         && character == static_cast<Unicode::unicode_char_t>(' '))
 			{
 				checkText(result, startIndex, currentIndex);
 
-				startIndex = Unicode::String::npos;
+				startIndex = -1;
 			}
 
 			++currentIndex;
@@ -364,7 +382,7 @@ Unicode::String TextManager::filterText(Unicode::String const &text)
 
 		// Possibly check the last word
 
-		if (static_cast<unsigned>(startIndex) != Unicode::String::npos)
+		if (startIndex != -1)
 		{
 			checkText(result, startIndex, currentIndex);
 		}

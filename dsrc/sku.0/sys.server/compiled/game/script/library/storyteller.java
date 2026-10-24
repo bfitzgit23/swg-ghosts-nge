@@ -557,16 +557,6 @@ public class storyteller extends script.base_script
             }
             return true;
         }
-        if (utils.hasScriptVar(player, "working.moff"))
-        {
-            String logMsg = "(" + player + ")" + getName(player) + " is using GodMode override to deploy or movea storyteller object: " + tokenName + " at " + here;
-            CustomerServiceLog("storyteller", logMsg);
-            if (!utils.hasScriptVar(player, "storyteller.godModeStopOverrideMessages"))
-            {
-                sendSystemMessage(player, new string_id("storyteller", "placement_god_mode"));
-            }
-            return true;
-        }
         if (isFreeTrialAccount(player))
         {
             sendSystemMessage(player, new string_id("storyteller", "placement_no_trial_accounts"));
@@ -627,11 +617,11 @@ public class storyteller extends script.base_script
             }
             else 
             {
-                //if (planet.equals("mustafar") || planet.startsWith("kashyyyk"))
-                //{
-                //    sendSystemMessage(player, new string_id("storyteller", "placement_not_on_blocked_planet"));
-                //    return false;
-                //}
+                if (planet.equals("mustafar") || planet.startsWith("kashyyyk"))
+                {
+                    sendSystemMessage(player, new string_id("storyteller", "placement_not_on_blocked_planet"));
+                    return false;
+                }
                 region[] rgnTest = getRegionsWithBuildableAtPoint(here, regions.BUILD_FALSE);
                 if (rgnTest != null)
                 {
@@ -1703,7 +1693,7 @@ public class storyteller extends script.base_script
         int city_id = getCityAtLocation(getLocation(object), 0);
         if (city_id > 0)
         {
-            cleanUpTime += 57600;
+            cleanUpTime += 28800;
             obj_id cityHall = cityGetCityHall(city_id);
             dictionary outparams = new dictionary();
             outparams.put("queryObject", object);
@@ -1717,7 +1707,7 @@ public class storyteller extends script.base_script
         int city_id = getCityAtLocation(getLocation(object), 0);
         if (city_id > 0)
         {
-            cleanUpTime += 57600;
+            cleanUpTime += 28800;
             obj_id cityHall = cityGetCityHall(city_id);
             dictionary outparams = new dictionary();
             outparams.put("queryObject", object);

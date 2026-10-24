@@ -46,7 +46,9 @@ public:
 	typedef std::map<std::string, LocalizedString::id_type> NameMap_t;
 
 	// TODO: make this typedef platform dependent
-	typedef long                  magic_type;
+	// 4-byte magic (0xabcd) in the on-disk header.  `long` is 8 bytes on
+	// LP64, which made openLoadFile() reject every STF file.
+	typedef unsigned int          magic_type;
 	static const magic_type       ms_MAGIC;
 
 	explicit                      LocalizedStringTable (const std::string & filename);

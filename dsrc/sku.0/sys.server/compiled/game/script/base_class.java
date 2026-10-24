@@ -22309,6 +22309,16 @@ public class base_class
     }
 
     /**
+     * Returns the account username of a player. Only valid while the player is
+     * online, which is why the result is normally cached to an ObjVar on login
+     * rather than being read directly. Prefer a cached lookup where one exists.
+     *
+     * @param player the player's Network ID
+     * @return the account username of the player
+     */
+    public static native String _getPlayerUsernameDoNotUse(long player);
+
+    /**
     * Returns info on how long a player has been playing the game.
     *
     * @param env        Java environment
@@ -26853,7 +26863,6 @@ public class base_class
     public static String getPlayerAccountUsername(obj_id player) {
         return getStringObjVar(player, "system.accountUsername");
     }
-    public static native String _getPlayerUsernameDoNotUse(long player);
 
     /**
      * isInAdminTable

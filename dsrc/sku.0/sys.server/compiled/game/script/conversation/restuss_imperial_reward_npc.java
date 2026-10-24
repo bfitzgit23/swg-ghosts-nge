@@ -87,14 +87,11 @@ public class restuss_imperial_reward_npc extends script.base_script
     }
     public boolean restuss_imperial_reward_npc_condition_readyForBadge(obj_id player, obj_id npc) throws InterruptedException
     {
-        float imp_r = gcw.getImperialPercentileByRegion(npc);
-        float reb_r = gcw.getRebelPercentileByRegion(npc);
-
-        if (imp_r > reb_r)
+        if (restuss_event.getWinningFaction(npc) > restuss_event.WINNER_NONE)
         {
             return true;
         }
-        else
+        else 
         {
             return false;
         }
@@ -488,7 +485,7 @@ public class restuss_imperial_reward_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_205"))
+        if (response.equals("s_213"))
         {
             doAnimationAction(player, "shake_head_no");
             if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
@@ -1574,7 +1571,7 @@ public class restuss_imperial_reward_npc extends script.base_script
             }
             if (restuss_imperial_reward_npc_condition__defaultCondition(player, npc))
             {
-                string_id message = new string_id(c_stringFile, "s_177");
+                string_id message = new string_id(c_stringFile, "s_155");
                 utils.removeScriptVar(player, "conversation.restuss_imperial_reward_npc.branchId");
                 npcEndConversationWithMessage(player, message);
                 return SCRIPT_CONTINUE;
@@ -12058,7 +12055,7 @@ public class restuss_imperial_reward_npc extends script.base_script
                 }
                 if (hasResponse1)
                 {
-                    responses[responseIndex++] = new string_id(c_stringFile, "s_221");
+                    responses[responseIndex++] = new string_id(c_stringFile, "s_199");
                 }
                 if (hasResponse2)
                 {

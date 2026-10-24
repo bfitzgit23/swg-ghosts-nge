@@ -545,32 +545,16 @@ public class storyteller_commands extends script.base_script
         obj_id storytellerPlayer = obj_id.NULL_ID;
         if (utils.hasScriptVar(self, "storytellerid"))
         {
-            // Check if the player is in a player city
-            dictionary playerLoc = getConnectedPlayerLocation(self);
-            if (playerLoc != null)
-            {
-                String city = playerLoc.getString("playerCity");
-                if (city != null && city.length() > 0)
-                {
-                    sendSystemMessage(self, "You cannot leave a player city story while within city limits.", null);
-                    return SCRIPT_CONTINUE; // Exit the function if player is in a player city
-                }
-            }
-
             storytellerPlayer = utils.getObjIdScriptVar(self, "storytellerid");
             utils.removeScriptVar(self, "storytellerid");
             utils.removeScriptVar(self, "storytellerName");
-            sendSystemMessage(self, "You will leave all stories after 5 minutes.", null);
-
+            sendSystemMessage(self, SID_YOU_LEFT_STORY);
             if (isIdValid(storytellerPlayer))
             {
-                // Delay the removal from story
-                dictionary delayParams = new dictionary();
-                delayParams.put("removedPlayerName", getName(self));
-                messageTo(storytellerPlayer, "handleStorytellerPlayerHasBeenRemoved", delayParams, 300.0f, false);
+                storyteller.stopStorytellerEffectsInAreaToPlayer(self, storytellerPlayer);
             }
         }
-        else
+        else 
         {
             sendSystemMessage(self, SID_YOU_NOT_IN_A_STORY);
         }

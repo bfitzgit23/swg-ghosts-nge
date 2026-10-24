@@ -13,7 +13,7 @@ detailedDescription = "item_d"  "bank"
 
 containerType = CT_volume
 
-containerVolumeLimit = 120
+containerVolumeLimit = 100
 
 arrangementDescriptorFilename = "abstract/slot/arrangement/arrangement_bank.iff"
 

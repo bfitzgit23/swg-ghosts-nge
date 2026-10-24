@@ -33,8 +33,8 @@ public class npe extends script.base_script
     public static final float PLAYER_PLACEMENT_RANGE = 3.0f;
     public static final float SPACE_PLAYER_PLACEMENT_RANGE = 100.0f;
     public static final String FINISH_PLANET = "tatooine";
-    public static final float FINISH_X = 3531.0f;
-    public static final float FINISH_Z = -4803.0f;
+    public static final float FINISH_X = 3528.0f;
+    public static final float FINISH_Z = -4804.0f;
     public static final int QUEST_ENUMERATION = 1;
     public static final String QUEST_REWORK_VAR = "npe.questRegrant";
     public static final String QUEST_REWORK_TABLE = "datatables/npe/reworked_quests.iff";
@@ -42,7 +42,7 @@ public class npe extends script.base_script
     public static final String SPACE_QUEST_TYPE = "strSpaceType";
     public static final String SPACE_QUEST_NAME = "strSpaceName";
     public static final string_id NOT_FROM_SPACE = new string_id("npe", "gamma_travel_not_from_space");
-    public static final int LEVEL_CAP = 90;
+    public static final int LEVEL_CAP = 10;
     public static void setResetDungeonObjvar(obj_id player) throws InterruptedException
     {
         if (isIdValid(space_dungeon.getDungeonIdForPlayer(player)))
@@ -517,14 +517,6 @@ public class npe extends script.base_script
         attachScript(player, "npe.handoff_to_tatooine");
         setCompletedTutorial(player, true);
         setObjVar(player, "comingFromTutorial", 1);
-
-        // Create a string_id for the broadcast message
-        String playerName = getPlayerName(player);
-        string_id broadcastMessage = new string_id("***INCOMING TRANSMISSION***", playerName + " has joined the galaxy!");
-
-        // Send the galaxy-wide message
-        sendSystemMessageGalaxy(broadcastMessage);
-
         warpPlayer(player, FINISH_PLANET, FINISH_X, 0, FINISH_Z, null, 0.0f, 0.0f, 0.0f, null, false);
         return true;
     }
@@ -1094,20 +1086,14 @@ public class npe extends script.base_script
     }
     public static void npeNpcVendor(obj_id player, obj_id npc) throws InterruptedException
     {
-        String[] options = new String[3]; // Increase the size to 3
-        string_id[] items = new string_id[3]; // Increase the size to 3
-
-        // Add your items for each option
-        items[0] = new string_id("npe", "store_item1");
-        items[1] = new string_id("npe", "store_item2");
-        items[2] = new string_id("npe", "store_item3");
-
-        // Use a for loop to pack the items into options
+        String[] options = new String[2];
+        string_id[] items = new string_id[2];
+        items[0] = new string_id("npe", "store_item3");
+        items[1] = new string_id("npe", "store_item1");
         for (int i = 0; i < items.length; i++)
         {
             options[i] = utils.packStringId(items[i]);
         }
-
         sui.showSUIPage(sui.listbox(
                 npc,
                 player,

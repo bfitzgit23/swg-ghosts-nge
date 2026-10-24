@@ -10184,12 +10184,7 @@ public class terminal_character_builder extends script.base_script
             int currentCombatXp = getExperiencePoints(player, "combat_general");
             grantExperiencePoints(player, "combat_general", -currentCombatXp);
             skill.recalcPlayerPools(player, true);
-            if (!respec.autoLevelPlayer(player, 90, false))
-            {
-                sendSystemMessageTestingOnly(player, "No profession roadmap is selected. Choose Force Sensitive - Level 90 for Jedi.");
-                handleRoadmapChoice(player);
-                return SCRIPT_CONTINUE;
-            }
+            respec.autoLevelPlayer(player, 90, false);
             utils.fullExpertiseReset(player, true);
             skill.setPlayerStatsForLevel(player, 90);
             removeObjVar(player, "expertise_reset");
@@ -10218,13 +10213,7 @@ public class terminal_character_builder extends script.base_script
         }
         else
         {
-            if (!respec.autoLevelPlayer(player, level, false))
-            {
-                sendSystemMessageTestingOnly(player, "Unable to set level: select a valid skill roadmap first.");
-                handleRoadmapSkills(player);
-                return SCRIPT_CONTINUE;
-            }
-            skill.setPlayerStatsForLevel(player, level);
+            respec.autoLevelPlayer(player, level, false);
         }
         utils.fullExpertiseReset(player, true);
         expertise.autoAllocateExpertiseByLevel(player, false);
@@ -10309,34 +10298,6 @@ public class terminal_character_builder extends script.base_script
     }
     public void handleProfessionLevelToNinety(obj_id player, String roadmap) throws InterruptedException
     {
-        if (roadmap.equals("force_sensitive_1a"))
-        {
-            respec.revokeAllSkillsAndExperience(player);
-            setSkillTemplate(player, roadmap);
-            String templateSkills = dataTableGetString(skill_template.TEMPLATE_TABLE, roadmap, "template");
-            String[] jediSkills = split(templateSkills, ',');
-            if (jediSkills == null || jediSkills.length == 0)
-            {
-                sendSystemMessageTestingOnly(player, "Unable to load the Force Sensitive roadmap.");
-                return;
-            }
-            setWorkingSkill(player, jediSkills[0]);
-            if (!respec.autoLevelPlayer(player, 90, true))
-            {
-                sendSystemMessageTestingOnly(player, "Unable to set the Force Sensitive roadmap to level 90.");
-                return;
-            }
-            utils.fullExpertiseReset(player, true);
-            setLevel(player, 90);
-            setObjVar(player, "combatLevel", 90);
-            skill.setPlayerStatsForLevel(player, 90);
-            expertise.autoAllocateExpertiseByLevel(player, false);
-            skill.recalcPlayerPools(player, true);
-            persistObject(player);
-            sendSystemMessageTestingOnly(player, "Force Sensitive roadmap set to level 90 and saved.");
-            handleRoadmapSkills(player);
-            return;
-        }
         revokeAllSkills(player);
         int currentCombatXp = getExperiencePoints(player, "combat_general");
         grantExperiencePoints(player, "combat_general", -currentCombatXp);

@@ -38,8 +38,12 @@ public:
 
 	// TODO: make these typedefs platform dependent
 
-	typedef unsigned long       id_type;
-	typedef unsigned long       crc_type;
+	// On-disk STF fields are 32-bit little-endian; the original 32-bit
+	// platforms had 32-bit longs.  On LP64 an `unsigned long` here makes
+	// every id/length read and write 8 bytes wide, so no .stf file can be
+	// parsed (LocalizedStringTable::load_0001 desynchronises at once).
+	typedef unsigned int        id_type;
+	typedef unsigned int        crc_type;
 
 								LocalizedString(id_type id, crc_type sourceCrc, Unicode::String const & str);
 								LocalizedString(id_type id, Unicode::String const & str); // GENERATE Crc FROM UNICODE.

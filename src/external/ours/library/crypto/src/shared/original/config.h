@@ -72,7 +72,12 @@ typedef unsigned char byte;     // moved outside namespace for Borland C++Builde
 NAMESPACE_BEGIN(CryptoPP)
 
 typedef unsigned short word16;
-#if defined(__alpha) && !defined(_MSC_VER)
+// 64-bit port: word32 must be exactly 32 bits.  `unsigned long` is 8 bytes
+// on LP64, which corrupted every 32-bit crypto word (and any SecBlock sized
+// from it).
+#if defined(_LP64) || defined(__LP64__)
+typedef unsigned int word32;
+#elif defined(__alpha) && !defined(_MSC_VER)
 typedef unsigned int word32;
 #else
 typedef unsigned long word32;

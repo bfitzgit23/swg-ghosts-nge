@@ -23,6 +23,10 @@
 #include <cstdio>
 #include <string>
 
+#ifndef _WIN32
+#	include <unistd.h>
+#endif
+
 // ======================================================================
 
 namespace FatalNamespace
@@ -178,7 +182,15 @@ static void InternalFatal(const char *format, va_list va)
 	DEBUG_OUTPUT_CHANNEL("Foundation\\Fatal", ("%s", ms_buffer));
 	ExitChain::fatal();
 	REPORT(true, Report::RF_fatal | Report::RF_dialog, ("%s", ms_buffer));
+#ifndef _WIN32
+	// Os::abort() terminates this process by deliberately raising SIGSEGV, which is
+	// exactly what makes an embedded JVM turn an ordinary fatal into an
+	// hs_err_pid*.log crash dump.  The fatal has already been reported above, so
+	// leave the process immediately instead of crashing out of it.
+	::_exit(3);
+#else
 	Os::abort();
+#endif
 }
 
 // ----------------------------------------------------------------------

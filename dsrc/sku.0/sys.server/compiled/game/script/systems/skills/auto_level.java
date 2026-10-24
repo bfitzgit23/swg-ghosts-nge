@@ -12,10 +12,26 @@ public class auto_level extends script.base_script
     }
     public static final String PID_NAME = "autoLevel";
     public static final String OBJVAR_AUTO_LEVEL_TO = "autoLevelTo";
+    public static final int DEFAULT_AUTO_LEVEL_TO = 90;
     public static final string_id SID_CONSUME_PROMPT = new string_id("spam", "consume_auto_level_prompt");
     public static final string_id SID_CONSUME_TITLE = new string_id("spam", "consume_auto_level_title");
     public static final string_id SID_CONSUME_ITEM = new string_id("spam", "consume_auto_level");
     public static final string_id SID_CONSUME_TOO_HIGH = new string_id("spam", "consume_auto_level_too_high");
+    /**
+     * Static items set autoLevelTo from their master_item creation_objvars
+     * (e.g. the level 50 buddy-conversion holocron).  An item created straight
+     * from the template - the veteran reward Holocron of Knowledge - has no
+     * objvar, and defaults to the level cap.
+     */
+    private int getAutoLevelTo(obj_id item) throws InterruptedException
+    {
+        int autoLevelTo = getIntObjVar(item, OBJVAR_AUTO_LEVEL_TO);
+        if (autoLevelTo <= 0)
+        {
+            autoLevelTo = DEFAULT_AUTO_LEVEL_TO;
+        }
+        return autoLevelTo;
+    }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
         if (utils.isNestedWithinAPlayer(self))
@@ -34,7 +50,7 @@ public class auto_level extends script.base_script
                 int pid = sui.getPid(player, PID_NAME);
                 forceCloseSUIPage(pid);
             }
-            int autoLevelTo = getIntObjVar(self, OBJVAR_AUTO_LEVEL_TO);
+            int autoLevelTo = getAutoLevelTo(self);
             int currentLevel = getLevel(player);
             if (currentLevel >= autoLevelTo)
             {
@@ -88,7 +104,7 @@ public class auto_level extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        int autoLevelTo = getIntObjVar(self, OBJVAR_AUTO_LEVEL_TO);
+        int autoLevelTo = getAutoLevelTo(self);
         int currentLevel = getLevel(player);
         if (currentLevel >= autoLevelTo)
         {

@@ -1373,7 +1373,7 @@ public class travel extends script.base_script
         }
         if (instance.isInInstanceArea(player) && trial.getTop(player) == player)
         {
-            blocked = false;
+            blocked = true;
         }
         if (blocked)
         {

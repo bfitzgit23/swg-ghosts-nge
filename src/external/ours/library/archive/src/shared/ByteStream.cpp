@@ -233,6 +233,11 @@ void ByteStream::get(void *target, ReadIterator &readIterator, const unsigned lo
 	else
 	{
 		static const char * const desc = "Archive::ByteStream - read beyond end of buffer";
+		fprintf(stderr, "[BS-THROW] want=%lu pos=%lu alloc=%u data=%p\n",
+			(unsigned long)targetSize,
+			(unsigned long)readIterator.getReadPosition(),
+			(unsigned int)allocatedSize,
+			(void*)data);
 		ReadException ex(desc);
 		throw (ex);
 	}

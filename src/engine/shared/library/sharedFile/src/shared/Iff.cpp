@@ -1154,8 +1154,25 @@ bool Iff::enterForm(Tag name, bool validateName, bool optional)
 	{
 		char tagname[5];
 		ConvertTagToString(name, tagname);
-		char buf[256];
-		snprintf( buf, sizeof(buf), "enter form [%s] failed", tagname );
+
+		char strFirstTag[5];
+		char strSecondTag[5];
+		snprintf(strFirstTag, sizeof(strFirstTag), "----");
+		snprintf(strSecondTag, sizeof(strSecondTag), "----");
+		if (data && (stack[stackDepth].length - stack[stackDepth].used) >= isizeof(Tag))
+			ConvertTagToString(getFirstTag(stackDepth), strFirstTag);
+		if (data && (stack[stackDepth].length - stack[stackDepth].used) >= (isizeof(Tag) + isizeof(uint32) + isizeof(Tag)))
+			ConvertTagToString(getSecondTag(stackDepth), strSecondTag);
+
+		char buf[512];
+		snprintf( buf, sizeof(buf),
+			"enter form [%s] failed: inChunk=%d, atEndOfForm()=%d, isCurrentForm()=%d, "
+			"firstTag=[%s], secondTag=[%s], stackDepth=%d, used=%d, frameLength=%d, "
+			"dataLength=%d, file=[%s]",
+			tagname, inChunk, atEndOfForm(), isCurrentForm(),
+			strFirstTag, strSecondTag, stackDepth,
+			stack[stackDepth].used, stack[stackDepth].length, length,
+			fileName ? fileName : "(null)" );
 
 		IFF_FATAL(true, (buf));
 	}

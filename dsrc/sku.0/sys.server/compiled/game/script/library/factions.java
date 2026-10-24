@@ -39,7 +39,6 @@ public class factions extends script.base_script
     public static final String FACTION_REBEL = "Rebel";
     public static final String FACTION_HUTT = "Hutt";
     public static final String FACTION_NEUTRAL = "Neutral";
-    public static final String DEATH_WATCH = "death_watch";
     public static final int FACTION_FLAG_UNKNOWN = 0;
     public static final int FACTION_FLAG_REBEL = 1;
     public static final int FACTION_FLAG_IMPERIAL = 2;
@@ -775,14 +774,6 @@ public class factions extends script.base_script
             }
             setObjVar(target, FACTION + "." + factionName, value);
         }
-        if (value != 0.0f)
-        {
-            if (factionName.equals("death_watch"))
-            {
-                smuggler.checkMandoTitleGrants(target, value);
-            }
-            setObjVar(target, FACTION + "." + factionName, value);
-        }
         else 
         {
             removeObjVar(target, FACTION + "." + factionName);
@@ -826,11 +817,19 @@ public class factions extends script.base_script
             setAttributeAttained(target, attrib.IMPERIAL);
             setAttributeInterested(target, attrib.REBEL);
             ai_lib.setDefaultCalmMood(target, "npc_imperial");
+            if (pvpOnly == 1)
+            {
+                setObjVar(target, "huysMagicSpecialForcesOnlyObjvar", true);
+            }
         }
         else if (factionName.equals(FACTION_REBEL))
         {
             setAttributeAttained(target, attrib.REBEL);
             setAttributeInterested(target, attrib.IMPERIAL);
+            if (pvpOnly == 1)
+            {
+                setObjVar(target, "huysMagicSpecialForcesOnlyObjvar", true);
+            }
         }
         setObjVar(target, FACTION, factionName);
         pvpMakeNeutral(target);

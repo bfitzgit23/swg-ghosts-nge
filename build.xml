@@ -235,11 +235,6 @@
 			<env key="CXX" value="${cxx_compiler}" unless:true="${use_gcc}"/>
 			<env key="LDFLAGS" value="-L/usr/lib32"/>
 			<env key="CMAKE_PREFIX_PATH" value="/usr/lib32:/lib32:/usr/lib/i386-linux-gnu:/usr/include/i386-linux-gnu"/>
-			<arg value="-DCMAKE_C_FLAGS=-m32"/>
-			<arg value="-DCMAKE_CXX_FLAGS=-m32"/>
-			<arg value="-DCMAKE_EXE_LINKER_FLAGS=-m32"/>
-			<arg value="-DCMAKE_MODULE_LINKER_FLAGS=-m32"/>
-			<arg value="-DCMAKE_SHARED_LINKER_FLAGS=-m32"/>
 			<arg value="-DCMAKE_BUILD_TYPE=${src_build_type}"/>
 			<arg value="${src}"/>
 		</exec>

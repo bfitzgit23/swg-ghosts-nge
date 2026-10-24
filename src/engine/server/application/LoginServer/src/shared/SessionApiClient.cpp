@@ -3,6 +3,7 @@
 
 
 #include "FirstLoginServer.h"
+#include <stdint.h>
 #include "SessionApiClient.h"
 
 #include "ClientConnection.h"
@@ -120,7 +121,7 @@ void SessionApiClient::OnSessionValidate(const apiTrackingNumber trackingNumber,
 	else
 	{
 		// attempt to validate a CS Tool associated with this request.
-		CSToolConnection::validateCSTool( ( uint32 )userData, result, session );
+		CSToolConnection::validateCSTool( static_cast<uint32>(reinterpret_cast<uintptr_t>(userData)), result, session );
 	}
 
 }
